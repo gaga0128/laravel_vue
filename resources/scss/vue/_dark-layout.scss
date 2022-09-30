@@ -520,9 +520,9 @@ body {
     background: #232228 !important;
   }
 
-  button > ul,div,li,span,label,button,input {
-    color:white !important;
-  }
+  // button > ul,div,li,span,label,button,input {
+  //   color:white !important;
+  // }
 
   input{
     @extend .round;
