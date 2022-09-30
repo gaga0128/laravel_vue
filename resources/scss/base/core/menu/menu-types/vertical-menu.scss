@@ -21,6 +21,7 @@
 .vertical-layout {
   &.vertical-menu-modern {
     .main-menu {
+      box-shadow: none;     
       transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background 0s;
       transform: translate3d(0, 0, 0);
       backface-visibility: hidden;
@@ -59,7 +60,12 @@
         background-size:cover;
         background-color:transparent;
         min-height:100vh;
-        width:330px;
+        width:320px;
+
+        .main-menu-content, .user_logout{
+          margin-right: 55px;
+        }
+
         .navigation {
           margin-right: 55px;
           .navigation-header {
@@ -113,7 +119,7 @@
       }
       // Main menu collapsed
       .main-menu {
-        width: $menu-collapsed-width;        
+        width: $menu-collapsed-width;   
 
         .navbar-header .brand-text,
         .modern-nav-toggle {
@@ -165,8 +171,14 @@
           background-size:cover;
           background-color:transparent;;
           min-height:100vh;
-          width:330px;
+          width:320px;
           // width: $menu-expanded-width;
+
+          .main-menu-content, .user_logout{
+            margin-right: 55px;
+          }
+
+          
           
           .navigation {
             margin-right: 55px;

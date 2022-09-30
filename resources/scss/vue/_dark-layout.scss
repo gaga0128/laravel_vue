@@ -520,6 +520,40 @@ body {
     background: #232228 !important;
   }
 
+  input{
+    @extend .round;
+  }
+
+  .input-group:first-child {
+    &.form-control{
+      border-right:none;
+    }
+  }
+  input.form-control{
+    background: #18181A;
+  }
+  
+
+  .input-group-append .input-group-text{
+    border-radius:40px 999em 999em 40px;
+    background: #18181A;
+  }
+
+  .str_green_gradient{
+    background: linear-gradient(146.03deg, rgba(43, 255, 77, 0.7) -300%, rgb(44, 44, 44) 52.77%), rgba(255, 255, 255, 1) !important;
+    border-radius:30px;
+  }
+  .str_green_gradient.card{
+    margin-bottom:0;
+  }
+
+  .radius_gradient{
+    max-width:202px;
+    padding:1px;
+    border-radius:30px;
+    background: linear-gradient(146.03deg, rgba(0,255,0,1) 7%, rgba(0,0,0,1) 7%) !important;
+  }
+
 
   }
 
