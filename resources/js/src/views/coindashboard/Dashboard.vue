@@ -244,13 +244,477 @@
                                     </b-button>
 
                                 </div>
-                                <div @click="clearFilters(true)">
-                                    <b-button style="padding:5px; color:white;" v-ripple.400="'rgba(255, 255, 255,1)'" title="Refresh" variant="flat-success"
-                                         class="btn-icon ml-1">
-                                         <i class="bi bi-sliders2 text-black cursor-pointer" style="font-size:20px;"></i>
-                                    </b-button>
+                                <div class="ml-1" style="padding:5px; color:white;">
+                                
+                                    <b-dropdown size="lg" variant="flat-dark" style="padding:0px !important; color: white !important;" class="cunningBtn"
+                                        id="dropdown-left" no-caret   dropright>
+                                        <template #button-content>
+                                            
+                                            <feather-icon  icon="SlidersIcon" size="20" class=" text-black cursor-pointer" style="color:white;"/>
+                                        </template>
+                                        <b-dropdown-form href="#" class="dropdown-mine">
+                                            <div style="font-family: 'Poppins';
+                                                font-style: normal;
+                                                font-weight: 500;
+                                                font-size: 20px;margin-bottom: 20px; margin-top: 20px;" class="text-center">
+                                                    Customise your Dashboard
+                                            </div>
+                                            <hr style="margin:0px !important;">
+                                            <template>
+                                                <div class="accordion" role="tablist">
+                                                    <app-collapse accordion>
+                                                        <app-collapse-item :isVisible="true" title="Market Filters">
+                                                            <b-card class="mb-1">
+                                                                
+                                                                <b-card-body>
+                                                                    <b-row style="margin-left:20px;">
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <b-form-radio
+                                                                                    
+                                                                                    name="some-radios"
+                                                                                    value="A"
+                                                                                >
+                                                                                    Market Cap
+                                                                                </b-form-radio>
+                                                                            </div>
+
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                                <div class="margin20">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios1"
+                                                                                        value="A1"
+                                                                                    >
+                                                                                        Coin Price
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                            
+                                                                                    <b-form-radio
+                                                                                        name="some-radios2"
+                                                                                        value="A2"
+                                                                                    >
+                                                                                    Rank
+                                                                                </b-form-radio>
+                                                                            
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios3"
+                                                                                        value="A3" checked
+                                                                                    >
+                                                                                    Daily Price Change
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios4"
+                                                                                        value="A4" checked
+                                                                                    >
+                                                                                    Circulating Supply
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios5"
+                                                                                        value="A5"
+                                                                                    >
+                                                                                    Circulating Supply %
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios6"
+                                                                                        value="A6"
+                                                                                    >
+                                                                                    Total Supply
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios7"
+                                                                                        value="A7"
+                                                                                    >
+                                                                                    ROI %
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios8"
+                                                                                        value="A8"
+                                                                                    >
+                                                                                    ROI in X's
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios9"
+                                                                                        value="A9"
+                                                                                    >
+                                                                                    Category
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios10"
+                                                                                        value="A10" checked
+                                                                                    >
+                                                                                    Network
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios11"
+                                                                                        value="A11" checked
+                                                                                    >
+                                                                                    Public Price
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios12"
+                                                                                        value="A12"
+                                                                                    >
+                                                                                    Days in Market
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios13"
+                                                                                        value="A13"
+                                                                                    >
+                                                                                    Description
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+
+                                                                    
+                                                                    </b-row>
+                                                                </b-card-body>
+                                                            </b-card>
+                                                        </app-collapse-item>
+                                                    
+                                                        
+                                                    </app-collapse>
+
+                                                </div>
+                                                <hr style="margin:0px !important;">
+                                                <div class="accordion" role="tablist">
+                                                    <app-collapse accordion>
+                                                        <app-collapse-item :isVisible="true" title="SociaL Filters">
+                                                            <b-card class="mb-1">
+                                                                
+                                                                <b-card-body>
+                                                                    <b-row style="margin-left:20px;">
+                                                                        <b-col md="12" xl="12">
+                                                                            <div class="margin20">
+                                                                                <b-form-radio
+                                                                                    name="some-radiosaa"
+                                                                                    value="Aaa"
+                                                                                    
+                                                                                >
+                                                                                        Social Engagement Change %
+                                                                                </b-form-radio>
+                                                                            </div>
+
+                                                                        </b-col>
+                                                                        <b-col md="12" xl="12">
+                                                                                <div class="margin20">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios1a"
+                                                                                        value="A1a" checked
+                                                                                    >
+                                                                                        Social Mentions Change %
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="12" xl="12">
+                                                                            <div class="margin20">
+                                                                            
+                                                                                    <b-form-radio
+                                                                                        name="some-radios2b"
+                                                                                        value="A2b" checked
+                                                                                    >
+                                                                                    Average Sentiment (1-5)
+                                                                                </b-form-radio>
+                                                                            
+                                                                            </div>
+                                                                        </b-col>
+                                                                        
+
+                                                                    
+                                                                    </b-row>
+                                                                </b-card-body>
+                                                            </b-card>
+                                                        </app-collapse-item>
+                                                    
+                                                        
+                                                    </app-collapse>
+
+                                                </div>
+                                                <hr>
+                                                <div class="accordion" role="tablist">
+                                                    <app-collapse accordion>
+                                                        <app-collapse-item :isVisible="true" title="Unlocking Filter">
+                                                            <b-card class="mb-1">
+                                                                
+                                                                <b-card-body>
+                                                                    <b-row style="margin-left:20px;">
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <b-form-radio
+                                                                                    name="some-radiosc"
+                                                                                    value="Ac"
+                                                                                >
+                                                                                Total Locked
+                                                                                </b-form-radio>
+                                                                            </div>
+
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                                <div class="margin20">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios1c"
+                                                                                        value="A1c"
+                                                                                    >
+                                                                                    Unlock Status
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                            
+                                                                                    <b-form-radio
+                                                                                        name="some-radios2c"
+                                                                                        value="A2c"
+                                                                                    >
+                                                                                    Next Unlock Size
+                                                                                </b-form-radio>
+                                                                            
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios3c"
+                                                                                        value="A3c" checked
+                                                                                    >
+                                                                                    Next Unlock %
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios4c"
+                                                                                        value="A4c" checked
+                                                                                    >
+                                                                                    6 Months Unlock Size
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios5c"
+                                                                                        value="A5c"
+                                                                                    >
+                                                                                    3 Months Unlock Size
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios6c"
+                                                                                        value="A6c"
+                                                                                    >
+                                                                                    3 Months Unlock %
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios7c"
+                                                                                        value="A7c"
+                                                                                    >
+                                                                                    6 Months Unlock %
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="12" xl="12">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios8c"
+                                                                                        value="A8c"
+                                                                                        checked
+                                                                                    >
+                                                                                    Next Unlock # of Tokens
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="12" xl="12">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios9"
+                                                                                        value="A9"
+                                                                                    >
+                                                                                    6 Months Unlock # of Tokens
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="12" xl="12">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios10"
+                                                                                        value="A10" checked
+                                                                                    >
+                                                                                    3 Months Unlock # of Tokens
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                    </b-row>
+                                                                </b-card-body>
+                                                            </b-card>
+                                                        </app-collapse-item>
+                                                    
+                                                        
+                                                    </app-collapse>
+
+                                                </div>
+                                                <hr style="margin:0px !important;">
+                                                <div class="accordion" role="tablist">
+                                                    <app-collapse accordion>
+                                                        <app-collapse-item :isVisible="true" title="Market Indicators">
+                                                            <b-card class="mb-1">
+                                                                
+                                                                <b-card-body>
+                                                                    <b-row style="margin-left:20px;">
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <b-form-radio
+                                                                                    name="some-radiosd"
+                                                                                    value="Ad"
+                                                                                >
+                                                                                Fear & Greed
+                                                                                </b-form-radio>
+                                                                            </div>
+
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                                <div class="margin20">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios1d"
+                                                                                        value="A1d"
+                                                                                    >
+                                                                                    NFT Barometer
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                            
+                                                                                    <b-form-radio
+                                                                                        name="some-radios2d"
+                                                                                        value="A2d"
+                                                                                    >
+                                                                                    Btc Inflow/Outflow
+                                                                                </b-form-radio>
+                                                                            
+                                                                            </div>
+                                                                        </b-col>
+                                                                        <b-col md="6" xl="6">
+                                                                            <div class="margin20">
+                                                                                <div class="">
+                                                                                    <b-form-radio
+                                                                                        name="some-radios3d"
+                                                                                        value="A3d" checked
+                                                                                    >
+                                                                                    Btc/Alt Season
+                                                                                </b-form-radio>
+                                                                            </div>
+                                                                            </div>
+                                                                        </b-col>
+                                                                    </b-row>
+                                                                </b-card-body>
+                                                            </b-card>
+                                                        </app-collapse-item>
+                                                    
+                                                        
+                                                    </app-collapse>
+
+                                                </div>
+                                            </template>
+                                        </b-dropdown-form>
+                                        
+                                    </b-dropdown>
 
                                 </div>
+                                
 
                             </div>
                         </b-col>
@@ -1162,6 +1626,7 @@
                     Apply filters</b-button>
             </div>
         </b-modal>
+        
         <b-modal id="modal-details" :hide-footer="true" v-if="activeData" centered size="lg">
             <template>
                 <div slot="modal-title">
@@ -3313,7 +3778,37 @@
         border-radius: 20px;
         background: linear-gradient(169deg, rgba(43, 255, 77, 0.3) 3.11%, rgba(0, 0, 0, 0) 50.06%), rgba(255, 255, 255, 0.07);
     }
+
+    .margin20{
+        margin: 10px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px !important;
+    }
+
+    .cunningBtn > button{
+        color: white !important;
+        padding:0px !important;
+    }
+
+    .cunningBtn > ul{
+        background: #232228  !important;
+        min-width: 500px !important;
+        /* border:1px solid rgba(43, 255, 77, 1); */
+        border-radius:  10px;
+    }
+
    
+   
+    .card {
+        padding: 0px !important;
+    }
+
+    .card-body{
+        padding: 0px !important;
+    }
+
 
 
 </style>
