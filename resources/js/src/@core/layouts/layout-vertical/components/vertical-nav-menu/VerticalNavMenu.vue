@@ -1,5 +1,5 @@
-<template>
-  <div class="position-fixed" style="width:330px;height:100%;z-index:3">
+<template><div>
+  <div class="d-inline position-fixed" style="width:330px;height:100%;z-index:3">
   <div
     class="main-menu menu-fixed menu-accordion menu-shadow"
     :class="[
@@ -100,6 +100,8 @@
     </vue-perfect-scrollbar>
     <!-- /main menu content-->
   </div>
+</div>
+<div class="d-inline" style="width:calc(100%-330px)"></div>
 </div>
 </template>
 

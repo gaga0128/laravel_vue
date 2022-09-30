@@ -113,9 +113,7 @@
       }
       // Main menu collapsed
       .main-menu {
-        width: $menu-collapsed-width;
-        background-color: #0A070E;
-        
+        width: $menu-collapsed-width;        
 
         .navbar-header .brand-text,
         .modern-nav-toggle {
@@ -124,13 +122,9 @@
 
         // When menu is collapsed and mouse is not hovered over menu
         &:not(.expanded) {
-
+          background-image:none;
           .user_info{
             display: none;
-          }
-
-          .main-menu-content{
-            // background-color: #0A070E;
           }
           
           .navigation-header {
@@ -160,11 +154,16 @@
         }
 
         // When menu is collapsed but mouse is hovered over menu
+        &.expanded.menu-light{
+          background-image: url('/images/static/white.png');
+        }
+        &.expanded.menu-dark{
+          background-image: url('/images/static/navbar_background1.png');
+        }
         &.expanded {
-          background-image: url('/images/static/navbar_background.png');
           background-repeat: no-repeat;
           background-size:cover;
-          background-color:transparent;
+          background-color:transparent;;
           min-height:100vh;
           width:330px;
           // width: $menu-expanded-width;
