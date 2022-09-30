@@ -1,5 +1,5 @@
-<template><div>
-  <div class="d-inline position-fixed" style="width:330px;height:100%;z-index:3">
+<template>
+  <div class="d-inline-flex position-fixed" style="width:320px;height:100%;z-index:3;background: transparent;">
   <div
     class="main-menu menu-fixed menu-accordion menu-shadow"
     :class="[
@@ -99,9 +99,13 @@
       />
     </vue-perfect-scrollbar>
     <!-- /main menu content-->
+    <div class="text-center mt-3 user_logout">
+      <i class="d-inline-flex bi bi-question-circle" style="font-size:32px;cursor:pointer"></i>
+      <div class="d-inline-flex pl-1" style="padding-top: 5px;cursor:pointer">
+        <feather-icon size="32" icon="LogOutIcon" class="mr-50" @click="logout"/>
+      </div>
+    </div>
   </div>
-</div>
-<div class="d-inline" style="width:calc(100%-330px)"></div>
 </div>
 </template>
 
@@ -115,6 +119,8 @@ import VerticalNavMenuItems from './components/vertical-nav-menu-items/VerticalN
 import useVerticalNavMenu from './useVerticalNavMenu'
 import DarkToggler from '@core/layouts/components/app-navbar/components/DarkToggler.vue'
 import { avatarText } from '@core/utils/filter'
+import useJwt from '@/auth/jwt/useJwt'
+import { initialAbility } from '@/libs/acl/config'
 
 export default {
   components: {
@@ -191,6 +197,26 @@ export default {
       appLogoImage,
     }
   },
+
+  methods: {
+    logout() {
+      // Remove userData from localStorage
+      // ? You just removed token from localStorage. If you like, you can also make API call to backend to blacklist used token
+      localStorage.removeItem(useJwt.jwtConfig.storageTokenKeyName)
+      localStorage.removeItem(useJwt.jwtConfig.storageRefreshTokenKeyName)
+
+      // Remove userData from localStorage
+      localStorage.removeItem('userData')
+
+      // Reset ability
+      this.$ability.update(initialAbility)
+
+      // Redirect to login page
+      this.$router.push({
+        name: 'auth-login'
+      })
+    },
+  }
 }
 </script>
 

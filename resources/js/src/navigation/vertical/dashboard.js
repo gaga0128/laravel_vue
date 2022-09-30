@@ -17,8 +17,8 @@ export default [
   },
   {
     title: 'Profit calculator',
-        route: '',
-        resource: 'Dashboard',
+        route: 'profit-calc',
+        resource: 'Calculator',
         action: 'read',
     icon: 'PlusSquareIcon',
     tagVariant: 'light-warning',
