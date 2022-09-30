@@ -1,5 +1,5 @@
 <template>
-  <div class="position-fixed" style="width:25%;height:100%;z-index:3">
+  <div class="position-fixed" style="width:330px;height:100%;z-index:3">
   <div
     class="main-menu menu-fixed menu-accordion menu-shadow"
     :class="[
@@ -76,7 +76,7 @@
           {{ userData.fullName || userData.username }}
         </p>
         <p class="mb-0" style="font-family: monospace;font-style: normal;font-weight: 500;font-size: 14px;">{{ userData.role }}</p>
-        <button>Upgrade</button>
+        <button class="px-1">Upgrade</button>
       </div>
       <div class="float-right w-50 text-right pr-4">
         <b-avatar size="80" :src="userData.avatar" variant="light-primary" badge class="badge-minimal" badge-variant="success">

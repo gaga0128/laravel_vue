@@ -59,7 +59,7 @@
         background-size:cover;
         background-color:transparent;
         min-height:100vh;
-        width:25%;
+        width:330px;
         .navigation {
           margin-right: 55px;
           .navigation-header {
@@ -114,7 +114,7 @@
       // Main menu collapsed
       .main-menu {
         width: $menu-collapsed-width;
-
+        background-color: #0A070E;
         
 
         .navbar-header .brand-text,
@@ -127,6 +127,10 @@
 
           .user_info{
             display: none;
+          }
+
+          .main-menu-content{
+            // background-color: #0A070E;
           }
           
           .navigation-header {
@@ -162,7 +166,7 @@
           background-size:cover;
           background-color:transparent;
           min-height:100vh;
-          width:25%;
+          width:330px;
           // width: $menu-expanded-width;
           
           .navigation {
