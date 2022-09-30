@@ -1,4 +1,5 @@
 <template>
+  <div class="position-fixed" style="width:25%;height:100%;z-index:3">
   <div
     class="main-menu menu-fixed menu-accordion menu-shadow"
     :class="[
@@ -7,7 +8,7 @@
     ]"
     @mouseenter="updateMouseHovered(true)"
     @mouseleave="updateMouseHovered(false)"
-  >
+    >
     <!-- main menu header-->
     <div class="navbar-header expanded">
       <slot
@@ -19,7 +20,7 @@
         <ul class="nav navbar-nav flex-row">
 
           <!-- Logo & Text -->
-          <li class="nav-item mr-auto">
+          <!-- <li class="nav-item mr-auto">
             <b-link
               class="navbar-brand"
               to="/"
@@ -34,24 +35,29 @@
                 {{ appName }}
               </h2>
             </b-link>
-          </li>
+          </li> -->
 
           <!-- Toggler Button -->
-          <li class="nav-item nav-toggle">
+          <li class="nav-item mr-auto">
             <b-link class="nav-link modern-nav-toggle">
               <feather-icon
-                icon="XIcon"
-                size="20"
-                class="d-block d-xl-none"
-                @click="toggleVerticalMenuActive"
+              icon="XIcon"
+              size="20"
+              class="d-block d-xl-none"
+              @click="toggleVerticalMenuActive"
               />
               <feather-icon
-                :icon="collapseTogglerIconFeather"
-                size="20"
-                class="d-none d-xl-block collapse-toggle-icon"
+              :icon="collapseTogglerIconFeather"
+              size="20"
+              class="d-none d-xl-block collapse-toggle-icon"
                 @click="toggleCollapsed"
               />
             </b-link>
+          </li>
+
+          <!--Dark Toggle button-->
+          <li class="nav-item nav-toggle m-auto" style="margin-right:0 !important">
+            <dark-Toggler class="d-none d-lg-block" />
           </li>
         </ul>
       </slot>
@@ -61,8 +67,23 @@
     <!-- Shadow -->
     <div
       :class="{'d-block': shallShadowBottom}"
-      class="shadow-bottom"
+      class=""
     />
+
+    <div class="row mt-2 mb-4 user_info">
+      <div class="d-none user-nav d-inline float-left w-50 text-center m-auto">
+        <p style="margin-bottom:5px;font-family: monospace;font-style: normal;font-weight: 700;font-size: 20px;">
+          {{ userData.fullName || userData.username }}
+        </p>
+        <p class="mb-0" style="font-family: monospace;font-style: normal;font-weight: 500;font-size: 14px;">{{ userData.role }}</p>
+        <button>Upgrade</button>
+      </div>
+      <div class="float-right w-50 text-right pr-4">
+        <b-avatar size="80" :src="userData.avatar" variant="light-primary" badge class="badge-minimal" badge-variant="success">
+          <feather-icon v-if="!userData.fullName" icon="UserIcon" size="22" />
+        </b-avatar>
+      </div>
+    </div>
 
     <!-- main menu content-->
     <vue-perfect-scrollbar
@@ -74,26 +95,32 @@
       <vertical-nav-menu-items
         :items="navMenuItems"
         class="navigation navigation-main"
+        style="background-color:transparent;"
       />
     </vue-perfect-scrollbar>
     <!-- /main menu content-->
   </div>
+</div>
 </template>
 
 <script>
 import VuePerfectScrollbar from 'vue-perfect-scrollbar'
-import { BLink, BImg } from 'bootstrap-vue'
+import { BLink, BImg, BAvatar } from 'bootstrap-vue'
 import { provide, computed, ref } from '@vue/composition-api'
 import useAppConfig from '@core/app-config/useAppConfig'
 import { $themeConfig } from '@themeConfig'
 import VerticalNavMenuItems from './components/vertical-nav-menu-items/VerticalNavMenuItems.vue'
 import useVerticalNavMenu from './useVerticalNavMenu'
+import DarkToggler from '@core/layouts/components/app-navbar/components/DarkToggler.vue'
+import { avatarText } from '@core/utils/filter'
 
 export default {
   components: {
     VuePerfectScrollbar,
     VerticalNavMenuItems,
+    DarkToggler,
     BLink,
+    BAvatar,
     BImg,
   },
   props: {
@@ -109,6 +136,12 @@ export default {
       type: Array,
       required: true,
     },
+  },
+  data() {
+    return {
+      userData: JSON.parse(localStorage.getItem('userData')),
+      avatarText,
+    }
   },
   setup(props) {
     const {
