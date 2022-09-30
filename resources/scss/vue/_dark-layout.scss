@@ -7,7 +7,7 @@ body {
     // ------------------------------------------------
     // Avatar Component
     // ------------------------------------------------
-
+    background-color: #0A070E;
     .b-avatar {
       &.badge-secondary {
         background-color: $theme-dark-body-bg;
@@ -117,15 +117,30 @@ body {
     // Modal
     // ------------------------------------------------
     .modal-content {
+      
       .modal-header {
         .close {
+          background: #232228 !important;
           color: $white;
         }
       }
+
+
+
+
       .modal-body {
+        background: #232228 !important;
         color: $white;
       }
+
     }
+
+    .modal-content div ul li {
+        background: #232228 !important;
+        color: $white;
+    }
+
+
 
     // ------------------------------------------------
     // Switch
@@ -142,11 +157,27 @@ body {
     // ------------------------------------------------
     .pagination {
       .page-item {
-        &.disabled {
+        &.disabled{
           .page-link {
-            // background-color: ;
+            background-color: transparent !important;
             color: $theme-dark-text-muted-color !important;
           }
+        }
+        &.active{
+          .page-link {
+            background-color: transparent !important;
+          }
+          .page-item {
+            background-color: transparent !important;
+          }
+        }
+      }
+    }
+
+    .pagination {
+      .page-item {
+         .page-link {
+            background-color: transparent !important;
         }
       }
     }
@@ -425,5 +456,73 @@ body {
         }
       }
     }
+    .whiteLetter{
+      margin:auto;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 14px;
+      color: #FFFFFF;
   }
+
+  .greyLetter{
+      margin:auto;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 14px;
+      color: #FFFFFF;
+      opacity: 0.5;
+  }
+
+  .feerTitle{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #FFFFFF;
+  }
+
+  .searchdark{
+    color: #FFFFFF;
+    background: #18181A;
+    border:none;
+  }
+
+  th{
+    background-color:transparent !important;
+    border:none;
+  }
+
+  .cardBack{
+    background: #232228;
+  }
+
+  #dashboard table th {
+    color: white;
+  }
+
+  #dashboard table th {
+    color: white;
+  }
+
+  .card {
+      background: #232228 !important;
+  }
+
+  .modal-header{
+    background: #232228 !important;
+  }
+
+  .modal-content{
+    background: #232228 !important;
+  }
+
+
+  }
+
+  
+
 }

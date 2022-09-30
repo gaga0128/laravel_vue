@@ -1,19 +1,34 @@
 <template>
     <div id="dashboard">
-        <b-overlay :show="fagLoad" rounded="sm" class="pt-1">
+        <b-overlay :show="fagLoad" rounded="sm" class="pt-1" style="margin-top:10px; margin-bottom:30px;">
                 <div class="mx-auto" style="">
                         <b-row class=" mb-1">
                             <b-col md="3" sm="6" xl="3">
                                 <div class="d-flex mx-auto justify-content-center">
-                                    <div class="greyLetter" style="margin-right:8px;">MC:</div>
+                                    <div class="greyLetter" style="margin-right:8px;">MCC:</div>
                                     <div class="whiteLetter" v-if="loaded">{{fag.data.market_cap?fag.data.market_cap:'-'}}</div>
+                                    <div style="margin-left: 10px; margin-right:10px;">
+                                        <i class="bi bi-triangle-fill" style="color:#6BBE83;"></i>
+                                    </div>
+                                    <div style="color:#6BBE83;">
+                                        4.4%
+                                    </div>
+
+        
+                                    
                                 </div>
 
                             </b-col>
                             <b-col md="3" sm="6" xl="3" class="mb-1">
                                 <div class="d-flex mx-auto justify-content-center">
-                                    <div class="greyLetter" style="margin-right:8px;">VOL(24):</div>
+                                    <div class="greyLetter" style="margin-right:8px;">Vol(24):</div>
                                     <div class="whiteLetter" v-if="loaded"> {{fag.data.vol_24h?fag.data.vol_24h:'-'}}</div>
+                                    <div style="margin-left: 10px; margin-right:10px;">
+                                        <i class="bi bi-triangle-fill" style="color:#6BBE83;"></i>
+                                    </div>
+                                    <div style="color:#6BBE83;">
+                                        5%
+                                    </div>
                                 </div>
 
                             </b-col>
@@ -31,7 +46,11 @@
                             </b-col>
                             <b-col md="3" sm="6" xl="3" class="mb-1">
                                 <div class="d-flex mx-auto justify-content-center">
-                                    <div class="greyLetter" style="margin-right:8px;">ETH Gas:</div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-fuel-pump-diesel" viewBox="0 0 16 16">
+                                        <path d="M3.5 2a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5v-5a.5.5 0 0 0-.5-.5h-5ZM4 14V9h1.796c.5 0 .913.098 1.237.293.325.195.567.479.725.85.161.371.242.82.242 1.344 0 .528-.08.98-.242 1.355a1.805 1.805 0 0 1-.732.861c-.324.198-.734.297-1.23.297H4Zm1.666-4.194h-.692v3.385h.692c.229 0 .427-.035.595-.103a.986.986 0 0 0 .412-.315c.108-.142.188-.318.241-.528.056-.21.083-.456.083-.74 0-.376-.048-.69-.144-.94a1.11 1.11 0 0 0-.436-.569c-.195-.127-.445-.19-.75-.19Z"/>
+                                        <path d="M3 0a2 2 0 0 0-2 2v13H.5a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1H11v-4a1 1 0 0 1 1 1v.5a1.5 1.5 0 0 0 3 0V8h.5a.5.5 0 0 0 .5-.5V4.324c0-.616 0-1.426-.294-2.081a1.969 1.969 0 0 0-.794-.907C14.534 1.111 14.064 1 13.5 1a.5.5 0 0 0 0 1c.436 0 .716.086.9.195a.97.97 0 0 1 .394.458c.147.328.19.746.201 1.222H13.5a.5.5 0 0 0-.5.5V7.5a.5.5 0 0 0 .5.5h.5v4.5a.5.5 0 0 1-1 0V12a2 2 0 0 0-2-2V2a2 2 0 0 0-2-2H3Zm7 2v13H2V2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1Z"/>
+                                    </svg>
+                                    <div class="greyLetter" style="margin-right:8px; margin-left:8px;">ETH Gas:</div>
                                     <div class="d-flex justify-content-between">
                                         <div style="margin:0 8px 0 8px" class="whiteLetter" v-if="loaded">
                                             {{fag.data.eth_gas?fag.data.eth_gas:'-'}}
@@ -45,463 +64,519 @@
 
                         </b-row>
                     </div>
-                    <b-row class="">
+                    <!-- graph -->
+                    <b-row class="" style="margin-bottom: 25px;">
                         <b-col sm="3" md="3" cols="6">
                             <div class="mx-auto w-75 text-center">
-                                <h5 class="w-75 mx-auto">Fear and Greed</h5>
+                                <h5 class="w-75 mx-auto margin16_b feerTitle">Fear and Greed</h5>
                                 <VueSvgGauge width="60%" class="w-75 mx-auto" :start-angle="-90" :end-angle="90"
                                     :inner-radius="87" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
                                     :max="100"
                                     :gauge-color="[{ offset: 0, color: '#f55442'}, { offset: 100, color: '#0bd63a'}]"
                                     :scale-interval="3">
-                                    <div class="inner-text">
-                                        <div class="mt-2"
+                                    <div class="inner-text" style="display:block;">
+                                        <div style="margin-top: 2rem !important;"
                                             :class="{'text-danger':fag.data.fear_greed_index<50,'text-success':fag.data.fear_greed_index>=50}">
-                                            <span class="d-block"
-                                                style="font-size:20px">{{fag.data.fear_greed_index}}</span>
-                                            <span class="d-block"
-                                                style="font-size:15px">{{fag.data.fear_greed_classification}}</span>
-                                            <span class="d-block text-info " style="font-size:10px"><a
-                                                    v-ripple.400="'rgba(113, 12, 240, 35)'" v-b-modal.modal-chart
-                                                    variant="outline-primary">View
-                                                    History</a></span>
+                                            <span class="d-block feerGreen"
+                                                >{{fag.data.fear_greed_index}}</span>
                                         </div>
+                                        <div class="row" style="margin: 0% 15% 0% 15%;">
+                                            <span class="col-3 text-info" style="float:left; margin:auto;"><a
+                                                v-ripple.400="'rgba(113, 12, 240, 35)'" v-b-modal.modal-chart
+                                                variant="outline-primary"><i class="bi bi-clock-history" style="color:#FFFFFF;"></i></a>
+                                            </span>
+                                            <span class="col-6 feerSmallGreen" style="text-align:center;">
+                                                {{fag.data.fear_greed_classification}}
+                                            </span>
+                                            <span class="col-3">
+
+                                            </span>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </VueSvgGauge>
+                            </div>
+                        </b-col>
+                        <b-col sm="3" md="3" cols="6">
+                            <div class="mx-auto w-75 text-center">
+                                <h5 class="w-75 mx-auto margin16_b feerTitle">NFT Barometer</h5>
+                                <VueSvgGauge width="60%" class="w-75 mx-auto" :start-angle="-90" :end-angle="90"
+                                    :inner-radius="87" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
+                                    :max="100"
+                                    :gauge-color="[{ offset: 0, color: '#f55442'}, { offset: 100, color: '#0bd63a'}]"
+                                    :scale-interval="3">
+                                    <div class="inner-text" style="display:block;">
+                                        <div style="margin-top: 2rem !important;"
+                                            :class="{'text-danger':fag.data.fear_greed_index<50,'text-success':fag.data.fear_greed_index>=50}">
+                                            <span class="d-block feerGreen"
+                                                >{{fag.data.fear_greed_index}}</span>
+                                        </div>
+                                        <div class="row" style="margin: 0% 15% 0% 15%;">
+                                            <span class="col-3 text-info" style="float:left; margin:auto;"><a
+                                                v-ripple.400="'rgba(113, 12, 240, 35)'" v-b-modal.modal-chart
+                                                variant="outline-primary"><i class="bi bi-clock-history" style="color:#FFFFFF;"></i></a>
+                                            </span>
+                                            <span class="col-6 feerSmallGreen" style="text-align:center;">
+                                                {{fag.data.fear_greed_classification}}
+                                            </span>
+                                            <span class="col-3">
+
+                                            </span>
+                                        </div>
+                                        
                                     </div>
                                 </VueSvgGauge>
                             </div>
                         </b-col>
                         <b-col sm="3" md="3" cols="6">
                             <div class="mx-auto w-75 text-center">
-                                <h5 class="w-75 mx-auto">NFT Barometer</h5>
+                                <h5 class="w-75 mx-auto margin16_b feerTitle">BTC in/outflow</h5>
                                 <VueSvgGauge width="60%" class="w-75 mx-auto" :start-angle="-90" :end-angle="90"
                                     :inner-radius="87" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
                                     :max="100"
                                     :gauge-color="[{ offset: 0, color: '#f55442'}, { offset: 100, color: '#0bd63a'}]"
                                     :scale-interval="3">
-                                    <div class="inner-text">
-                                        <div class="mt-2"
+                                    <div class="inner-text" style="display:block;">
+                                        <div style="margin-top: 2rem !important;"
                                             :class="{'text-danger':fag.data.fear_greed_index<50,'text-success':fag.data.fear_greed_index>=50}">
-                                            <span class="d-block"
-                                                style="font-size:20px">{{fag.data.fear_greed_index}}</span>
-                                            <span class="d-block"
-                                                style="font-size:15px">{{fag.data.fear_greed_classification}}</span>
-                                            <span class="d-block text-info " style="font-size:10px"><a
-                                                    v-ripple.400="'rgba(113, 12, 240, 35)'" v-b-modal.modal-chart
-                                                    variant="outline-primary">View
-                                                    History</a></span>
+                                            <span class="d-block feerGreen"
+                                                >{{fag.data.fear_greed_index}}</span>
                                         </div>
+                                        <div class="row" style="margin: 0% 15% 0% 15%;">
+                                            <span class="col-3 text-info" style="float:left; margin:auto;"><a
+                                                v-ripple.400="'rgba(113, 12, 240, 35)'" v-b-modal.modal-chart
+                                                variant="outline-primary"><i class="bi bi-clock-history" style="color:#FFFFFF;"></i></a>
+                                            </span>
+                                            <span class="col-6 feerSmallGreen" style="text-align:center;">
+                                                {{fag.data.fear_greed_classification}}
+                                            </span>
+                                            <span class="col-3">
+
+                                            </span>
+                                        </div>
+                                        
                                     </div>
                                 </VueSvgGauge>
                             </div>
                         </b-col>
                         <b-col sm="3" md="3" cols="6">
                             <div class="mx-auto w-75 text-center">
-                                <h5 class="w-75 mx-auto">BTC in/outflow</h5>
+                                <h5 class="w-75 mx-auto margin16_b feerTitle">BTC Outflow</h5>
                                 <VueSvgGauge width="60%" class="w-75 mx-auto" :start-angle="-90" :end-angle="90"
                                     :inner-radius="87" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
                                     :max="100"
                                     :gauge-color="[{ offset: 0, color: '#f55442'}, { offset: 100, color: '#0bd63a'}]"
                                     :scale-interval="3">
-                                    <div class="inner-text">
-                                        <div class="mt-2"
+                                    <div class="inner-text" style="display:block;">
+                                        <div style="margin-top: 2rem !important;"
                                             :class="{'text-danger':fag.data.fear_greed_index<50,'text-success':fag.data.fear_greed_index>=50}">
-                                            <span class="d-block"
-                                                style="font-size:20px">{{fag.data.fear_greed_index}}</span>
-                                            <span class="d-block"
-                                                style="font-size:15px">{{fag.data.fear_greed_classification}}</span>
-                                            <span class="d-block text-info " style="font-size:10px"><a
-                                                    v-ripple.400="'rgba(113, 12, 240, 35)'" v-b-modal.modal-chart
-                                                    variant="outline-primary">View
-                                                    History</a></span>
+                                            <span class="d-block feerGreen"
+                                                >{{fag.data.fear_greed_index}}</span>
                                         </div>
-                                    </div>
-                                </VueSvgGauge>
-                            </div>
-                        </b-col>
-                        <b-col sm="3" md="3" cols="6">
-                            <div class="mx-auto w-75 text-center">
-                                <h5 class="w-75 mx-auto">BTC Outflow</h5>
-                                <VueSvgGauge width="60%" class="w-75 mx-auto" :start-angle="-90" :end-angle="90"
-                                    :inner-radius="87" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
-                                    :max="100"
-                                    :gauge-color="[{ offset: 0, color: '#f55442'}, { offset: 100, color: '#0bd63a'}]"
-                                    :scale-interval="3">
-                                    <div class="inner-text">
-                                        <div class="mt-2"
-                                            :class="{'text-danger':fag.data.fear_greed_index<50,'text-success':fag.data.fear_greed_index>=50}">
-                                            <span class="d-block"
-                                                style="font-size:20px">{{fag.data.fear_greed_index}}</span>
-                                            <span class="d-block"
-                                                style="font-size:15px">{{fag.data.fear_greed_classification}}</span>
-                                            <span class="d-block text-info " style="font-size:10px"><a
-                                                    v-ripple.400="'rgba(113, 12, 240, 35)'" v-b-modal.modal-chart
-                                                    variant="outline-primary">View
-                                                    History</a></span>
+                                        <div class="row" style="margin: 0% 15% 0% 15%;">
+                                            <span class="col-3 text-info" style="float:left; margin:auto;"><a
+                                                v-ripple.400="'rgba(113, 12, 240, 35)'" v-b-modal.modal-chart
+                                                variant="outline-primary"><i class="bi bi-clock-history" style="color:#FFFFFF;"></i></a>
+                                            </span>
+                                            <span class="col-6 feerSmallGreen" style="text-align:center;">
+                                                {{fag.data.fear_greed_classification}}
+                                            </span>
+                                            <span class="col-3">
+
+                                            </span>
                                         </div>
+                                        
                                     </div>
                                 </VueSvgGauge>
                             </div>
                         </b-col>
                     </b-row>
+                    <!-- end- graph -->
             </b-overlay>
         <div class="body-content-overlay" />
-        <div class="searchbar mt-1 mb-1">
-            <b-row>
-                <b-col cols="12" md="8" xl="10">
-                    <b-input-group class="input-group-merge mb-1">
-                        <b-form-input v-model="params.filters2" placeholder="Search" class="search-product " />
-                        <b-input-group-append is-text>
-                            <feather-icon icon="SearchIcon" class="text-muted" />
-                        </b-input-group-append>
-                    </b-input-group>
-                </b-col>
-                <b-col cols="12" md="4" xl="2">
-                    <div class="d-flex jusctify-content-between float-right">
-                        <div>
-                            <b-button v-if="!locked" @click="lockedFilter" style="padding:5px; width:33px"
-                                title="Unlocking" v-ripple.400="'rgba(113, 102, 240, 0.15)'" variant="outline-primary"
-                                class="btn-icon mr-1 ">
-                                <feather-icon icon="UnlockIcon" size="20" class="text-black cursor-pointer" style=" " />
+        <!-- search bar and table -->
+            <div class="cardBack" style="
+                padding:20px;
+                box-shadow: 0px 0px 20px rgba(19, 20, 37, 0.5);
+                backdrop-filter: blur(7.5px);
+                border-radius: 30px;">
+                <div class="searchbar mt-1 mb-1">
+                    <b-row>
+                        <b-col cols="8" md="6" xl="6">
+                            <b-input-group class="input-group-merge mb-1">
+                                <b-form-input v-model="params.filters2" placeholder="Search" class="search-product searchdark" style="border-radius: 20px;" />
+                                
+                            </b-input-group>
+                        </b-col>
+                        <b-col cols="4" md="2" xl="4">
+                        </b-col>
+                        <b-col cols="12" md="4" xl="2">
+                            <div class="d-flex jusctify-content-between float-right">
+                                <div v-b-modal.modal-filters >
+                                            <b-button style="padding:5px; color:white;" v-ripple.400="'rgba(255, 255, 255,1)'" title="Filter" variant="flat-success"
+                                                 class="btn-icon mx-1">
+                                                <feather-icon icon="FilterIcon" size="20" class="text-black cursor-pointer" style=" " />
+                                            </b-button>
+                                </div>
+                                <div>
+                                    <b-button  v-if="!locked" @click="lockedFilter" style="color:white; padding:5px; width:33px" variant="flat-success"
+                                        title="Unlocking" v-ripple.400="'rgba(255, 255, 255,1)'"  
+                                        class="btn-icon mr-1 ">
+                                        <feather-icon icon="UnlockIcon" size="20" class="text-black cursor-pointer" style=" " />
 
-                            </b-button>
-                            <b-button v-else @click="lockedFilter" style="padding:5px; width:33px" title="All Tokens"
-                                v-ripple.400="'rgba(113, 102, 240, 0.15)'" variant="outline-primary"
-                                class="btn-icon mr-1 ">
+                                    </b-button>
+                                    <b-button v-else @click="lockedFilter" style="color:white; padding:5px; width:33px" title="All Tokens" variant="flat-success"
+                                        v-ripple.400="'rgba(255, 255, 255,1)'"  
+                                        class="btn-icon mr-1 ">
+                                        
+                                        <b-img class=" cursor-pointer rounded-full" width="25px" height="25px" fluid
+                                        src="/images/static/noun-cryptocurrency-3262833.svg" />
+                                    </b-button>
+                                        
+                                </div>
+                                
+                                <div @click="clearFilters(true)">
+                                    <b-button style="padding:5px; color:white;" v-ripple.400="'rgba(255, 255, 255,1)'" title="Refresh" variant="flat-success"
+                                         class="btn-icon ml-1">
+                                        <feather-icon icon="RefreshCcwIcon" size="20" class="text-black cursor-pointer"
+                                            style="" />
+                                    </b-button>
 
-                                <b-img class=" cursor-pointer rounded-full" width="25px" height="25px" fluid
-                                    src="/images/static/noun-cryptocurrency-3262833.svg" />
-                            </b-button>
-                        </div>
-                        <div v-b-modal.modal-filters variant="outline-primary">
-                            <b-button style="padding:5px" v-ripple.400="'rgba(113, 102, 240, 0.15)'" title="Filter"
-                                variant="outline-primary" class="btn-icon mx-1">
-                                <feather-icon icon="FilterIcon" size="20" class="text-black cursor-pointer" style=" " />
-                            </b-button>
-                        </div>
-                        <div @click="clearFilters(true)">
-                            <b-button style="padding:5px" v-ripple.400="'rgba(113, 102, 240, 0.15)'" title="Refresh"
-                                variant="outline-primary" class="btn-icon ml-1">
-                                <feather-icon icon="RefreshCcwIcon" size="20" class="text-black cursor-pointer"
-                                    style="" />
-                            </b-button>
+                                </div>
+                                <div @click="clearFilters(true)">
+                                    <b-button style="padding:5px; color:white;" v-ripple.400="'rgba(255, 255, 255,1)'" title="Refresh" variant="flat-success"
+                                         class="btn-icon ml-1">
+                                         <i class="bi bi-sliders2 text-black cursor-pointer" style="font-size:20px;"></i>
+                                    </b-button>
 
-                        </div>
+                                </div>
 
-                    </div>
-                </b-col>
-            </b-row>
-        </div>
-        <div class="body-content-overlay" />
-        <div id="ctable">
-            <b-overlay :show="isBusy" rounded="sm">
-                <b-table sticky-header :no-border-collapse="true" tbody-tr-class="cursor-pointer" show-empty
-                    @row-clicked="detailsModel($event)" style="white-space: nowrap;" responsive :items="items.data"
-                    :fields="visibleFields">
-                    <template #empty="scope">
-                        <h4>{{ scope.emptyText }}</h4>
-                    </template>
-
-                    <template #head()="scope">
-                        <div class="text-nowrap cursor-pointer text-center " style=""
-                            @click="sortingCols(scope.field.key)">
-                            <div class="d-flex justify-content-center">
-                                <span> {{ scope.label }} </span> <span class="">
-                                    <feather-icon icon="ChevronUpIcon" size="8" class="align-middle d-block"
-                                        :class="{'text-danger':params.sort[1] =='asc'&& params.sort[0] ==scope.field.key}" />
-                                    <feather-icon icon="ChevronDownIcon" size="8"
-                                        :class="{'text-danger':params.sort[1] =='desc'&& params.sort[0] ==scope.field.key}"
-                                        class="align-middle d-block" /> </span>
                             </div>
-                        </div>
-                    </template>
+                        </b-col>
+                    </b-row>
+                    
+                </div>
+                <div id="ctable">
+                    <b-overlay :show="isBusy" rounded="sm">
+                        <b-table sticky-header :no-border-collapse="true" tbody-tr-class="cursor-pointer" show-empty 
+                            @row-clicked="detailsModel($event)" style="white-space: nowrap; border-spacing: 0 15px !important; " responsive :items="items.data"
+                            :fields="visibleFields">
+                            <template #empty="scope">
+                                <h4>{{ scope.emptyText }}</h4>
+                            </template>
 
-                    <template #cell(coin_platform)="data">
-                        <div class="" v-html="getPlatformTags(data.value)"></div>
-                        <div class="" v-if="checkSeemore(data.value)"><span
-                                v-b-popover.hover.top="platformTagsSeemore(data.value)"
-                                v-ripple.400="'rgba(113, 102, 240, 0.15)'" title="Platforms" variant="outline-primary">
-                                See more...
-                            </span></div>
-                    </template>
-                    <template #cell(market_cap_rank)="data">
-                        <div class="d-flex">
-                            <div class="mx-1">
-                                <feather-icon icon="StarIcon" size="14" />
-                            </div>
-                            <div class="" style="">{{ toInterNationalNumber(data.value?data.value:0) }}</div>
-                        </div>
-                    </template>
-                    <template #cell(name)="data">
-                        <div style="text-align: center;" class="d-flex justify-content-start">
-                            <b-avatar class="text-center mx-1" style="" :src="data.item.image" />
+                            <template #head()="scope">
+                                <div class="text-nowrap cursor-pointer text-center " style=""
+                                    @click="sortingCols(scope.field.key)">
+                                    <div class="d-flex justify-content-center">
+                                        <span> {{ scope.label }} </span> <span class="">
+                                            <feather-icon icon="ChevronUpIcon" size="8" class="align-middle d-block"
+                                                :class="{'text-danger':params.sort[1] =='asc'&& params.sort[0] ==scope.field.key}" />
+                                            <feather-icon icon="ChevronDownIcon" size="8"
+                                                :class="{'text-danger':params.sort[1] =='desc'&& params.sort[0] ==scope.field.key}"
+                                                class="align-middle d-block" /> </span>
+                                    </div>
+                                </div>
+                            </template>
 
-                            <div class="">
-                                <div class="text-nowrap text-truncate" style="max-width: 100px;">
+                            <template #cell(coin_platform)="data">
+                                <div class="" v-html="getPlatformTags(data.value)"></div>
+                                <div class="" v-if="checkSeemore(data.value)"><span
+                                        v-b-popover.hover.top="platformTagsSeemore(data.value)"
+                                        v-ripple.400="'rgba(113, 102, 240, 0.15)'" title="Platforms" variant="outline-primary">
+                                        See more...
+                                    </span></div>
+                            </template>
+                            <template #cell(market_cap_rank)="data">
+                                <div class="d-flex">
+                                    <div class="mx-1">
+                                        <feather-icon icon="StarIcon" size="14" />
+                                    </div>
+                                    <div class="" style="">{{ toInterNationalNumber(data.value?data.value:0) }}</div>
+                                </div>
+                            </template>
+                            <template #cell(name)="data">
+                                <div style="text-align: center;" class="d-flex justify-content-start">
+                                    <b-avatar class="text-center mx-1" style="" :src="data.item.image" />
+
+                                    <div class="">
+                                        <div class="text-nowrap text-truncate" style="max-width: 100px;">
+                                            <b>{{ data.value }}</b>   
+                                        </div>
+                                        <div class="text-nowrap text-truncate text-left"
+                                            style="max-width: 100px; font-size:12px;">
+                                            {{ data.item.symbol }}
+                                        </div>
+                                        
+                                    </div>
+                              
+                                </div>
+                            </template>
+
+                            <!-- buy button -->
+                            <!-- <template #cell()="scope">
+                                <div style="text-align: center;" class="d-flex justify-content-start">
+                                        <b-button
+                                            v-ripple.400="'rgba(30, 30, 30, 0.15)'"
+                                            variant="outline-dark"
+                                            style="background-color: white; color:black;"
+                                            pill
+                                            >
+                                            Buy
+                                        </b-button>
+                                </div>
+                            </template> -->
+                            <!-- end of button -->
+                            <template #cell(seed_price)="data">
+                                <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
+                                    class="d-flex justify-content-start blurry-text">
+                                    {{data.value}}
+                                </div>
+                                <div v-else style="text-align: center;" class="d-flex justify-content-start">
+                                    {{toInterNationalNumber(data.value)}} <span v-if="data.value">$</span>
+                                </div>
+                            </template>
+                            <template #cell(roi_seed)="data">
+                                <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
+                                    class="d-flex justify-content-start blurry-text">
+                                    {{data.value}}
+                                </div>
+                                <div v-else style="text-align: center;" class="d-flex justify-content-start">
+                                    {{roundData(data.value)}} <span v-if="data.value">X</span>
+                                </div>
+                            </template>
+                            <template #cell(total_locked)="data">
+                                <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
+                                    class="d-flex justify-content-start blurry-text">
+                                    {{data.value}}
+                                </div>
+                                <div v-else style="text-align: center;" class="d-flex justify-content-start">
+                                    {{roundData(data.value)}}
+                                </div>
+                            </template>
+                            <template #cell(next_unlock_date_text)="data">
+                                <div style="text-align: center;" class="d-flex justify-content-start"
+                                    :class="{'blurry-text' : checkUserPlan(data.item.market_cap_rank)}">
                                     {{ data.value }}
                                 </div>
-                                <div class="text-nowrap text-truncate text-left"
-                                    style="max-width: 100px; font-size:12px;">
-                                    {{ data.item.symbol }}
+                            </template>
+                            <template #cell(next_unlock_status)="data">
+                                <div style="text-align: center;" class="d-flex justify-content-start"
+                                    :class="{'blurry-text' : checkUserPlan(data.item.market_cap_rank)}">
+                                    {{ data.value }}
+                                </div>
+                            </template>
+                            <template #cell(next_unlock_number_of_tokens)="data">
+                                <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
+                                    class="d-flex justify-content-start blurry-text">
+                                    {{data.value}}
+                                </div>
+                                <div v-else style="text-align: center;" class="d-flex justify-content-start">
+                                    {{roundData(data.value)}}
                                 </div>
 
-                            </div>
-                        </div>
-                    </template>
-                    <template #cell(seed_price)="data">
-                        <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
-                            class="d-flex justify-content-start blurry-text">
-                            {{data.value}}
-                        </div>
-                        <div v-else style="text-align: center;" class="d-flex justify-content-start">
-                            {{toInterNationalNumber(data.value)}} <span v-if="data.value">$</span>
-                        </div>
-                    </template>
-                    <template #cell(roi_seed)="data">
-                        <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
-                            class="d-flex justify-content-start blurry-text">
-                            {{data.value}}
-                        </div>
-                        <div v-else style="text-align: center;" class="d-flex justify-content-start">
-                            {{roundData(data.value)}} <span v-if="data.value">X</span>
-                        </div>
-                    </template>
-                    <template #cell(total_locked)="data">
-                        <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
-                            class="d-flex justify-content-start blurry-text">
-                            {{data.value}}
-                        </div>
-                        <div v-else style="text-align: center;" class="d-flex justify-content-start">
-                            {{roundData(data.value)}}
-                        </div>
-                    </template>
-                    <template #cell(next_unlock_date_text)="data">
-                        <div style="text-align: center;" class="d-flex justify-content-start"
-                            :class="{'blurry-text' : checkUserPlan(data.item.market_cap_rank)}">
-                            {{ data.value }}
-                        </div>
-                    </template>
-                    <template #cell(next_unlock_status)="data">
-                        <div style="text-align: center;" class="d-flex justify-content-start"
-                            :class="{'blurry-text' : checkUserPlan(data.item.market_cap_rank)}">
-                            {{ data.value }}
-                        </div>
-                    </template>
-                    <template #cell(next_unlock_number_of_tokens)="data">
-                        <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
-                            class="d-flex justify-content-start blurry-text">
-                            {{data.value}}
-                        </div>
-                        <div v-else style="text-align: center;" class="d-flex justify-content-start">
-                            {{roundData(data.value)}}
-                        </div>
+                            </template>
+                            <template #cell(next_unlock_percent_of_tokens)="data">
+                                <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
+                                    class="d-flex justify-content-start blurry-text">
+                                    {{data.value}}
+                                </div>
+                                <div v-else style="text-align: center;" class="d-flex justify-content-start">
+                                    {{roundData(data.value)}} <span v-if="data.value"> %</span>
+                                </div>
+                            </template>
+                            <template #cell(next_unlock_size)="data">
+                                <div style="text-align: center;" class="d-flex justify-content-start"
+                                    :class="{'blurry-text' : checkUserPlan(data.item.market_cap_rank)}">
+                                    {{ data.value }}
+                                </div>
+                            </template>
+                            <template #cell(roi_times)="data">
+                                <div style="text-align: center;" class="d-flex justify-content-start">
+                                    {{ toInterNationalNumber(data.value) }} <span v-if="data.value">X</span>
+                                </div>
+                            </template>
+                            <template #cell(first_vc_unlock)="data">
+                                <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
+                                    class="d-flex justify-content-start blurry-text">
+                                    {{data.value}}
+                                </div>
+                                <div v-else style="text-align: center;" class="d-flex justify-content-start">
+                                    {{dateFormat2(data.value)}}
+                                </div>
+                            </template>
 
-                    </template>
-                    <template #cell(next_unlock_percent_of_tokens)="data">
-                        <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
-                            class="d-flex justify-content-start blurry-text">
-                            {{data.value}}
-                        </div>
-                        <div v-else style="text-align: center;" class="d-flex justify-content-start">
-                            {{roundData(data.value)}} <span v-if="data.value"> %</span>
-                        </div>
-                    </template>
-                    <template #cell(next_unlock_size)="data">
-                        <div style="text-align: center;" class="d-flex justify-content-start"
-                            :class="{'blurry-text' : checkUserPlan(data.item.market_cap_rank)}">
-                            {{ data.value }}
-                        </div>
-                    </template>
-                    <template #cell(roi_times)="data">
-                        <div style="text-align: center;" class="d-flex justify-content-start">
-                            {{ toInterNationalNumber(data.value) }} <span v-if="data.value">X</span>
-                        </div>
-                    </template>
-                    <template #cell(first_vc_unlock)="data">
-                        <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
-                            class="d-flex justify-content-start blurry-text">
-                            {{data.value}}
-                        </div>
-                        <div v-else style="text-align: center;" class="d-flex justify-content-start">
-                            {{dateFormat2(data.value)}}
-                        </div>
-                    </template>
-
-                    <template #cell(end_vc_unlock)="data">
-                        <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
-                            class="d-flex justify-content-start blurry-text">
-                            {{data.value}}
-                        </div>
-                        <div v-else style="text-align: center;" class="d-flex justify-content-start">
-                            {{dateFormat2(data.value)}}
-                        </div>
-                    </template>
-                    <template #cell(three_months_unlock_number_of_tokens)="data">
-                        <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
-                            class="d-flex justify-content-start blurry-text">
-                            {{data.value}}
-                        </div>
-                        <div v-else style="text-align: center;" class="d-flex justify-content-start">
-                            {{toInterNationalNumber(data.value)}}
-                        </div>
-                    </template>
-                    <template #cell(three_months_unlock_percent_of_tokens)="data">
-                        <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
-                            class="d-flex justify-content-start blurry-text">
-                            {{data.value}}
-                        </div>
-                        <div v-else style="text-align: center;" class="d-flex justify-content-start">
-                            {{roundData(data.value)}} <span v-if="data.value">%</span>
-                        </div>
-                    </template>
-                    <template #cell(three_months_unlock_size)="data">
-                        <div style="text-align: center;" class="d-flex justify-content-start"
-                            :class="{'blurry-text' : checkUserPlan(data.item.market_cap_rank)}">
-                            {{ data.value }}
-                        </div>
-                    </template>
+                            <template #cell(end_vc_unlock)="data">
+                                <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
+                                    class="d-flex justify-content-start blurry-text">
+                                    {{data.value}}
+                                </div>
+                                <div v-else style="text-align: center;" class="d-flex justify-content-start">
+                                    {{dateFormat2(data.value)}}
+                                </div>
+                            </template>
+                            <template #cell(three_months_unlock_number_of_tokens)="data">
+                                <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
+                                    class="d-flex justify-content-start blurry-text">
+                                    {{data.value}}
+                                </div>
+                                <div v-else style="text-align: center;" class="d-flex justify-content-start">
+                                    {{toInterNationalNumber(data.value)}}
+                                </div>
+                            </template>
+                            <template #cell(three_months_unlock_percent_of_tokens)="data">
+                                <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
+                                    class="d-flex justify-content-start blurry-text">
+                                    {{data.value}}
+                                </div>
+                                <div v-else style="text-align: center;" class="d-flex justify-content-start">
+                                    {{roundData(data.value)}} <span v-if="data.value">%</span>
+                                </div>
+                            </template>
+                            <template #cell(three_months_unlock_size)="data">
+                                <div style="text-align: center;" class="d-flex justify-content-start"
+                                    :class="{'blurry-text' : checkUserPlan(data.item.market_cap_rank)}">
+                                    {{ data.value }}
+                                </div>
+                            </template>
 
 
 
-                    <template #cell(six_months_unlock_number_of_tokens)="data">
-                        <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
-                            class="d-flex justify-content-start blurry-text">
-                            {{data.value}}
-                        </div>
-                        <div v-else style="text-align: center;" class="d-flex justify-content-start">
-                            {{toInterNationalNumber(data.value)}} <span v-if="data.value">$</span>
-                        </div>
-                    </template>
-                    <template #cell(six_months_unlock_percent_of_tokens)="data">
-                        <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
-                            class="d-flex justify-content-start blurry-text">
-                            {{data.value}}
-                        </div>
-                        <div v-else style="text-align: center;" class="d-flex justify-content-start">
-                            {{roundData(data.value)}} <span v-if="data.value">$</span>
-                        </div>
-                    </template>
-                    <template #cell(six_months_unlock_size)="data">
-                        <div style="text-align: center;" class="d-flex justify-content-start"
-                            :class="{'blurry-text' : checkUserPlan(data.item.market_cap_rank)}">
-                            {{ data.value }}
-                        </div>
-                    </template>
+                            <template #cell(six_months_unlock_number_of_tokens)="data">
+                                <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
+                                    class="d-flex justify-content-start blurry-text">
+                                    {{data.value}}
+                                </div>
+                                <div v-else style="text-align: center;" class="d-flex justify-content-start">
+                                    {{toInterNationalNumber(data.value)}} <span v-if="data.value">$</span>
+                                </div>
+                            </template>
+                            <template #cell(six_months_unlock_percent_of_tokens)="data">
+                                <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
+                                    class="d-flex justify-content-start blurry-text">
+                                    {{data.value}}
+                                </div>
+                                <div v-else style="text-align: center;" class="d-flex justify-content-start">
+                                    {{roundData(data.value)}} <span v-if="data.value">$</span>
+                                </div>
+                            </template>
+                            <template #cell(six_months_unlock_size)="data">
+                                <div style="text-align: center;" class="d-flex justify-content-start"
+                                    :class="{'blurry-text' : checkUserPlan(data.item.market_cap_rank)}">
+                                    {{ data.value }}
+                                </div>
+                            </template>
 
-                    <template #cell(current_price)="data">
-                        <div v-if="data.value"
-                            :class="{'greenFlash':data.item.flash == 1,'redFlash':data.item.flash ==2}"
-                            style="width: 100px;">
-                            {{toInterNationalNumber(data.value)}}$</div>
-                    </template>
-                    <template #cell(market_cap)="data">
-                        <div v-if="data.value" style="">{{toInterNationalNumber(data.value)}}$</div>
-                    </template>
-                    <template #cell(high_24h)="data">
-                        <div v-if="data.value !=''" style="">{{toInterNationalNumber(data.value)}}$</div>
-                    </template>
-                    <template #cell(low_24h)="data">
-                        <div v-if="data.value !=''" style="">{{toInterNationalNumber(data.value)}}$</div>
-                    </template>
+                            <template #cell(current_price)="data">
+                                <div v-if="data.value"
+                                    :class="{'greenFlash':data.item.flash == 1,'redFlash':data.item.flash ==2}"
+                                    style="width: 100px;">
+                                    {{toInterNationalNumber(data.value)}}$</div>
+                            </template>
+                            <template #cell(market_cap)="data">
+                                <div v-if="data.value" style="">{{toInterNationalNumber(data.value)}}$</div>
+                            </template>
+                            <template #cell(high_24h)="data">
+                                <div v-if="data.value !=''" style="">{{toInterNationalNumber(data.value)}}$</div>
+                            </template>
+                            <template #cell(low_24h)="data">
+                                <div v-if="data.value !=''" style="">{{toInterNationalNumber(data.value)}}$</div>
+                            </template>
 
-                    <template #cell(price_change_percentage_24h)="data">
-                        <div v-if="data.value">
-                            <span v-if="data.value>= 0" class="text-success"
-                                style="">{{ toInterNationalNumber(data.value) }}
-                                <span v-if="data.value"> %</span></span>
-                            <span v-else class="text-danger" style="">{{ toInterNationalNumber(data.value) }} %</span>
-                        </div>
-                    </template>
-                    <template #cell(roi_percentage)="data">
-                        <div v-if="data.value"> <span v-if="data.value>= 0 " class="text-success"
-                                @click="sortingCols(data.value)" style="">{{ roundData(data.value) }}
-                                <span v-if="data.value"> %</span></span>
-                            <span v-else-if="data.value!=null" class="text-danger" style="">{{ roundData(data.value) }}
-                                <span v-if="data.value"> %</span></span></div>
-                    </template>
-                    <template #cell(total_supply_percent)="data">
-                        <div v-if="data.value"> <span v-if="data.value>= 0 " class="text-success"
-                                @click="sortingCols(data.value)" style="">{{ roundData(data.value) }}
-                                <span v-if="data.value"> %</span></span>
-                            <span v-else-if="data.value!=null" class="text-danger" style="">{{ roundData(data.value) }}
-                                <span v-if="data.value"> %</span></span></div>
-                    </template>
-                    <template #cell(ath)="data">
-                        <div v-if="data.value">
-                            <span style="">{{toInterNationalNumber(data.value)}} <span v-if="data.value">$</span></span>
-                        </div>
-                    </template>
-                    <template #cell(atl)="data">
-                        <div v-if="data.value">
-                            <span style="">{{toInterNationalNumber(data.value)}} <span v-if="data.value">$</span></span>
-                        </div>
-                    </template>
-                    <template #cell(social_mentions_change)="data">
-                        <div v-if="data.value"> <span v-if="data.value>= 0 " class="text-success"
-                                @click="sortingCols(data.value)" style="">{{ roundData(data.value) }}
-                                <span v-if="data.value"> %</span></span>
-                            <span v-else-if="data.value!=null" class="text-danger" style="">{{ roundData(data.value) }}
-                                <span v-if="data.value"> %</span></span></div>
-                    </template>
-                    <template #cell(social_engagement_change)="data">
-                        <div v-if="data.value"> <span v-if="data.value>= 0 " class="text-success"
-                                @click="sortingCols(data.value)" style="">{{ roundData(data.value) }}
-                                <span v-if="data.value"> %</span></span>
-                            <span v-else-if="data.value!=null" class="text-danger" style="">{{ roundData(data.value) }}
-                                <span v-if="data.value"> %</span></span></div>
-                    </template>
-                    <template #cell(average_sentiment_change)="data">
-                        <div v-if="data.value"> <span v-if="data.value>= 0 " class="text-success"
-                                @click="sortingCols(data.value)" style="">{{ roundData(data.value) }}
-                                <span v-if="data.value"> %</span></span>
-                            <span v-else-if="data.value!=null" class="text-danger" style="">{{ roundData(data.value) }}
-                                <span v-if="data.value"> %</span></span></div>
-                    </template>
-                    <template #cell(average_sentiment)="data">
-                        <div v-if="data.value"> <span v-if="data.value>= 0 " class="" @click="sortingCols(data.value)"
-                                style="">{{ roundData(data.value) }}
-                            </span>
-                        </div>
-                    </template>
-                    <template #cell()="data">
-                        <div class="text-center" style="">
-                            <span v-if="checkString(data.value)" class="text-nowrap">{{ data.value }}</span>
-                            <span v-else class="text-nowrap">{{ toInterNationalNumber(data.value) }}</span>
-                        </div>
-                    </template>
-                </b-table>
-            </b-overlay>
+                            <template #cell(price_change_percentage_24h)="data">
+                                <div v-if="data.value">
+                                    <span v-if="data.value>= 0" class="text-success"
+                                        style="">{{ toInterNationalNumber(data.value) }}
+                                        <span v-if="data.value"> %</span></span>
+                                    <span v-else class="text-danger" style="">{{ toInterNationalNumber(data.value) }} %</span>
+                                </div>
+                            </template>
+                            <template #cell(roi_percentage)="data">
+                                <div v-if="data.value"> <span v-if="data.value>= 0 " class="text-success"
+                                        @click="sortingCols(data.value)" style="">{{ roundData(data.value) }}
+                                        <span v-if="data.value"> %</span></span>
+                                    <span v-else-if="data.value!=null" class="text-danger" style="">{{ roundData(data.value) }}
+                                        <span v-if="data.value"> %</span></span></div>
+                            </template>
+                            <template #cell(total_supply_percent)="data">
+                                <div v-if="data.value"> <span v-if="data.value>= 0 " class="text-success"
+                                        @click="sortingCols(data.value)" style="">{{ roundData(data.value) }}
+                                        <span v-if="data.value"> %</span></span>
+                                    <span v-else-if="data.value!=null" class="text-danger" style="">{{ roundData(data.value) }}
+                                        <span v-if="data.value"> %</span></span></div>
+                            </template>
+                            <template #cell(ath)="data">
+                                <div v-if="data.value">
+                                    <span style="">{{toInterNationalNumber(data.value)}} <span v-if="data.value">$</span></span>
+                                </div>
+                            </template>
+                            <template #cell(atl)="data">
+                                <div v-if="data.value">
+                                    <span style="">{{toInterNationalNumber(data.value)}} <span v-if="data.value">$</span></span>
+                                </div>
+                            </template>
+                            <template #cell(social_mentions_change)="data">
+                                <div v-if="data.value"> <span v-if="data.value>= 0 " class="text-success"
+                                        @click="sortingCols(data.value)" style="">{{ roundData(data.value) }}
+                                        <span v-if="data.value"> %</span></span>
+                                    <span v-else-if="data.value!=null" class="text-danger" style="">{{ roundData(data.value) }}
+                                        <span v-if="data.value"> %</span></span></div>
+                            </template>
+                            <template #cell(social_engagement_change)="data">
+                                <div v-if="data.value"> <span v-if="data.value>= 0 " class="text-success"
+                                        @click="sortingCols(data.value)" style="">{{ roundData(data.value) }}
+                                        <span v-if="data.value"> %</span></span>
+                                    <span v-else-if="data.value!=null" class="text-danger" style="">{{ roundData(data.value) }}
+                                        <span v-if="data.value"> %</span></span></div>
+                            </template>
+                            <template #cell(average_sentiment_change)="data">
+                                <div v-if="data.value"> <span v-if="data.value>= 0 " class="text-success"
+                                        @click="sortingCols(data.value)" style="">{{ roundData(data.value) }}
+                                        <span v-if="data.value"> %</span></span>
+                                    <span v-else-if="data.value!=null" class="text-danger" style="">{{ roundData(data.value) }}
+                                        <span v-if="data.value"> %</span></span></div>
+                            </template>
+                            <template #cell(average_sentiment)="data">
+                                <div v-if="data.value"> <span v-if="data.value>= 0 " class="" @click="sortingCols(data.value)"
+                                        style="">{{ roundData(data.value) }}
+                                    </span>
+                                </div>
+                            </template>
+                            <template #cell()="data">
+                                <div class="text-center" style="">
+                                    <span v-if="checkString(data.value)" class="text-nowrap">{{ data.value }}</span>
+                                    <span class="text-nowrap">{{ toInterNationalNumber(data.value) }}</span>
+                                </div>
+                            </template>
+                        </b-table>
+                    </b-overlay>
 
-        </div>
-        <div class="mx-2 mb-2">
-            <b-row>
-                <b-col cols="12" sm="6"
-                    class="d-flex align-items-center justify-content-center justify-content-sm-start">
-                    <span class="text-muted">Showing {{ items.from }} to {{ items.to }} of {{ items.total }}
-                        entries</span>
-                    <span class="text-muted ml-2">Per page :</span>
-                    <b-form-select v-model="params.perpage" class="ml-1" style="width:70px;">
-                        <b-form-select-option v-for="(page,index) in perPageOptions" :key="index" :value="page">
-                            {{ page }}
-                        </b-form-select-option>
-                    </b-form-select>
-                </b-col>
-                <!-- Pagination -->
-                <b-col cols="12" sm="6" class="d-flex align-items-center justify-content-center justify-content-sm-end">
+                </div>
+                <div class="mx-2 mb-2">
+                    <b-row>
+                        <b-col cols="12" sm="6"
+                            class="d-flex align-items-center justify-content-center justify-content-sm-start">
+                        </b-col>
+                        <!-- Pagination -->
+                        <b-col cols="12" sm="6" class="d-flex align-items-center justify-content-center justify-content-sm-end">
 
-                    <b-pagination v-model="Cpagpage" :total-rows="items.total" :per-page="items.per_page" first-number
-                        last-number class="mb-0 mt-1 mt-sm-0" prev-class="prev-item" next-class="next-item">
-                        <template #prev-text>
-                            <feather-icon icon="ChevronLeftIcon" size="18" />
-                        </template>
-                        <template #next-text>
-                            <feather-icon icon="ChevronRightIcon" size="18" />
-                        </template>
-                    </b-pagination>
+                            <b-pagination id="pagination" v-model="Cpagpage" :total-rows="items.total" :per-page="items.per_page" first-number
+                                last-number class="mb-0 mt-1 mt-sm-0" prev-class="prev-item" next-class="next-item" style="background-color:transaprent !important;">
+                                <template #prev-text style="background-color:transaprent !important;">
+                                    <feather-icon icon="ChevronLeftIcon" size="18" style="background-color:transaprent !important;"/>
+                                </template>
+                                <template #next-text style="background-color:transaprent !important;">
+                                    <feather-icon icon="ChevronRightIcon" size="18" style="background-color:transaprent !important;"/>
+                                </template>
+                            </b-pagination>
 
-                </b-col>
+                        </b-col>
 
-            </b-row>
-        </div>
+                    </b-row>
+                </div>
+            </div>
+        <!-- end search and table -->
         <b-modal id="modal-chart" ok-only ok-title="Close" :hide-footer="true" centered size="lg"
             title="Fear Greed Index History">
             <vue-apex-charts class="full" width="100%" :dataLabels="true" type="line" :options="chartOptions"
@@ -1212,18 +1287,19 @@
                             <b-card-body>
 
                                 <b-row>
-                                    <b-col class="text-center" cols="1" md="2" lg="2" sm="2"
+                                    <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
                                         v-if="activeData.website && activeData.website != '' ">
-                                        <a :href="activeData.website" target="_blank" class="d-block">
+                                        <a :href="activeData.website" target="_blank" class="d-block" 
+                                        style="margin-top:20px; margin-bottom:10px;">
                                             <b-img rounded :src="'/images/static/website.png'" fluid class="w-50"
                                                 alt="Responsive image" />
                                         </a>
                                         <span class="text-center" style="font-size:12px; font-weight:500">Website
                                         </span>
                                     </b-col>
-                                    <b-col class="text-center" cols="1" md="2" lg="2" sm="2"
+                                    <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
                                         v-if="activeData.twitter && activeData.twitter != '' ">
-                                        <a :href="activeData.twitter" target="_blank" class="d-block">
+                                        <a :href="activeData.twitter" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
                                             <b-img rounded :src="'/images/static/twitter.png'" fluid class="w-50"
                                                 alt="Responsive image" />
                                         </a>
@@ -1233,9 +1309,9 @@
                                         <span class="text-center" style="font-size:12px; font-weight:500" v-else>Twitter
                                         </span>
                                     </b-col>
-                                    <b-col class="text-center" cols="1" md="2" lg="2" sm="2"
+                                    <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
                                         v-if="activeData.telegram && activeData.telegram != '' ">
-                                        <a :href="activeData.telegram" target="_blank" class="d-block">
+                                        <a :href="activeData.telegram" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
                                             <b-img rounded :src="'/images/static/telegram.png'" fluid class="w-50"
                                                 alt="Responsive image" />
 
@@ -1247,9 +1323,9 @@
                                             v-else>Telegram
                                         </span>
                                     </b-col>
-                                    <b-col class="text-center" cols="1" md="2" lg="2" sm="2"
+                                    <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
                                         v-if="activeData.discord && activeData.discord != '' ">
-                                        <a :href="activeData.discord" target="_blank" class="d-block">
+                                        <a :href="activeData.discord" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
                                             <b-img rounded :src="'/images/static/discord.png'" fluid class="w-50"
                                                 alt="Responsive image" />
 
@@ -1260,9 +1336,9 @@
                                         <span class="text-center" style="font-size:12px; font-weight:500" v-else>Discord
                                         </span>
                                     </b-col>
-                                    <b-col class="text-center" cols="1" md="2" lg="2" sm="2"
+                                    <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
                                         v-if="activeData.medium && activeData.medium != '' ">
-                                        <a :href="activeData.medium" target="_blank" class="d-block">
+                                        <a :href="activeData.medium" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
                                             <b-img rounded :src="'/images/static/medium.png'" fluid class="w-50"
                                                 alt="Responsive image" />
 
@@ -1273,9 +1349,9 @@
                                         <span class="text-center" style="font-size:12px; font-weight:500" v-else>Medium
                                         </span>
                                     </b-col>
-                                    <b-col class="text-center" cols="1" md="2" lg="2" sm="2"
+                                    <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
                                         v-if="activeData.reddit && activeData.reddit != '' ">
-                                        <a :href="activeData.reddit" target="_blank" class="d-block">
+                                        <a :href="activeData.reddit" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
                                             <b-img rounded :src="'/images/static/reddit.png'" fluid class="w-50"
                                                 alt="Responsive image" />
 
@@ -1286,9 +1362,9 @@
                                         <span class="text-center" style="font-size:12px; font-weight:500" v-else>Reddit
                                         </span>
                                     </b-col>
-                                    <b-col class="text-center" cols="1" md="2" lg="2" sm="2"
+                                    <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
                                         v-if="activeData.whitepaper && activeData.whitepaper != '' ">
-                                        <a :href="activeData.whitepaper" target="_blank" class="d-block">
+                                        <a :href="activeData.whitepaper" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
                                             <b-img rounded :src="'/images/static/whitepaper.png'" fluid
                                                 class="w-50 bg-light" alt="Responsive image" />
 
@@ -1300,9 +1376,9 @@
                                             v-else>Whitepaper
                                         </span>
                                     </b-col>
-                                    <b-col class="text-center" cols="1" md="2" lg="2" sm="2"
+                                    <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
                                         v-if="activeData.github && activeData.github != '' ">
-                                        <a :href="activeData.github" target="_blank" class="d-block">
+                                        <a :href="activeData.github" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
                                             <b-img rounded :src="'/images/static/github.png'" fluid class="w-50"
                                                 alt="Responsive image" />
                                         </a>
@@ -1315,25 +1391,23 @@
                                 </b-row>
                                 <b-row class="text-center mt-1 mb-1">
                                     <b-col sm="3" md="2" v-if="activeData">
-                                        <div class="border border-2 rounded border-dark">
+                                        <div class="border border-2 rounded border-dark greenGradient">
                                             <div class="soicalLable">Social Score: </div>
-                                            <div class="m-0 p-0 border  border border-dark"></div>
                                             <div style="margin: 13px 0 16px 0; font-size: 14px;">
                                                 {{ calculate_social_score(activeData) }}/10</div>
                                         </div>
                                     </b-col>
                                     <b-col sm="3" md="2" v-if="activeData.total_supply_percent">
-                                        <div class="border border-2 rounded border-dark">
+                                        <div class="border border-2 rounded border-dark greenGradient">
                                             <div class="soicalLable">Total Supply %: </div>
-                                            <div class="m-0 p-0 border  border border-dark"></div>
                                             <div style="margin: 13px 0 16px 0; font-size: 14px;">
                                                 {{ activeData.total_supply_percent}} %</div>
                                         </div>
                                     </b-col>
                                     <b-col sm="3" md="2" v-if="activeData.social_mentions">
-                                        <div class="border border-2 rounded border-dark">
+                                        <div class="border border-2 rounded border-dark greenGradient">
                                             <div class="soicalLable">Social Mentions: </div>
-                                            <div class="m-0 p-0 border  border border-dark"></div>
+                                            
                                             <div style="margin: 13px 0 16px 0; font-size: 14px" class="text-success"
                                                 v-if="activeData.social_mentions>=0">
                                                 +{{toInterNationalNumber(activeData.social_mentions)}} %</div>
@@ -1342,17 +1416,15 @@
                                         </div>
                                     </b-col>
                                     <b-col sm="3" md="2" v-if="activeData.average_sentiment">
-                                        <div class=" border-2 rounded border-dark">
+                                        <div class=" border-2 rounded border-dark greenGradient">
                                             <div class="soicalLable">Average Sentiment: </div>
-                                            <div class="m-0 p-0    border-dark"></div>
                                             <div style="margin: 13px 0 16px 0; font-size: 14px;" class="text-success">
                                                 {{roundData(activeData.average_sentiment)}}</div>
                                         </div>
                                     </b-col>
                                     <b-col sm="3" md="2" v-if="activeData.social_engagement">
-                                        <div class=" border-2 rounded border-dark">
+                                        <div class=" border-2 rounded border-dark greenGradient">
                                             <div class="soicalLable">Social Engagement: </div>
-                                            <div class="m-0 p-0   border border-dark"></div>
                                             <div style="margin: 13px 0 16px 0; font-size: 14px" class="text-success"
                                                 v-if="activeData.social_mentions>=0">
                                                 +{{toInterNationalNumber(activeData.social_engagement)}} %</div>
@@ -1361,9 +1433,8 @@
                                         </div>
                                     </b-col>
                                     <b-col sm="3" md="2" v-if="activeData.average_sentiment_change">
-                                        <div class="border border-3 rounded border-dark">
+                                        <div class="border border-3 rounded border-dark greenGradient">
                                             <div class="soicalLable">Social Engagement: </div>
-                                            <div class="m-0 p-0 border  border border-dark"></div>
                                             <div style="margin: 13px 0 16px 0; font-size: 14px" class="text-success"
                                                 v-if="roundData(activeData.average_sentiment_change)>=0">
                                                 +{{roundData(activeData.average_sentiment_change)?roundData(activeData.average_sentiment_change):0}}
@@ -1603,15 +1674,7 @@
                             </vue-apex-charts>
                         </div>
                     </app-collapse-item>
-                    <app-collapse-item class="w-100" title="Description"
-                        v-if="activeData.coin_description && activeData.coin_description.trim() != ''">
-                        <b-card no-body class="mb-1">
-                            <b-card-body>
-                                <b-card-text class="model-desc" v-html="activeData.coin_description">
-                                </b-card-text>
-                            </b-card-body>
-                        </b-card>
-                    </app-collapse-item>
+                    
                 </app-collapse>
             </template>
         </b-modal>
@@ -1696,6 +1759,8 @@
     import Cleave from 'vue-cleave-component'
     // eslint-disable-next-line import/no-extraneous-dependencies
     import 'cleave.js/dist/addons/cleave-phone.us'
+    import 'bootstrap-icons/font/bootstrap-icons';
+    import 'bootstrap-icons/font/bootstrap-icons.css';
     export default {
         components: {
             BTable,
@@ -2135,9 +2200,10 @@
                 const tagsArray = val.split("|");
                 var index = 0;
                 for (index = 0; index <= 1; index++) {
+                    if(index==1) break;
                     if (tagsArray[index] != undefined && tagsArray[index] != "")
                         tags = tags +
-                        ' <div class="d-block " style="margin-bottom:1px;"><span class="bg-success text-white customBadge">' +
+                        ' <div class="d-block " style="margin-bottom:1px;"><span class="bg-success text-white customBadge" style="padding:5px; font-size:14px;">' +
                         tagsArray[index] + '</span></div>';
                 }
                 return tags;
@@ -3097,7 +3163,6 @@
     #dashboard table td {
         padding-left: 4px !important;
         padding-right: 4px !important;
-        font-size: 14px;
         font-family: 'Poppins'
 
     }
@@ -3105,8 +3170,8 @@
     #dashboard table th {
         padding-left: 4px !important;
         padding-right: 4px !important;
-        font-size: 12px !important;
-        font-family: 'Poppins' !important
+        font-size: 14px;
+        font-family: 'Poppins';
     }
 
     #dashboard .b-avatar {
@@ -3182,23 +3247,73 @@
         margin: 0 8px 0 8px
     }
 
-    .whiteLetter{
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 300;
-        font-size: 12px;
-        line-height: 14px;
-        color: #FFFFFF;
+    .margin16_b{
+        margin-bottom: 16px;
     }
 
-    .geryLetter{
+    .feerGreen{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 35px;
+        text-align: center;
+        color: #6BD863;
+    }
+   
+    .feerSmallGreen{
+        font-family: 'Poppins';
+        font-style: normal;
+        text-align: center;
+        color: #6BD863;
+        font-size: 20px;
+    }
+
+    thead tr th{
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 400;
-        font-size: 12px;
-        line-height: 14px;
-        color: #FFFFFF;
-        opacity: 0.5;
+        font-size: 14px;
     }
+    
+    tbody tr{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 20px;
+        background: linear-gradient(172deg, rgba(43, 255, 77, 0.3) 3.11%, rgba(0, 0, 0, 0) 20.06%), rgba(255, 255, 255, 0.07);
+        
+    }
+
+    table {
+        border-collapse: separate;
+        border-spacing: 0 15px !important;
+    }
+
+    td {
+        border: solid 0px #000000;
+        padding: 30px;
+    }
+
+    tr td:first-child { border-top-left-radius: 30px; border-bottom-left-radius: 30px; }
+    tr td:last-child { border-top-right-radius: 30px;  border-bottom-right-radius: 30px;}
+
+    tr td:first-child { border-bottom-left-radius: 30px;  border-top-left-radius: 30px;}
+    tr td:last-child { border-bottom-right-radius: 30px;  border-top-right-radius: 30px;}
+
+    tr td { border-top-style: solid; }
+    tr td:first-child { border-left-style: solid; }
+
+    #pagination button span{
+        background-color: transparent !important;
+    }
+
+    .greenGradient {
+        margin-right: 10px; margin-bottom: 10px;
+        padding-bottom:10px;
+        border-radius: 20px;
+        background: linear-gradient(169deg, rgba(43, 255, 77, 0.3) 3.11%, rgba(0, 0, 0, 0) 50.06%), rgba(255, 255, 255, 0.07);
+    }
+   
+
 
 </style>
