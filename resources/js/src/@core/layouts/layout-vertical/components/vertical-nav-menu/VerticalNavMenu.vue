@@ -120,6 +120,7 @@ import useVerticalNavMenu from './useVerticalNavMenu'
 import DarkToggler from '@core/layouts/components/app-navbar/components/DarkToggler.vue'
 import { avatarText } from '@core/utils/filter'
 import useJwt from '@/auth/jwt/useJwt'
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { initialAbility } from '@/libs/acl/config'
 
 export default {

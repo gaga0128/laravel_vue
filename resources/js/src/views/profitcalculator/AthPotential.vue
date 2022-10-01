@@ -24,7 +24,7 @@
 
         <b-card v-if="show == 1&&selected != null">
             <b-row class="">
-                <b-col md="6" xl="6" class="">
+                <b-col md="6" xl="6" class="float-right">
                     <div class="radius_gradient">
                         <b-card title="ATH Potential" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px;">
                             <b-row>
@@ -38,8 +38,6 @@
                                     <b-col cols="12">
                                         <p class="text-wrap" style="width:160px" v-if="selected.athX >=1"> {{roundData(selected.athX) }}X</p>
                                         <p class="text-wrap" style="width:160px" v-else> {{selected.athX }}X</p>
-
-
                                     </b-col>
                                 </div>
                             </b-row>
