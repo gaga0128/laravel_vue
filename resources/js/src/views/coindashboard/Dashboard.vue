@@ -1,5 +1,6 @@
 <template>
     <div id="dashboard">
+        
         <b-overlay :show="fagLoad" rounded="sm" class="pt-1" style="margin-top:10px; margin-bottom:30px;">
                 <div class="mx-auto" style="">
                         <b-row class=" mb-1">
@@ -252,7 +253,7 @@
                                             
                                             <feather-icon  icon="SlidersIcon" size="20" class=" text-black cursor-pointer" style="color:white;"/>
                                         </template>
-                                        <b-dropdown-form href="#" class="dropdown-mine">
+                                        <b-dropdown-form href="#" class="dropdown-mine" name="dropdownform">
                                             <div style="font-family: 'Poppins';
                                                 font-style: normal;
                                                 font-weight: 500;
@@ -1046,11 +1047,12 @@
             <vue-apex-charts class="full" width="100%" :dataLabels="true" type="line" :options="chartOptions"
                 :series="series"></vue-apex-charts>
         </b-modal>
-        <b-modal id="modal-filters" :hide-footer="true" size="lg" title="Filters">
+        <b-modal id="modal-filters" :hide-footer="true" size="lg" title="">
             <template>
                 <b-row>
+                    
                     <b-col>
-                        <b-form-select v-model="selectedPreset">
+                        <b-form-select v-model="selectedPreset" style="background: #18181A;">
                             <b-form-select-option :value="null" selected>Select A Preset</b-form-select-option>
                             <b-form-select-option v-for="(preset,index) in presetFilters" :key="index"
                                 :value="preset.id">
@@ -1075,9 +1077,10 @@
 
                     </b-col>
                 </b-row>
+                <hr style="padding:0px; margin:0px 0px 10px 0px;">
                 <div class="accordion" role="tablist">
                     <app-collapse accordion>
-                        <app-collapse-item :isVisible="true" title="Base Filters">
+                        <app-collapse-item :isVisible="true" title="Market Data Filters">
                             <b-card class="mb-1">
                                 <b-card-body>
                                     <b-row>
@@ -1096,9 +1099,23 @@
                                                         <cleave id="max_market_cap" v-model="filterKey.max_market_cap"
                                                             class="form-control" :raw="false" :options="NumberFormaVal"
                                                             placeholder="max" />
+                                                            
+                                                            
 
                                                     </div>
                                                 </b-form-group>
+                                            </div>
+                                            <div>
+                                                <MultiRangeSlider
+                                                            baseClassName="multi-range-slider-bar-only"
+                                                            :minValue="filterKey.min_market_cap"
+                                                            :maxValue="filterKey.max_market_cap"
+                                                            :max="100"
+                                                            :min="0"
+                                                            :step="1"
+                                                            :rangeMargin="0"
+                                                            @input="update_oBarValues"
+                                                            />
                                             </div>
 
                                         </b-col>
@@ -2201,7 +2218,9 @@
         VBPopover
 
     } from 'bootstrap-vue'
-
+    import MultiRangeSlider from "multi-range-slider-vue";
+    import "../../../../../node_modules/multi-range-slider-vue/MultiRangeSliderBlack.css";
+    import "../../../../../node_modules/multi-range-slider-vue/MultiRangeSliderBarOnly.css";
     import Ripple from 'vue-ripple-directive'
     import axios from '@axios'
     import {
@@ -2228,6 +2247,7 @@
     import 'bootstrap-icons/font/bootstrap-icons.css';
     export default {
         components: {
+            MultiRangeSlider,
             BTable,
             BFormCheckbox,
             BAvatar,
@@ -2268,6 +2288,8 @@
         },
         data() {
             return {
+                oBarMinValue: 10,
+                oBarMaxValue: 90,
                 NumberFormaVal: {
                     numeral: true,
                     numeralThousandsGroupStyle: 'thousand',
@@ -2600,6 +2622,10 @@
 
         },
         methods: {
+            update_oBarValues(e) {
+                filterKey.min_market_cap = e.minValue;
+                filterKey.max_market_cap = e.maxValue;
+            },
             loadCoins() {
                 this.$bvModal.hide('modal-filters');
                 this.isBusy = true;
