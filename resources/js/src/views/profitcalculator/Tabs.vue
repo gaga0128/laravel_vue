@@ -1,20 +1,20 @@
 <template>
     <b-row>
         <b-col cols="12">
-    <b-card title="Profit Calculator">
-        <b-tabs  content-class="pt-2" fill>
-            <b-tab active title="ATH Potential">
-                <AthPotentialVue />
-            </b-tab>
-            <b-tab  title=" Compare to Token">
-              <CompareToVue/>
-            </b-tab>
-            <b-tab title="Avagare top 5 potential calculators">
-              <AverageFiveVue/>
-            </b-tab>
-        </b-tabs>
-    </b-card>
-    </b-col>
+            <b-card title="Profit Calculator">
+                <b-tabs content-class="pt-2">
+                    <b-tab active title="ATH Potential">
+                        <AthPotentialVue />
+                    </b-tab>
+                    <b-tab title=" Compare to Token">
+                        <CompareToVue/>
+                    </b-tab>
+                    <b-tab title="Avagare top 5 potential calculators">
+                        <AverageFiveVue/>
+                    </b-tab>
+                </b-tabs>
+            </b-card>
+        </b-col>
     </b-row>
 </template>
 
