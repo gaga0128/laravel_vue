@@ -1647,43 +1647,50 @@
         <b-modal id="modal-details" :hide-footer="true" v-if="activeData" centered size="lg">
             <template>
                 <div slot="modal-title">
-                    <div class="d-flex justify-content-between max-block">
-                        <div class="d-flex ">
+                    <div class="w-full justify-content-between d-flex">
+                        <div class="d-inline">
+                            <div class="rank_slot">Rank #{{toInterNationalNumber(activeData.market_cap_rank)}}</div>
                             <div class="d-flex">
-                                <b-avatar class="bg-light" v-if="activeData.image" :src="activeData.image"></b-avatar>
-                                <span class="marginx1"> {{activeData.name +' - '+activeData.symbol}}</span>
-                            </div>
-                            <div class="d-flex ">
-                                <div class="d-flex">
-                                    <span class=""
-                                        :class="{'greenFlash':activeData.flash == 1,'redFlash':activeData.flash ==2}"
-                                        v-if="activeData.current_price && activeData.current_price>= 0">{{ roundData(activeData.current_price) }}$
+                                <div class="d-flex m-auto">
+                                    <b-avatar class="bg-light mr-1" v-if="activeData.image" :src="activeData.image"></b-avatar>
+                                    <span class="marginx1 m-auto" style="font-family: monospace; font-style: normal; font-weight: 300; font-size: 18px; margin-right:10px !important;"> 
+                                        {{activeData.name}}
+                                        <span style="font-family: monospace; font-style: normal; font-weight: 300; font-size: 12px;">{{' '+activeData.symbol}}</span>
                                     </span>
                                 </div>
-                                <div>
-                                    <span v-if="activeData.price_change_percentage_24h && activeData.price_change_percentage_24h>= 0"
-                                        class="text-success d-flex  marginx1"
-                                        style="font-size:12px; margin-top: 2px;"><span>{{ roundData(activeData.price_change_percentage_24h) }}</span>
-                                        <div> %
-                                            <feather-icon size="10" icon="ChevronUpIcon" />
-                                        </div>
-                                    </span>
-                                    <span v-else-if="activeData.price_change_percentage_24h"
-                                        style="font-size:12px; margin-top: 2px;"
-                                        class="text-danger d-flex marginx1"><span>{{ roundData(activeData.price_change_percentage_24h) }}</span>
-                                        <div> %
-                                            <feather-icon size="10" icon="ChevronDownIcon" />
-                                        </div>
-                                    </span>
+                                <div class="d-flex m-auto">
+                                    <div class="d-flex">
+                                        <span class=""
+                                            :class="{'greenFlash':activeData.flash == 1,'redFlash':activeData.flash ==2}"
+                                            style="font-style: normal; font-weight: 300; font-size: 20px;"
+                                            v-if="activeData.current_price && activeData.current_price>= 0">${{ roundData(activeData.current_price) }}
+                                        </span>
+                                    </div>
+                                    <div class="d-flex m-auto">
+                                        <span v-if="activeData.price_change_percentage_24h && activeData.price_change_percentage_24h>= 0"
+                                            class="btn-success d-flex  marginx1"
+                                            style="font-size:12px; margin-top: 2px;border-radius:5px; padding:0px 5px"><span>{{ roundData(activeData.price_change_percentage_24h) }}</span>
+                                            <div> %
+                                                <feather-icon size="10" icon="ChevronUpIcon" />
+                                            </div>
+                                        </span>
+                                        <span v-else-if="activeData.price_change_percentage_24h"
+                                            style="font-size:12px; margin-top: 2px;border-radius:5px; padding:0px 5px"
+                                            class="btn-danger d-flex marginx1"><span>{{ roundData(activeData.price_change_percentage_24h) }}</span>
+                                            <div> %
+                                                <feather-icon size="10" icon="ChevronDownIcon" />
+                                            </div>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            <div class="bg-theme rounded"
+                        <div class="w-50 d-inline">
+                            <div class="bg-theme rounded d-inline"
                                 v-if="activeData.contract_address && activeData.contract_address.length>0">
 
-                                <div class="d-flex">
-                                    <div class="my-auto" style="margin-right: 4px;">Contract </div>
+                                <div>
+                                    <div class="my-auto" style="margin-right: 4px;padding-left:10px; font-family: monospace; font-style: normal; font-weight: 300; font-size: 14px;">Contract </div>
                                     <b-form-select v-model="selectedContract">
                                         <b-form-select-option :value="null" selected>Select</b-form-select-option>
                                         <b-form-select-option v-for="(address,index) in activeData.contract_address"
@@ -1706,8 +1713,8 @@
                     </div>
 
                 </div>
-                <app-collapse accordion>
-                    <div class="rank_slot">Rank #{{toInterNationalNumber(activeData.market_cap_rank)}}</div>
+                <!-- <app-collapse accordion> -->
+                <app-collapse>
                     <app-collapse-item v-if="activeData.sparkline_in_7d&& activeData.sparkline_in_7d.length>0
                         || activeData.roi_times ||activeData.round_price && activeData.round_price !=0 && activeData.current_price&& activeData.current_price !=0
                          || activeData.total_volume
@@ -1720,7 +1727,7 @@
                                     <b-col md="8" sm="7" class="text-center sparlineChat mb-2"
                                         v-if="activeData.sparkline_in_7d&& activeData.sparkline_in_7d.length>0">
                                         <h5> 7 Days</h5>
-                                        <vue-apex-charts class="full" width="100%" :dataLabels="true" type="line"
+                                        <vue-apex-charts class="full" width="100%" :dataLabels="true" type="area"
                                             height="290" :options="seven_DaysChart" :series="seven_DaysChartseries">
                                         </vue-apex-charts>
                                         <!-- <sparkline width="300" height="150">
@@ -1768,7 +1775,7 @@
                         <b-card no-body class="mb-1">
                             <b-card-body>
 
-                                <b-row>
+                                <b-row class="justify-content-center">
                                     <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
                                         v-if="activeData.website && activeData.website != '' ">
                                         <a :href="activeData.website" target="_blank" class="d-block" 
@@ -1871,57 +1878,56 @@
                                         </span>
                                     </b-col>
                                 </b-row>
-                                <b-row class="text-center mt-1 mb-1">
+                                <b-row class="text-center mt-1 mb-1 justify-content-center">
                                     <b-col sm="3" md="2" v-if="activeData">
                                         <div class="border border-2 rounded border-dark greenGradient">
                                             <div class="soicalLable">Social Score: </div>
-                                            <div style="margin: 13px 0 16px 0; font-size: 14px;">
+                                            <div class="d-flex justify-content-center text-nowrap" style="margin: 13px 0 16px 0; font-size: 14px;">
                                                 {{ calculate_social_score(activeData) }}/10</div>
                                         </div>
                                     </b-col>
                                     <b-col sm="3" md="2" v-if="activeData.total_supply_percent">
                                         <div class="border border-2 rounded border-dark greenGradient">
                                             <div class="soicalLable">Total Supply %: </div>
-                                            <div style="margin: 13px 0 16px 0; font-size: 14px;">
+                                            <div class="d-flex justify-content-center text-nowrap" style="margin: 13px 0 16px 0; font-size: 14px;">
                                                 {{ activeData.total_supply_percent}} %</div>
                                         </div>
                                     </b-col>
                                     <b-col sm="3" md="2" v-if="activeData.social_mentions">
                                         <div class="border border-2 rounded border-dark greenGradient">
                                             <div class="soicalLable">Social Mentions: </div>
-                                            
-                                            <div style="margin: 13px 0 16px 0; font-size: 14px" class="text-success"
+                                            <div style="margin: 13px 0 16px 0; font-size: 14px" class="text-success d-flex justify-content-center text-nowrap"
                                                 v-if="activeData.social_mentions>=0">
                                                 +{{toInterNationalNumber(activeData.social_mentions)}} %</div>
-                                            <div style="margin: 13px 0 16px 0; font-size: 14px;" class="text-danger"
+                                            <div style="margin: 13px 0 16px 0; font-size: 14px;" class="text-danger d-flex justify-content-center text-nowrap"
                                                 v-else> {{toInterNationalNumber(activeData.social_mentions)}} %</div>
                                         </div>
                                     </b-col>
                                     <b-col sm="3" md="2" v-if="activeData.average_sentiment">
                                         <div class=" border-2 rounded border-dark greenGradient">
                                             <div class="soicalLable">Average Sentiment: </div>
-                                            <div style="margin: 13px 0 16px 0; font-size: 14px;" class="text-success">
+                                            <div style="margin: 13px 0 16px 0; font-size: 14px;" class="text-success d-flex justify-content-center text-nowrap">
                                                 {{roundData(activeData.average_sentiment)}}</div>
                                         </div>
                                     </b-col>
                                     <b-col sm="3" md="2" v-if="activeData.social_engagement">
                                         <div class=" border-2 rounded border-dark greenGradient">
                                             <div class="soicalLable">Social Engagement: </div>
-                                            <div style="margin: 13px 0 16px 0; font-size: 14px" class="text-success"
+                                            <div style="margin: 13px 0 16px 0; font-size: 14px" class="text-success d-flex justify-content-center text-nowrap"
                                                 v-if="activeData.social_mentions>=0">
                                                 +{{toInterNationalNumber(activeData.social_engagement)}} %</div>
-                                            <div style="margin: 13px 0 16px 0; font-size: 14px;" class="text-danger"
+                                            <div style="margin: 13px 0 16px 0; font-size: 14px;" class="text-danger d-flex justify-content-center text-nowrap"
                                                 v-else> {{toInterNationalNumber(activeData.social_engagement)}} %</div>
                                         </div>
                                     </b-col>
                                     <b-col sm="3" md="2" v-if="activeData.average_sentiment_change">
                                         <div class="border border-3 rounded border-dark greenGradient">
                                             <div class="soicalLable">Social Engagement: </div>
-                                            <div style="margin: 13px 0 16px 0; font-size: 14px" class="text-success"
+                                            <div style="margin: 13px 0 16px 0; font-size: 14px" class="text-success d-flex justify-content-center text-nowrap"
                                                 v-if="roundData(activeData.average_sentiment_change)>=0">
                                                 +{{roundData(activeData.average_sentiment_change)?roundData(activeData.average_sentiment_change):0}}
                                                 %</div>
-                                            <div style="margin: 13px 0 16px 0; font-size: 14px;" class="text-danger"
+                                            <div style="margin: 13px 0 16px 0; font-size: 14px;" class="text-danger d-flex justify-content-center text-nowrap"
                                                 v-else>
                                                 {{roundData(activeData.average_sentiment_change)?roundData(activeData.average_sentiment_change):0}}
                                                 %</div>
@@ -2390,6 +2396,7 @@
                     chart: {
                         id: 'trading-history',
                         height: 290,
+                        background: '#54b9eb'
                     },
                     xaxis: {
                         labels: {
@@ -2434,6 +2441,21 @@
                     chart: {
                         id: '7days-history',
                         height: 290,
+                        background:"transparent"
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    colors: ['#50DC5F'],
+                    fill:{
+                        type:'gradient',
+                        background:'transparent',
+                        gradient: {
+                            shadeIntensity: 1,
+                            opacityFrom: 0.7,
+                            opacityTo: 0.9,
+                            stops: [0, 90, 100]
+                        }
                     },
                     xaxis: {
                         labels: {
@@ -2448,7 +2470,6 @@
                         categories: [],
                         type: 'datetime',
                     },
-                    colors: ['#c7361c'],
                     yaxis: {
                         labels: {
                             show: true,
@@ -2464,7 +2485,7 @@
                         show: true,
                         curve: 'smooth',
                         lineCap: 'butt',
-                        width: 1,
+                        width: 2,
                         dashArray: 0,
                         labels: {
                             show: true,
@@ -3711,10 +3732,8 @@
     }
 
     .rank_slot {
-        position: relative;
         top: 36px;
         right: 189px;
-        float: right;
         z-index: 999;
     }
 
