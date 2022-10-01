@@ -71,9 +71,9 @@
                             <div class="mx-auto w-75 text-center">
                                 <h5 class="w-75 mx-auto margin16_b feerTitle">Fear and Greed</h5>
                                 <VueSvgGauge width="60%" class="w-75 mx-auto" :start-angle="-90" :end-angle="90"
-                                    :inner-radius="87" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
-                                    :max="100"
-                                    :gauge-color="[{ offset: 0, color: '#f55442'}, { offset: 100, color: '#0bd63a'}]"
+                                    :inner-radius="95" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
+                                    :max="50"
+                                    :gauge-color="[{ offset: 0, color: '#F6573E'}, { offset: 25, color: '#FD7941'}, { offset: 50, color: '#E7D45D'}, { offset: 75, color: '#7DD75F'}, { offset: 100, color: '#51D868'}]"
                                     :scale-interval="3">
                                     <div class="inner-text" style="display:block;">
                                         <div style="margin-top: 2rem !important;"
@@ -103,9 +103,9 @@
                             <div class="mx-auto w-75 text-center">
                                 <h5 class="w-75 mx-auto margin16_b feerTitle">NFT Barometer</h5>
                                 <VueSvgGauge width="60%" class="w-75 mx-auto" :start-angle="-90" :end-angle="90"
-                                    :inner-radius="87" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
-                                    :max="100"
-                                    :gauge-color="[{ offset: 0, color: '#f55442'}, { offset: 100, color: '#0bd63a'}]"
+                                    :inner-radius="95" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
+                                    :max="50"
+                                    :gauge-color="[{ offset: 0, color: '#F6573E'}, { offset: 25, color: '#FD7941'}, { offset: 50, color: '#E7D45D'}, { offset: 75, color: '#7DD75F'}, { offset: 100, color: '#51D868'}]"
                                     :scale-interval="3">
                                     <div class="inner-text" style="display:block;">
                                         <div style="margin-top: 2rem !important;"
@@ -127,6 +127,7 @@
                                         </div>
                                         
                                     </div>
+                                    
                                 </VueSvgGauge>
                             </div>
                         </b-col>
@@ -134,9 +135,9 @@
                             <div class="mx-auto w-75 text-center">
                                 <h5 class="w-75 mx-auto margin16_b feerTitle">BTC in/outflow</h5>
                                 <VueSvgGauge width="60%" class="w-75 mx-auto" :start-angle="-90" :end-angle="90"
-                                    :inner-radius="87" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
-                                    :max="100"
-                                    :gauge-color="[{ offset: 0, color: '#f55442'}, { offset: 100, color: '#0bd63a'}]"
+                                    :inner-radius="95" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
+                                    :max="50"
+                                    :gauge-color="[{ offset: 0, color: '#F6573E'}, { offset: 25, color: '#FD7941'}, { offset: 50, color: '#E7D45D'}, { offset: 75, color: '#7DD75F'}, { offset: 100, color: '#51D868'}]"
                                     :scale-interval="3">
                                     <div class="inner-text" style="display:block;">
                                         <div style="margin-top: 2rem !important;"
@@ -158,6 +159,7 @@
                                         </div>
                                         
                                     </div>
+                                    
                                 </VueSvgGauge>
                             </div>
                         </b-col>
@@ -165,9 +167,9 @@
                             <div class="mx-auto w-75 text-center">
                                 <h5 class="w-75 mx-auto margin16_b feerTitle">BTC Outflow</h5>
                                 <VueSvgGauge width="60%" class="w-75 mx-auto" :start-angle="-90" :end-angle="90"
-                                    :inner-radius="87" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
-                                    :max="100"
-                                    :gauge-color="[{ offset: 0, color: '#f55442'}, { offset: 100, color: '#0bd63a'}]"
+                                    :inner-radius="95" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
+                                    :max="50"
+                                    :gauge-color="[{ offset: 0, color: '#F6573E'}, { offset: 25, color: '#FD7941'}, { offset: 50, color: '#E7D45D'}, { offset: 75, color: '#7DD75F'}, { offset: 100, color: '#51D868'}]"
                                     :scale-interval="3">
                                     <div class="inner-text" style="display:block;">
                                         <div style="margin-top: 2rem !important;"
@@ -189,6 +191,7 @@
                                         </div>
                                         
                                     </div>
+                                    
                                 </VueSvgGauge>
                             </div>
                         </b-col>
@@ -215,32 +218,32 @@
                         <b-col cols="12" md="4" xl="2">
                             <div class="d-flex jusctify-content-between float-right">
                                 <div v-b-modal.modal-filters >
-                                            <b-button style="padding:5px; color:white;" v-ripple.400="'rgba(255, 255, 255,1)'" title="Filter" variant="flat-success"
-                                                 class="btn-icon mx-1">
-                                                <feather-icon icon="FilterIcon" size="20" class="text-black cursor-pointer" style=" " />
+                                            <b-button style="padding:5px; " v-ripple.400="'rgba(255, 255, 255,1)'" title="Filter" variant="flat-success"
+                                                 class="btn-icon mx-1 ">
+                                                <feather-icon icon="FilterIcon" size="20" class="darkWhiteText text-black cursor-pointer" style=" " />
                                             </b-button>
                                 </div>
                                 <div>
-                                    <b-button  v-if="!locked" @click="lockedFilter" style="color:white; padding:5px; width:33px" variant="flat-success"
+                                    <b-button  v-if="!locked" @click="lockedFilter" style=" padding:5px; width:33px" variant="flat-success"
                                         title="Unlocking" v-ripple.400="'rgba(255, 255, 255,1)'"  
                                         class="btn-icon mr-1 ">
-                                        <feather-icon icon="UnlockIcon" size="20" class="text-black cursor-pointer" style=" " />
+                                        <feather-icon icon="UnlockIcon" size="20" class="darkWhiteText text-black cursor-pointer" style=" " />
 
                                     </b-button>
-                                    <b-button v-else @click="lockedFilter" style="color:white; padding:5px; width:33px" title="All Tokens" variant="flat-success"
+                                    <b-button v-else @click="lockedFilter" style=" padding:5px; width:33px" title="All Tokens" variant="flat-success"
                                         v-ripple.400="'rgba(255, 255, 255,1)'"  
                                         class="btn-icon mr-1 ">
                                         
-                                        <b-img class=" cursor-pointer rounded-full" width="25px" height="25px" fluid
+                                        <b-img class=" cursor-pointer rounded-full darkWhiteText" width="25px" height="25px" fluid
                                         src="/images/static/noun-cryptocurrency-3262833.svg" />
                                     </b-button>
                                         
                                 </div>
                                 
                                 <div @click="clearFilters(true)">
-                                    <b-button style="padding:5px; color:white;" v-ripple.400="'rgba(255, 255, 255,1)'" title="Refresh" variant="flat-success"
-                                         class="btn-icon ml-1">
-                                        <feather-icon icon="RefreshCcwIcon" size="20" class="text-black cursor-pointer"
+                                    <b-button style="padding:5px; " v-ripple.400="'rgba(255, 255, 255,1)'" title="Refresh" variant="flat-success"
+                                         class="btn-icon ml-1 ">
+                                        <feather-icon icon="RefreshCcwIcon" size="20" class=" darkWhiteText text-black cursor-pointer"
                                             style="" />
                                     </b-button>
 
@@ -1047,33 +1050,41 @@
             <vue-apex-charts class="full" width="100%" :dataLabels="true" type="line" :options="chartOptions"
                 :series="series"></vue-apex-charts>
         </b-modal>
-        <b-modal id="modal-filters" :hide-footer="true" size="lg" title="">
+        <b-modal id="modal-filters" :hide-footer="true" :hide-header="true" size="lg" title="">
             <template>
-                <b-row>
+                <b-row style="margin: 24px 0px 24px 0px;">
                     
-                    <b-col>
-                        <b-form-select v-model="selectedPreset" style="background: #18181A;">
-                            <b-form-select-option :value="null" selected>Select A Preset</b-form-select-option>
-                            <b-form-select-option v-for="(preset,index) in presetFilters" :key="index"
-                                :value="preset.id">
-                                {{ preset.preset_name }} <span v-if="preset.default !=1">(Custom Filter)</span>
-                            </b-form-select-option>
+                    <b-col >
+                        <b-form-select v-model="selectedPreset" >
+                            
+                           
+                                <b-form-select-option :value="null" selected>Select A Preset</b-form-select-option>
+                                <b-form-select-option v-for="(preset,index) in presetFilters" :key="index"
+                                    :value="preset.id">
+                                    {{ preset.preset_name }} <span v-if="preset.default !=1">(Custom Filter)</span>
+                                </b-form-select-option>
+                     
+                                <!-- <b-form-select-option :value="null" selected>Select A Preset</b-form-select-option>
+                                <b-form-select-option v-for="(preset,index) in presetFilters" :key="index"
+                                    :value="preset.id">
+                                    {{ preset.preset_name }} <span v-if="preset.default !=1">(Custom Filter)</span>
+                                </b-form-select-option> -->
+                          
                         </b-form-select>
+
                     </b-col>
                     <b-col class="m-auto">
                         <b-button v-ripple.400="'rgb(31, 103, 211)'"
                             v-if="selectedPreset && checkDefault(selectedPreset)" @click="savePresetFilter"
-                            title="Save preset" variant="warning" class="btn-icon">
+                            title="Save preset" variant="flat-primary" class="btn-icon">
                             <feather-icon icon="SaveIcon" />
                         </b-button>
                         <b-button v-ripple.400="'rgba(255, 255, 255, 0.15)'"
                             v-if="selectedPreset && checkDefault(selectedPreset)" @click="deletePreset"
-                            title="Delete preset" variant="warning" class="btn-icon">
+                            title="Delete preset" variant="flat-primary" class="btn-icon">
                             <feather-icon icon="Trash2Icon" />
                         </b-button>
-                        <b-button size="md" v-b-modal.modal-preset-create v-ripple.400="'rgba(113, 12, 240, 0.15)'"
-                            variant="outline-primary" pill>Create New Preset
-                        </b-button>
+                        
 
                     </b-col>
                 </b-row>
@@ -1082,9 +1093,9 @@
                     <app-collapse accordion>
                         <app-collapse-item :isVisible="true" title="Market Data Filters">
                             <b-card class="mb-1">
-                                <b-card-body>
+                                <b-card-body style="margin-left: 10px; margin-top: 19px;">
                                     <b-row>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Market Cap">
                                                     <div class="d-flex">
@@ -1093,7 +1104,7 @@
                                                             placeholder="min" />
 
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave id="max_market_cap" v-model="filterKey.max_market_cap"
@@ -1105,21 +1116,10 @@
                                                     </div>
                                                 </b-form-group>
                                             </div>
-                                            <div>
-                                                <MultiRangeSlider
-                                                            baseClassName="multi-range-slider-bar-only"
-                                                            :minValue="filterKey.min_market_cap"
-                                                            :maxValue="filterKey.max_market_cap"
-                                                            :max="100"
-                                                            :min="0"
-                                                            :step="1"
-                                                            :rangeMargin="0"
-                                                            @input="update_oBarValues"
-                                                            />
-                                            </div>
+                                         
 
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Token Price">
                                                     <div class="d-flex">
@@ -1127,7 +1127,7 @@
                                                             v-model="filterKey.min_current_price" class="form-control"
                                                             :raw="false" :options="NumberFormaVal" placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave id="max_market_cap"
@@ -1137,7 +1137,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Circulating Supply">
                                                     <div class="d-flex">
@@ -1145,7 +1145,7 @@
                                                             v-model="filterKey.min_circulating_supply" v-numeric-only
                                                             placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1155,7 +1155,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Total Supply">
                                                     <div class="d-flex">
@@ -1163,7 +1163,7 @@
                                                             v-model="filterKey.min_total_supply" v-numeric-only
                                                             placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1173,7 +1173,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Market Cap. Rank">
                                                     <div class="d-flex">
@@ -1181,7 +1181,7 @@
                                                             v-model="filterKey.min_market_cap_rank" v-numeric-only
                                                             placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1191,7 +1191,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Trade Volume">
                                                     <div class="d-flex">
@@ -1199,7 +1199,7 @@
                                                             v-model="filterKey.min_trading_volume" v-numeric-only
                                                             placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1209,7 +1209,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="ROI %">
                                                     <div class="d-flex">
@@ -1217,7 +1217,7 @@
                                                             v-model="filterKey.min_roi_percentage" v-numeric-only
                                                             placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1227,7 +1227,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="ROI in X's">
                                                     <div class="d-flex">
@@ -1235,7 +1235,7 @@
                                                             v-model="filterKey.min_roi_times" v-numeric-only
                                                             placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1245,7 +1245,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Daily Price Change (%)"
                                                     label-for="price_change_percentage_24h">
@@ -1255,7 +1255,7 @@
                                                             v-model="filterKey.min_price_change_percentage_24h"
                                                             placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1269,7 +1269,7 @@
 
 
 
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Days in Market">
                                                     <div class="d-flex">
@@ -1277,7 +1277,7 @@
                                                             v-model="filterKey.min_genesis_date" v-numeric-only
                                                             placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1287,7 +1287,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Total Supply (%)">
                                                     <div class="d-flex">
@@ -1295,7 +1295,7 @@
                                                             v-model="filterKey.min_total_supply_percent" v-numeric-only
                                                             placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1305,7 +1305,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Seed Price">
                                                     <div class="d-flex">
@@ -1313,7 +1313,7 @@
                                                             v-model="filterKey.min_seed_price" v-numeric-only
                                                             placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1323,7 +1323,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Seed ROI">
                                                     <div class="d-flex">
@@ -1331,7 +1331,7 @@
                                                             v-model="filterKey.min_roi_seed" v-numeric-only
                                                             placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1341,7 +1341,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Platform" label-for="">
                                                     <div class="d-flex">
@@ -1352,7 +1352,7 @@
                                             </div>
                                         </b-col>
 
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Keywords" label-for="">
                                                     <div class="d-flex">
@@ -1362,7 +1362,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Category" label-for="">
                                                     <div class="d-flex">
@@ -1378,9 +1378,9 @@
                         </app-collapse-item>
                         <app-collapse-item title="Social Sentiments">
                             <b-card no-body class="mb-1">
-                                <b-card-body>
+                                <b-card-body style="margin-left: 10px; margin-top: 19px;">
                                     <b-row>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Sentiment Change %">
                                                     <div class="d-flex">
@@ -1388,7 +1388,7 @@
                                                             v-model="filterKey.min_average_sentiment_change"
                                                             v-numeric-only placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1399,6 +1399,8 @@
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6">
+                                        </b-col>
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Social Mentions Change %">
                                                     <div class="d-flex">
@@ -1406,7 +1408,7 @@
                                                             v-model="filterKey.min_social_mentions_change"
                                                             v-numeric-only placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1417,6 +1419,8 @@
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6">
+                                        </b-col>
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Social Engagement Change %">
                                                     <div class="d-flex">
@@ -1424,7 +1428,7 @@
                                                             v-model="filterKey.min_social_engagement_change"
                                                             v-numeric-only placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1435,6 +1439,8 @@
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6">
+                                        </b-col>
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Average Sentiment (1-5)">
                                                     <div class="d-flex">
@@ -1442,7 +1448,7 @@
                                                             v-model="filterKey.min_average_sentiment" v-numeric-only
                                                             placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1452,15 +1458,17 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
+                                        <b-col md="6" xl="6">
+                                        </b-col>
                                     </b-row>
                                 </b-card-body>
                             </b-card>
                         </app-collapse-item>
                         <app-collapse-item title="Unlocking">
                             <b-card no-body class="mb-1">
-                                <b-card-body>
+                                <b-card-body style="margin-left: 10px; margin-top: 19px;">
                                     <b-row>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Total Locked">
                                                     <div class="d-flex">
@@ -1468,7 +1476,7 @@
                                                             v-model="filterKey.min_total_locked" v-numeric-only
                                                             placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1478,7 +1486,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Unlock Status">
                                                     <div class="d-flex">
@@ -1488,7 +1496,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Next Unlock # of Tokens">
                                                     <div class="d-flex">
@@ -1496,7 +1504,7 @@
                                                             v-model="filterKey.min_next_unlock_number_of_tokens"
                                                             v-numeric-only placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1506,7 +1514,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Next Unlock %">
                                                     <div class="d-flex">
@@ -1514,7 +1522,7 @@
                                                             v-model="filterKey.min_next_unlock_percent_of_tokens"
                                                             v-numeric-only placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1524,7 +1532,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Next Unlock Size">
                                                     <div class="d-flex">
@@ -1534,7 +1542,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="3 Months Unlock # of Tokens">
                                                     <div class="d-flex">
@@ -1542,7 +1550,7 @@
                                                             v-model="filterKey.min_three_months_unlock_number_of_tokens"
                                                             v-numeric-only placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1552,7 +1560,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="3 Months Unlock %">
                                                     <div class="d-flex">
@@ -1560,7 +1568,7 @@
                                                             v-model="filterKey.min_three_months_unlock_percent_of_tokens"
                                                             v-numeric-only placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1570,7 +1578,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="3 Months Unlock Size">
                                                     <div class="d-flex">
@@ -1581,7 +1589,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="6 Months Unlock # of Tokens">
                                                     <div class="d-flex">
@@ -1589,7 +1597,7 @@
                                                             v-model="filterKey.min_six_months_unlock_number_of_tokens"
                                                             v-numeric-only placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1599,7 +1607,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="6 Months Unlock %">
                                                     <div class="d-flex">
@@ -1607,7 +1615,7 @@
                                                             v-model="filterKey.min_six_months_unlock_percent_of_tokens"
                                                             v-numeric-only placeholder="min" />
                                                         <span>
-                                                            <feather-icon icon="ArrowRightIcon" size="16"
+                                                            <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
                                                         <cleave :options="NumberFormaVal" class="form-control"
@@ -1617,7 +1625,7 @@
                                                 </b-form-group>
                                             </div>
                                         </b-col>
-                                        <b-col md="6" xl="6">
+                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="6 Months Unlock Size">
                                                     <div class="d-flex">
@@ -1635,12 +1643,17 @@
 
                 </div>
             </template>
-            <div class="float-right p-1">
-                <b-button @click="clearFilters(true)" v-ripple.400="'rgba(113, 12, 240, 0.15)'"
-                    variant="outline-primary" pill>Clear all</b-button>
-                <b-button @click="filterCoins(true)" v-ripple.400="'rgba(113, 8, 150, 0.15)'" variant="outline-primary"
+            <div class="d-flex justify-content-between max-block" style="margin-top:50px; margin-bottom:50px; margin-left: 88px; margin-right: 88px;">
+                    <b-button class="darkWhiteBackground darkBlackText" size="md" v-b-modal.modal-preset-create v-ripple.400="'rgba(113, 12, 240, 0.15)'"
+                            variant="outline-primary" pill>Create New Preset
+                        </b-button>
+                
+                <b-button class="darkWhiteBackground darkBlackText"  @click="filterCoins(true)" v-ripple.400="'rgba(113, 8, 150, 0.15)'" variant="outline-primary"
                     pill>
                     Apply filters</b-button>
+
+                    <b-button class="darkWhiteText darkWhiteBorder" @click="clearFilters(true)" v-ripple.400="'rgba(113, 12, 240, 0.15)'"
+                    variant="outline-primary" pill>Clear filter</b-button>
             </div>
         </b-modal>
         
@@ -1722,7 +1735,7 @@
                          ||activeData.total_supply_percent" :isVisible="true" visible title="Market Data"
                         class="open w-100">
                         <b-card no-body class="mb-1">
-                            <b-card-body>
+                            <b-card-body style="margin-left: 10px; margin-top: 19px;">
                                 <b-row>
                                     <b-col md="8" sm="7" class="text-center sparlineChat mb-2"
                                         v-if="activeData.sparkline_in_7d&& activeData.sparkline_in_7d.length>0">
@@ -1773,7 +1786,7 @@
                     </app-collapse-item>
                     <app-collapse-item title="Social Data" class="w-100">
                         <b-card no-body class="mb-1">
-                            <b-card-body>
+                            <b-card-body style="margin-left: 10px; margin-top: 19px;">
 
                                 <b-row class="justify-content-center">
                                     <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
@@ -1954,7 +1967,7 @@
                         ||activeData.six_months_unlock_size
                         ">
                         <b-card no-body class="mb-1">
-                            <b-card-body>
+                            <b-card-body style="margin-left: 10px; margin-top: 19px;">
                                 <b-row class="">
                                     <b-col cols="12" md="6" class="mb-1" xl="6" v-if="activeData.next_unlock_date_text">
                                         <div class="">
@@ -2166,25 +2179,38 @@
                 </app-collapse>
             </template>
         </b-modal>
-        <b-modal id="modal-preset-create" :hide-footer="true" v-if="activeData" centered size="md"
-            title="Filter Preset Name:">
-            <template>
-                <div class="m-3">
-                    <b-row>
-                        <b-col cols="8">
-                            <b-form-input v-model="presetName" />
-                            <small class="text-danger" v-if="checkExist(presetName)">Preset filter with given name
-                                already exists! Please give different name.!</small>
-                        </b-col>
-                        <b-col>
-                            <b-button :disabled="!presetName || presetName.trim().length<=0 || checkExist(presetName)"
-                                size="md" @click="createPresetFilter" v-ripple.400="'rgba(11, 12, 240, 0.15)'"
-                                variant="outline-primary" pill>Create
-                            </b-button>
-                        </b-col>
-                    </b-row>
+        <b-modal id="modal-preset-create" :hide-footer="true" :hide-header="true" v-if="activeData" centered size="md" 
+            title="" style="background: transparent !important;">
+                <div style="border-radius:10px;">
+                    <template >
+                        <div style="font-family: 'Poppins'; padding:20px; margin-top:10px;
+                            font-style: normal;
+                            font-weight: 500;
+                            font-size: 20px;
+                            line-height: 14px;">
+                            Filter Preset Name:
+                        </div>
+                        
+                        <div style="margin:0px 28px 0px 28px;">
+                            <b-row>
+                                <b-col cols="12" style="margin-bottom:16px;">
+                                    <b-form-input v-model="presetName" />
+                                    <small class="text-danger" v-if="checkExist(presetName)">Preset filter with given name
+                                        already exists! Please give different name.!</small>
+                                </b-col>
+                                <b-col cols="12" style="margin-bottom:20px;">
+                                    <b-button class="darkBlackText darkWhiteBackground" :disabled="!presetName || presetName.trim().length<=0 || checkExist(presetName)"
+                                        size="md" @click="createPresetFilter" v-ripple.400="'rgba(11, 12, 240, 0.15)'" style="float:right;"
+                                        variant="outline-primary" pill>Create
+                                    </b-button>
+                                </b-col>
+                            </b-row>
+                        </div>
+                    </template>
+
                 </div>
-            </template>
+            
+            
         </b-modal>
 
     </div>
