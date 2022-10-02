@@ -566,6 +566,16 @@ body {
     @extend .justify-content-center;
   }
 
+  .graph_tab{
+    font-size:10px;
+  }
+
+  .graph_tab a{
+    padding: inherit !important;
+    margin-right: 1rem;
+    padding-bottom:3px !important;
+  }
+
   .nav-tabs {
     margin-bottom: 1rem;
     position: relative;

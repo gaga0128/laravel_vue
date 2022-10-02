@@ -1737,9 +1737,48 @@
                         <b-card no-body class="mb-1">
                             <b-card-body style="margin-left: 10px; margin-top: 19px;">
                                 <b-row>
-                                    <b-col md="8" sm="7" class="text-center sparlineChat mb-2"
+                                    <b-col md="9" sm="7" class="text-center sparlineChat mb-2"
                                         v-if="activeData.sparkline_in_7d&& activeData.sparkline_in_7d.length>0">
-                                        <h5> 7 Days</h5>
+                                        <!-- <h5> 7 Days</h5> -->
+                                        <div class="ml-5">
+
+                                            <b-tabs content-class="pt-2 ml-4 pl-4" class="graph_tab float-left">
+                                                <b-tab active title="Price">
+                                                    <div></div>
+                                                </b-tab>
+                                                <b-tab title="MC">
+                                                    <div></div>
+                                                </b-tab>
+                                            </b-tabs>
+
+                                            <b-tabs content-class="pt-2" class="graph_tab float-right">
+                                                <b-tab active title="1D">
+                                                    <div></div>
+                                                </b-tab>
+                                                <b-tab title="7D">
+                                                    <div></div>
+                                                </b-tab>
+                                                <b-tab title="1M">
+                                                    <div></div>
+                                                </b-tab>
+                                                <b-tab title="3M">
+                                                    <div></div>
+                                                </b-tab>
+                                                <b-tab title="1Y">
+                                                    <div></div>
+                                                </b-tab>
+                                                <b-tab title="ALL">
+                                                    <div></div>
+                                                </b-tab>
+                                                <b-tab>
+                                                    <template #title>
+                                                        <feather-icon size='12' icon='CalendarIcon'/>
+                                                    </template>
+                                                    <div></div>
+                                                </b-tab>
+                                            </b-tabs>
+                                        </div>
+                                        <br>
                                         <vue-apex-charts class="full" width="100%" :dataLabels="true" type="area"
                                             height="290" :options="seven_DaysChart" :series="seven_DaysChartseries">
                                         </vue-apex-charts>
@@ -1757,12 +1796,12 @@
                                                     class="">${{ toInterNationalNumber(activeData.total_volume) }}</span>
                                             </div>
                                         </div>
-                                        <div class="mb-1" v-if="activeData.market_cap">
+                                        <div class="mb-1 mt-2" v-if="activeData.market_cap">
                                             <h5> Market Cap</h5>
                                             <div class="" style="font-size:16px; font-weight: 600;">
                                                 <span>${{ toInterNationalNumber(activeData.market_cap) }}</span> </div>
                                         </div>
-                                        <div class="mb-1"
+                                        <div class="mb-1 mt-2"
                                             v-if="activeData.roi_times ||activeData.round_price && activeData.round_price !=0 && activeData.current_price&& activeData.current_price !=0">
                                             <h5> X's from launch</h5>
                                             <div class="" style="font-size:16px; font-weight: 600;">
@@ -1772,10 +1811,13 @@
                                                     v-else-if="activeData.round_price && activeData.round_price !=0 && activeData.current_price&& activeData.current_price !=0 ">{{ xfromlunch(activeData.current_price,activeData.round_price) }}X</span>
                                             </div>
                                         </div>
-                                        <div class="mb-1" v-if="activeData.total_supply_percent">
+                                        <div class="mb-1 mt-2" v-if="activeData.total_supply_percent">
                                             <h5>Total Supply:</h5>
                                             <div class="" style="font-size:16px; font-weight: 600;">
                                                 <span>{{ activeData.total_supply_percent }} %</span> </div>
+                                        </div>
+                                        <div class="mb-1 mt-2 float-left">
+                                            <button class="rounded-pill fs-6 " style="font-size: 14px; padding:6px 14px;">Price Prediction</button>
                                         </div>
                                     </b-col>
 
@@ -1894,48 +1936,47 @@
                                 <b-row class="text-center mt-1 mb-1 justify-content-center">
                                     <b-col sm="3" md="2" v-if="activeData">
                                         <div class="border border-2 rounded border-dark greenGradient">
-                                            <div class="soicalLable">Social Score: </div>
                                             <div class="d-flex justify-content-center text-nowrap" style="margin: 13px 0 16px 0; font-size: 14px;">
                                                 {{ calculate_social_score(activeData) }}/10</div>
+                                            <div class="soicalLable">Social Score: </div>
                                         </div>
                                     </b-col>
                                     <b-col sm="3" md="2" v-if="activeData.total_supply_percent">
                                         <div class="border border-2 rounded border-dark greenGradient">
-                                            <div class="soicalLable">Total Supply %: </div>
                                             <div class="d-flex justify-content-center text-nowrap" style="margin: 13px 0 16px 0; font-size: 14px;">
                                                 {{ activeData.total_supply_percent}} %</div>
+                                            <div class="soicalLable">Total Supply %: </div>
                                         </div>
                                     </b-col>
                                     <b-col sm="3" md="2" v-if="activeData.social_mentions">
                                         <div class="border border-2 rounded border-dark greenGradient">
-                                            <div class="soicalLable">Social Mentions: </div>
                                             <div style="margin: 13px 0 16px 0; font-size: 14px" class="text-success d-flex justify-content-center text-nowrap"
                                                 v-if="activeData.social_mentions>=0">
                                                 +{{toInterNationalNumber(activeData.social_mentions)}} %</div>
                                             <div style="margin: 13px 0 16px 0; font-size: 14px;" class="text-danger d-flex justify-content-center text-nowrap"
                                                 v-else> {{toInterNationalNumber(activeData.social_mentions)}} %</div>
+                                            <div class="soicalLable">Social Mentions: </div>
                                         </div>
                                     </b-col>
                                     <b-col sm="3" md="2" v-if="activeData.average_sentiment">
                                         <div class=" border-2 rounded border-dark greenGradient">
-                                            <div class="soicalLable">Average Sentiment: </div>
                                             <div style="margin: 13px 0 16px 0; font-size: 14px;" class="text-success d-flex justify-content-center text-nowrap">
                                                 {{roundData(activeData.average_sentiment)}}</div>
+                                            <div class="soicalLable">Average Sentiment: </div>
                                         </div>
                                     </b-col>
                                     <b-col sm="3" md="2" v-if="activeData.social_engagement">
                                         <div class=" border-2 rounded border-dark greenGradient">
-                                            <div class="soicalLable">Social Engagement: </div>
                                             <div style="margin: 13px 0 16px 0; font-size: 14px" class="text-success d-flex justify-content-center text-nowrap"
                                                 v-if="activeData.social_mentions>=0">
                                                 +{{toInterNationalNumber(activeData.social_engagement)}} %</div>
                                             <div style="margin: 13px 0 16px 0; font-size: 14px;" class="text-danger d-flex justify-content-center text-nowrap"
                                                 v-else> {{toInterNationalNumber(activeData.social_engagement)}} %</div>
+                                            <div class="soicalLable">Social Engagement: </div>
                                         </div>
                                     </b-col>
                                     <b-col sm="3" md="2" v-if="activeData.average_sentiment_change">
                                         <div class="border border-3 rounded border-dark greenGradient">
-                                            <div class="soicalLable">Social Engagement: </div>
                                             <div style="margin: 13px 0 16px 0; font-size: 14px" class="text-success d-flex justify-content-center text-nowrap"
                                                 v-if="roundData(activeData.average_sentiment_change)>=0">
                                                 +{{roundData(activeData.average_sentiment_change)?roundData(activeData.average_sentiment_change):0}}
@@ -1944,6 +1985,7 @@
                                                 v-else>
                                                 {{roundData(activeData.average_sentiment_change)?roundData(activeData.average_sentiment_change):0}}
                                                 %</div>
+                                            <div class="soicalLable">Social Engagement: </div>
                                         </div>
                                     </b-col>
 
@@ -1966,6 +2008,67 @@
                         ||activeData.six_months_unlock_percent_of_tokens
                         ||activeData.six_months_unlock_size
                         ">
+
+                        <div class="container d-flex">
+                            <div class="d-inline" style="width:20%">
+                                <span style="font-family: monospace;font-style: normal;font-weight: 400;font-size: 14px;">Next Unlock Date</span><br>
+                                <span style="font-family: monospace;font-style: normal;font-weight: 400;font-size: 18px;">05 Sep 22</span><br>
+                                <span style="font-family: monospace;font-style: normal;font-weight: 400;font-size: 12px;">15:00</span>
+                            </div>
+                            <div class="d-inline-flex justify-content-between" style="width:40%">
+                                <div class="d-iline" style="max-width:65px">
+                                    <div class="radius_gradient" style="border-radius:10px">
+                                        <div class="str_green_gradient text-center m-auto vertical-items-center" style="width:64px; height:64px; border-radius: 10px; background: black !important;"> 
+                                            <span style="font-family: monospace;font-style: normal;font-weight: 400;font-size: 26px; color: greenyellow">2%</span><br>
+                                            <span style="font-family: monospace;font-style: normal;font-weight: 400;font-size: 14px; color: greenyellow">0.2mil</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-iline text-center">
+                                    <div style="max-width:40px">
+                                        <div class="radius_gradient" style="border-radius:10px">
+                                            <div class="str_green_gradient text-center" style="width:39px; height:39px; border-radius: 10px;"> 
+                                                <span style="font-family: monospace;font-style: normal;font-weight: 400;font-size: 25px; color: greenyellow">1</span><br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>D</div>
+                                </div>
+                                <div class="d-iline text-center">
+                                    <div style="max-width:40px">
+                                        <div class="radius_gradient" style="border-radius:10px">
+                                            <div class="str_green_gradient text-center" style="width:39px; height:39px; border-radius: 10px;"> 
+                                                <span style="font-family: monospace;font-style: normal;font-weight: 400;font-size: 25px; color: greenyellow">22</span><br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>H</div>
+                                </div>
+                                <div class="d-iline text-center">
+                                    <div style="max-width:40px">
+                                        <div class="radius_gradient" style="border-radius:10px">
+                                            <div class="str_green_gradient text-center" style="width:39px; height:39px; border-radius: 10px;"> 
+                                                <span style="font-family: monospace;font-style: normal;font-weight: 400;font-size: 25px; color: greenyellow">44</span><br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>M</div>
+                                </div>
+                                <div class="d-iline text-center">
+                                    <div style="max-width:40px">
+                                        <div class="radius_gradient" style="border-radius:10px">
+                                            <div class="str_green_gradient text-center" style="width:39px; height:39px; border-radius: 10px;"> 
+                                                <span style="font-family: monospace;font-style: normal;font-weight: 400;font-size: 25px; color: greenyellow">21</span><br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>S</div>
+                                </div>
+                            </div>
+                            <div class="d-inline ml-2 mt-1" style="width:40%;border-radius: 10px;">
+                                <button class="rounded-pill px-2" style="padding:6px"><feather-icon size="15" icon="BellIcon"/> Notify Me</button>
+                            </div>
+                        </div>
                         <b-card no-body class="mb-1">
                             <b-card-body style="margin-left: 10px; margin-top: 19px;">
                                 <b-row class="">
@@ -2219,6 +2322,8 @@
 <script>
     import {
         BTable,
+        BTabs,
+        BTab,
         BFormCheckbox,
         BAvatar,
         BImg,
@@ -2281,7 +2386,9 @@
         components: {
             MultiRangeSlider,
             BTable,
+            BTabs,
             BFormCheckbox,
+            BTab,
             BAvatar,
             BBadge,
             BPagination,
@@ -2464,22 +2571,26 @@
                 }],
                 seven_DaysChart: {
 
+                    
                     chart: {
+                        toolbar:{
+                            show:false,
+                        },
                         id: '7days-history',
                         height: 290,
-                        background:"transparent"
+                        foreColor: 'black'
                     },
                     dataLabels: {
                         enabled: false
                     },
                     colors: ['#50DC5F'],
                     fill:{
+                        shade:'dark',
                         type:'gradient',
-                        background:'transparent',
                         gradient: {
                             shadeIntensity: 1,
                             opacityFrom: 0.7,
-                            opacityTo: 0.9,
+                            gradientToColors:['#50DC5F 30%'],
                             stops: [0, 90, 100]
                         }
                     },
@@ -2497,6 +2608,13 @@
                         type: 'datetime',
                     },
                     yaxis: {
+                        axisBorder: {
+                            show: true,
+                            color: '#78909C',
+                            offsetX: 0,
+                            offsetY: 0
+                        },
+                        type:"value",
                         labels: {
                             show: true,
                             style: {
@@ -3878,6 +3996,16 @@
 
     .card-body{
         padding: 0px !important;
+    }
+
+    .graph_tab{
+        font-size:10px;
+    }
+
+    .graph_tab a{
+        padding: inherit !important;
+        margin-right: 1rem;
+        padding-bottom:3px !important;
     }
 
 
