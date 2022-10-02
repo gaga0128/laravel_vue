@@ -1,5 +1,5 @@
 <template>
-  <div class="d-inline-flex position-fixed" style="width:350px;height:100%;z-index:3;background: transparent;">
+  <div class="d-inline-flex position-fixed" style="width:335px;height:100%;z-index:3;background: transparent;">
   <div
     class="main-menu menu-fixed menu-accordion menu-shadow"
     :class="[
