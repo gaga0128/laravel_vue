@@ -254,7 +254,7 @@
                                         id="dropdown-left" no-caret   dropright>
                                         <template #button-content>
                                             
-                                            <feather-icon  icon="SlidersIcon" size="20" class=" text-black cursor-pointer" style="color:white;"/>
+                                            <feather-icon  icon="SlidersIcon" size="20" class=" text-black cursor-pointer darkWhiteText" style="color:#28c76f;"/>
                                         </template>
                                         <b-dropdown-form href="#" class="dropdown-mine" name="dropdownform">
                                             <div style="font-family: 'Poppins';
@@ -1660,59 +1660,150 @@
         <b-modal id="modal-details" :hide-footer="true" v-if="activeData" centered size="lg">
             <template>
                 <div slot="modal-title">
-                    <div class="w-full justify-content-between d-flex">
+                    <div class="w-full justify-content-between d-flex" style="margin-top: 10px; margin-left: 5px;">
                         <div class="d-inline">
-                            <div class="rank_slot">Rank #{{toInterNationalNumber(activeData.market_cap_rank)}}</div>
+                            <div class="rank_slot" style="margin-bottom: 8px;font-family: 'Poppins';
+                                font-style: normal;
+                                font-weight: 500;
+                                font-size: 16px;
+                                ">Rank #{{toInterNationalNumber(activeData.market_cap_rank)}}</div>
                             <div class="d-flex">
                                 <div class="d-flex m-auto">
                                     <b-avatar class="bg-light mr-1" v-if="activeData.image" :src="activeData.image"></b-avatar>
-                                    <span class="marginx1 m-auto" style="font-family: monospace; font-style: normal; font-weight: 300; font-size: 18px; margin-right:10px !important;"> 
+                                    <span class="marginx1 m-auto darkWhiteText" style="font-family: 'Poppins';
+                                            font-style: normal;
+                                            font-weight: 400;
+                                            font-size: 20px; margin-right:10px !important;"> 
                                         {{activeData.name}}
-                                        <span style="font-family: monospace; font-style: normal; font-weight: 300; font-size: 12px;">{{' '+activeData.symbol}}</span>
+                                        <!-- <span style="font-family: 'Poppins';
+                                            font-style: normal;
+                                            font-weight: 400;
+                                            font-size: 20px;
+                                            " class="darkWhiteText">{{' '+activeData.symbol}}</span> -->
                                     </span>
                                 </div>
                                 <div class="d-flex m-auto">
                                     <div class="d-flex">
                                         <span class=""
                                             :class="{'greenFlash':activeData.flash == 1,'redFlash':activeData.flash ==2}"
-                                            style="font-style: normal; font-weight: 300; font-size: 20px;"
+                                            style="font-family: 'Poppins';
+                                            font-style: normal;
+                                            font-weight: 600;
+                                            font-size: 24px;
+                                            "
                                             v-if="activeData.current_price && activeData.current_price>= 0">${{ roundData(activeData.current_price) }}
                                         </span>
                                     </div>
                                     <div class="d-flex m-auto">
                                         <span v-if="activeData.price_change_percentage_24h && activeData.price_change_percentage_24h>= 0"
                                             class="btn-success d-flex  marginx1"
-                                            style="font-size:12px; margin-top: 2px;border-radius:5px; padding:0px 5px"><span>{{ roundData(activeData.price_change_percentage_24h) }}</span>
-                                            <div> %
-                                                <feather-icon size="10" icon="ChevronUpIcon" />
-                                            </div>
+                                            style="font-family: 'Poppins';
+                                            font-style: normal;
+                                            font-weight: 600;
+                                            font-size: 24px; margin-top: 2px;border-radius:5px; padding:0px 5px"><div style="display: inline; margin:auto;"><feather-icon size="20" icon="ChevronUpIcon" /></div><span>{{ roundData(activeData.price_change_percentage_24h) }}%</span>
+                                           
                                         </span>
                                         <span v-else-if="activeData.price_change_percentage_24h"
                                             style="font-size:12px; margin-top: 2px;border-radius:5px; padding:0px 5px"
-                                            class="btn-danger d-flex marginx1"><span>{{ roundData(activeData.price_change_percentage_24h) }}</span>
-                                            <div> %
-                                                <feather-icon size="10" icon="ChevronDownIcon" />
-                                            </div>
+                                            class="btn-danger d-flex marginx1"><div style="display: inline; margin:auto;"><feather-icon size="20" icon="ChevronDownIcon" /></div><span>{{ roundData(activeData.price_change_percentage_24h) }}%</span>
+                                          
                                         </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="w-50 d-inline">
-                            <div class="bg-theme rounded d-inline"
+                        <div class="w-50 d-inline" style="margin-right:20px;">
+                            <div class="bg-theme rounded d-inline" style="float: right;"
                                 v-if="activeData.contract_address && activeData.contract_address.length>0">
 
                                 <div>
-                                    <div class="my-auto" style="margin-right: 4px;padding-left:10px; font-family: monospace; font-style: normal; font-weight: 300; font-size: 14px;">Contract </div>
-                                    <b-form-select v-model="selectedContract">
+                                    <div class="my-auto darkWhiteText" style="margin-bottom: 8px !important; margin-right: 4px;padding-left:10px; font-family: 'Poppins';
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        font-size: 16px;
+                                       ">Contract </div>
+
+
+                                       <b-dropdown size="lg" variant="flat-secondary" style="padding:0px !important;"
+                                        id="dropdown-left1" no-caret class="cunningDrop">
+                                            <template #button-content>
+                                                <div class="darkBackgroundBlack" v-for="(address,index) in activeData.contract_address"
+                                                    :key="index" style="display:block; padding: 8px 8px 14px 8px; border-radius: 20px;" v-if="index==0">
+                                                    <div v-if="index==0">
+                                                        <b-img v-if="activeData.image" :src="activeData.image" fluid alt="Responsive image" style="margin-right:5px; width:30px;" />
+                                                            <div style="font-family: 'Poppins'; display:inline-block;
+                                                                font-style: normal;
+                                                                font-weight: 500;
+                                                                font-size: 14px;
+                                                                line-height: 14px;
+                                                                ">
+                                                                <div style="white-space: nowrap; width:90px;
+                                                                overflow: hidden;
+                                                                text-overflow: ellipsis;">
+                                                                    {{address.contract_address}}    
+                                                                </div>
+                                                                                                         
+                                                        </div>
+                                                        <div style="display:inline-block; float:right;">
+    
+                                                            
+                                                            <b-button size="sm" class="ml-1" v-clipboard:copy="address.contract_address" style="margin-right:13px; cursor:pointer; border: none !important;"
+                                                                v-clipboard:success="onCopy" v-clipboard:error="onError"
+                                                                v-ripple.400="'rgba(113, 12, 240, 0.15)'" variant="outline-primary" pill><feather-icon  icon="CopyIcon" class="cursor-pointer darkWhiteText" size="20" />
+                                                            </b-button>
+                                                            <img src='/images/static/metamask.png' class="img-fluid" alt="metamask" style="cursor:pointer; width:25px; margin-right:13px;" @click="say('hello')">
+                                                            <feather-icon  icon="ChevronDownIcon" class="cursor-pointer darkWhiteText" size="20" style="margin-right:13px;"/>
+                                                            
+                                                        </div>
+
+                                                    </div>
+                                                    
+                                                
+                                                </div>
+                                                
+                                            </template>
+                                            <b-dropdown-form href="#" class="cunningDrop dropdown-mine darkBackgroundBlack" name="dropdownform2" style="z-index:999;">
+                                                <div class="darkBackgroundBlack" v-for="(address,index) in activeData.contract_address"
+                                                    :key="index" style="display:block; padding: 8px 8px 14px 8px;">
+                                                    <b-img v-if="activeData.image" :src="activeData.image" fluid alt="Responsive image" style="margin-right:5px; width:30px;" />
+                                                        <div style="font-family: 'Poppins'; display:inline-block;
+                                                            font-style: normal;
+                                                            font-weight: 500;
+                                                            font-size: 14px;
+                                                            line-height: 14px;
+                                                            ">
+                                                            <div style="white-space: nowrap; width:90px;
+                                                            overflow: hidden;
+                                                            text-overflow: ellipsis;">
+                                                                {{address.contract_address}}    
+                                                            </div>
+                                                                                                     
+                                                    </div>
+                                                    <div style="display:inline-block; float:right;">
+
+                                                        
+                                                        <b-button size="sm" class="ml-1" v-clipboard:copy="address.contract_address" style="margin-right:13px; cursor:pointer; border: none !important;"
+                                                            v-clipboard:success="onCopy" v-clipboard:error="onError"
+                                                            v-ripple.400="'rgba(113, 12, 240, 0.15)'" variant="outline-primary" pill><feather-icon  icon="CopyIcon" class="cursor-pointer darkWhiteText" size="20" />
+                                                        </b-button>
+                                                        <img src='/images/static/metamask.png' class="img-fluid" alt="metamask" style="cursor:pointer; width:25px; margin-right:13px;" @click="say('hello')">
+                                                        
+                                                    </div>
+                                                    
+                                                
+                                                </div>
+                                            </b-dropdown-form>
+                                        
+                                        </b-dropdown>
+                                    <!-- <b-form-select v-model="selectedContract">
                                         <b-form-select-option :value="null" selected>Select</b-form-select-option>
                                         <b-form-select-option v-for="(address,index) in activeData.contract_address"
                                             :key="index" :value="address.contract_address">
                                             {{ address.platform }}
                                         </b-form-select-option>
-                                    </b-form-select>
+                                    </b-form-select> -->
                                 </div>
-                                <div v-if="selectedContract" class="d-flex mt-1 justify-content-end">
+                                <!-- <div v-if="selectedContract" class="d-flex mt-1 justify-content-end">
                                     <div class="text-nowrap text-truncate" style="width:200px">{{selectedContract}}
                                     </div>
                                     <b-button size="sm" class="ml-1" v-clipboard:copy="selectedContract"
@@ -1720,7 +1811,9 @@
                                         v-ripple.400="'rgba(113, 12, 240, 0.15)'" variant="outline-primary" pill>Copy!
                                     </b-button>
 
-                                </div>
+                                </div> -->
+
+                                  
                             </div>
                         </div>
                     </div>
@@ -2669,10 +2762,13 @@
 
         },
         methods: {
-            update_oBarValues(e) {
-                filterKey.min_market_cap = e.minValue;
-                filterKey.max_market_cap = e.maxValue;
+            say(message) {
+                alert("Please connect your metamask")
             },
+            // update_oBarValues(e) {
+            //     filterKey.min_market_cap = e.minValue;
+            //     filterKey.max_market_cap = e.maxValue;
+            // },
             loadCoins() {
                 this.$bvModal.hide('modal-filters');
                 this.isBusy = true;
@@ -3864,7 +3960,7 @@
     }
 
     .cunningBtn > ul{
-        background: #232228  !important;
+        /* background: #232228  !important; */
         min-width: 500px !important;
         /* border:1px solid rgba(43, 255, 77, 1); */
         border-radius:  10px;
@@ -3880,6 +3976,15 @@
         padding: 0px !important;
     }
 
+    #dropdown-left1__BV_toggle_{
+        padding: 0px !important;
+    }
+
+    .cunningDrop > ul {
+        background: none;
+    }
+
+   
 
 
 </style>

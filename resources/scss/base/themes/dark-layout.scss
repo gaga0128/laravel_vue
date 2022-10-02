@@ -126,6 +126,14 @@
     color: white !important;
   }
 
+  .cunningBtn > ul{
+    background: #232228  !important; 
+   }
+
+  .darkBackgroundBlack{
+    background: #0A070E !important;
+  }
+
   .darkWhiteBorder{
     border: 1px solid #FFFFFF !important;
   }
@@ -623,7 +631,9 @@
 
   // dropdown
   .dropdown-menu {
-    background-color: $theme-dark-card-bg;
+    background-color: transparent !important;
+    z-index: 999;
+    // background-color: $theme-dark-card-bg;
     box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.24);
 
     .dropdown-header {
