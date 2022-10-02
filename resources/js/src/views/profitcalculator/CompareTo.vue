@@ -40,13 +40,20 @@
                         <b-card title="Potential Profit" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px">
                             <b-row>
                                 <div class="text-center m-auto">
-                                    <b-col cols="12">
+                                    <b-col cols="12" class="darkWhiteText" style="margin-top:30px; font-family: 'Poppins';
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        font-size: 32px;">
                                         <p v-if="Potential >=1" class="text-wrap" style="width:160px">
                                             {{ roundData(Potential)?roundData(Potential):0 }}$</p>
                                             <p v-else class="text-wrap" style="width:160px">
                                                 {{ Potential?Potential:0 }}$</p>
                                     </b-col>
-                                    <b-col cols="12">
+                                    <b-col cols="12" style="font-family: 'Poppins';
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        font-size: 18px;
+                                        color: #50DC5F;">
                                         <p v-if="capTimes>=1" class="text-wrap">
                                             {{ roundData(capTimes) }}X</p>
                                             <p v-else class="text-wrap">
