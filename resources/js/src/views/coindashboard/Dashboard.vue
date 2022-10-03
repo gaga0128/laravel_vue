@@ -1099,7 +1099,7 @@
                                             <div class="">
                                                 <b-form-group label="Market Cap">
                                                     <div class="d-flex">
-                                                        <cleave id="min_market_cap" v-model="filterKey.min_market_cap"
+                                                        <cleave id="min_market_cap" v-model="ldot"
                                                             class="form-control" :raw="false" :options="NumberFormaVal"
                                                             placeholder="min" />
 
@@ -1107,17 +1107,17 @@
                                                             <feather-icon icon="MinusIcon" size="16"
                                                                 class="align-middle" style="margin:10px 6px 0 0px" />
                                                         </span>
-                                                        <cleave id="max_market_cap" v-model="filterKey.max_market_cap"
+                                                        <cleave id="max_market_cap" v-model="rdot"
                                                             class="form-control" :raw="false" :options="NumberFormaVal"
                                                             placeholder="max" />
-                                                            
-                                                            
-
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    v-model="value"
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
-                                         
-
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
@@ -1135,6 +1135,11 @@
                                                             :raw="false" :options="NumberFormaVal" placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -1153,6 +1158,11 @@
                                                             placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -1171,6 +1181,11 @@
                                                             placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -1189,6 +1204,11 @@
                                                             placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -1207,6 +1227,11 @@
                                                             placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -1225,6 +1250,11 @@
                                                             placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -1243,6 +1273,11 @@
                                                             placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -1263,6 +1298,11 @@
                                                             v-numeric-only placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
 
@@ -1285,6 +1325,11 @@
                                                             placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -1303,6 +1348,11 @@
                                                             placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -1321,6 +1371,11 @@
                                                             placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -1339,6 +1394,11 @@
                                                             placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -1396,6 +1456,11 @@
                                                             v-numeric-only placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6">
@@ -1416,6 +1481,11 @@
                                                             v-numeric-only placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6">
@@ -1436,6 +1506,11 @@
                                                             v-numeric-only placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6">
@@ -1456,6 +1531,11 @@
                                                             placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6">
@@ -1484,6 +1564,11 @@
                                                             placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -1512,6 +1597,11 @@
                                                             v-numeric-only placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -1530,6 +1620,11 @@
                                                             v-numeric-only placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -1558,6 +1653,11 @@
                                                             v-numeric-only placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -1576,6 +1676,11 @@
                                                             v-numeric-only placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -1605,6 +1710,11 @@
                                                             v-numeric-only placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -1623,6 +1733,11 @@
                                                             v-numeric-only placeholder="max" />
                                                     </div>
                                                 </b-form-group>
+                                                <vue-slider
+                                                    
+                                                    :direction="direction"
+                                                    class="mb-2"
+                                                />
                                             </div>
                                         </b-col>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
@@ -2466,6 +2581,7 @@
     import AppCollapseItem from '@core/components/app-collapse/AppCollapseItem.vue'
     import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
     import VueSlider from 'vue-slider-component'
+    import store from '@/store/index'
 
     import {
         getUserData
@@ -2475,6 +2591,7 @@
     import 'cleave.js/dist/addons/cleave-phone.us'
     import 'bootstrap-icons/font/bootstrap-icons';
     import 'bootstrap-icons/font/bootstrap-icons.css';
+
     export default {
         components: {
             MultiRangeSlider,
@@ -2539,7 +2656,6 @@
                 sortBy: '',
                 isBusy: true,
                 locked: false,
-                value_2: [0, 50],
                 params: {
                     filters: [],
                     filters2: "",
@@ -2868,6 +2984,71 @@
                 presetName: null,
                 presetFilters: [],
                 selectedPreset: null,
+                
+
+                //slider value
+
+                // filterKey.min_market_cap,
+                // filterKey.max_market_cap,
+                // filterKey.min_current_price,
+                // filterKey.max_current_price,
+                // filterKey.min_circulating_supply,
+                // filterKey.max_circulating_supply,
+                // filterKey.min_total_supply,
+                // filterKey.max_total_supply,
+                // filterKey.min_market_cap_rank,
+                // filterKey.max_market_cap_rank,
+                // filterKey.min_trading_volume,
+                // filterKey.max_trading_volume,
+                // filterKey.min_roi_percentage,
+                // filterKey.max_roi_percentage,
+                // filterKey.min_roi_times,
+                // filterKey.max_roi_times,
+                // filterKey.min_price_change_percentage_24h,
+                // filterKey.max_price_change_percentage_24h,
+                // filterKey.min_genesis_date,
+                // filterKey.max_genesis_date,
+                // filterKey.min_total_supply_percent,
+                // filterKey.max_total_supply_percent,
+                // filterKey.min_seed_price,
+                // filterKey.max_seed_price,
+                // filterKey.min_roi_seed,
+                // filterKey.max_roi_seed,
+                // filterKey.coin_platform,
+                // filterKey.keywords,
+                // filterKey.coin_category,
+                // filterKey.min_average_sentiment_change,
+                // filterKey.max_average_sentiment_change,
+                // filterKey.min_social_mentions_change,
+                // filterKey.max_social_mentions_change,
+                // filterKey.min_social_engagement_change,
+                // filterKey.max_social_engagement_change,
+                // filterKey.min_average_sentiment,
+                // filterKey.max_average_sentiment,
+                // filterKey.min_total_locked,
+                // filterKey.max_total_locked,
+                // filterKey.next_unlock_status,
+                // filterKey.min_next_unlock_number_of_tokens,
+                // filterKey.max_next_unlock_number_of_tokens,
+                // filterKey.min_next_unlock_percent_of_tokens,
+                // filterKey.max_next_unlock_percent_of_tokens,
+                // filterKey.next_unlock_size,
+                // filterKey.min_three_months_unlock_number_of_tokens,
+                // filterKey.max_three_months_unlock_number_of_tokens,
+                // filterKey.min_three_months_unlock_percent_of_tokens,
+                // filterKey.max_three_months_unlock_percent_of_tokens,
+                // filterKey.three_months_unlock_size,
+                // filterKey.min_six_months_unlock_number_of_tokens,
+                // filterKey.max_six_months_unlock_number_of_tokens,
+                // filterKey.min_six_months_unlock_percent_of_tokens,
+                // filterKey.max_six_months_unlock_percent_of_tokens,
+                // filterKey.six_months_unlock_size,
+
+                ldot:25,
+                rdot:75,
+                dir:'ltr',
+
+                //end
 
             }
 
@@ -3829,6 +4010,25 @@
                     })
                 }
             },
+            value: {
+                get() {
+                    return [this.ldot, this.rdot]
+                },
+                set([ldot, rdot]) {
+                    this.ldot = ldot
+                    this.rdot = rdot
+                },
+            },
+            direction() {
+                if (store.state.appConfig.isRTL) {
+                    // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+                    this.dir = 'rtl'
+                    return this.dir
+                }
+                // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+                this.dir = 'ltr'
+                return this.dir
+            },
 
         },
         mounted() {
@@ -3870,6 +4070,7 @@
     }
 
 </script>
+
 <style>
     .model-desc {
         color: #757094 !important;
@@ -4115,3 +4316,5 @@
 
 
 </style>
+
+

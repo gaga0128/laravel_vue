@@ -293,9 +293,12 @@
         -webkit-transition: all 0.3s ease-in-out, background 0s, color 0s, border-color 0s !important;
     }
 
-</style>
+    .card-body {
+        padding: 1.5em !important;
+    }
 
 </style>
+
 <style lang="scss">
     @import '~@resources/scss/vue/libs/vue-flatpicker.scss';
 
