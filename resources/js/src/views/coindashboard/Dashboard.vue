@@ -2563,9 +2563,6 @@
         VBPopover
 
     } from 'bootstrap-vue'
-    import MultiRangeSlider from "multi-range-slider-vue";
-    import "../../../../../node_modules/multi-range-slider-vue/MultiRangeSliderBlack.css";
-    import "../../../../../node_modules/multi-range-slider-vue/MultiRangeSliderBarOnly.css";
     import Ripple from 'vue-ripple-directive'
     import axios from '@axios'
     import {
@@ -2594,7 +2591,7 @@
 
     export default {
         components: {
-            MultiRangeSlider,
+            
             BTable,
             BTabs,
             BFormCheckbox,

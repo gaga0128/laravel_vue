@@ -578,8 +578,9 @@ body {
   }
 
   ::-webkit-scrollbar {
-    width: 1px;
-    height: 1px;
+    width: 4px;
+    height: 8px;
+    cursor: pointer;
   }
 
   /* Track */
