@@ -1,7 +1,6 @@
 // Core variables and mixins
 @import '~@resources/scss/base/bootstrap-extended/include';
 @import '~@resources/scss/base/core/colors/palette-variables.scss';
-@import '~@resources/scss/vue/libs/vue-slider.scss';
 
 body {
   &.dark-layout {
@@ -123,7 +122,6 @@ body {
         .close {
           background: #232228 !important;
           color: $white;
-          display:none;
         }
       }
 
@@ -565,36 +563,6 @@ body {
 
   ul.nav-tabs{
     @extend .justify-content-center;
-  }
-
-  .graph_tab{
-    font-size:10px;
-  }
-
-  .graph_tab a{
-    padding: inherit !important;
-    margin-right: 1rem;
-    padding-bottom:3px !important;
-  }
-
-  ::-webkit-scrollbar {
-    width: 1px;
-    height: 1px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 1px grey; 
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #ffffff; 
-  }
-
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #FFFFFF; 
   }
 
   .nav-tabs {
