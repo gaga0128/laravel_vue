@@ -1,5 +1,5 @@
 <template>
-    <b-card title="" class="w-75 mx-auto">
+    <b-card title="" class="w-75 mx-auto" style="background:transparent !important">
         <b-row>
             <b-col sm="12" md="6" lg="6" xl="6" class="mb-1">
                 <label>Invest in</label>
@@ -22,26 +22,20 @@
             </b-col>
         </b-row>
 
-        <b-card v-if="show == 1&&selected != null">
+        <b-card v-if="show == 1&&selected != null" style="background:transparent !important">
             <b-row class="">
                 <b-col md="6" xl="6" class="float-right">
                     <div class="radius_gradient">
                         <b-card title="ATH Potential" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px;">
                             <b-row>
                                 <div class="text-center m-auto">
-                                    <b-col cols="12" style="margin-bottom:20px; font-family: 'Poppins';
-                                        font-style: normal;
-                                        font-weight: 500;
-                                        font-size: 18px;" >
+                                    <b-col cols="12">
                                         <p  v-if="ATHPotential >=1" class="text-wrap" style="width:160px">
                                             {{ roundData(ATHPotential)?roundData(ATHPotential):0 }}$</p>
                                             <p v-else class="text-wrap" style="width:160px">
                                                 {{ATHPotential?ATHPotential:0 }}$</p>
                                     </b-col>
-                                    <b-col cols="12" class="darkWhiteText" style="font-family: 'Poppins';
-                                        font-style: normal;
-                                        font-weight: 600;
-                                        font-size: 36px;">
+                                    <b-col cols="12">
                                         <p class="text-wrap" style="width:160px" v-if="selected.athX >=1"> {{roundData(selected.athX) }}X</p>
                                         <p class="text-wrap" style="width:160px" v-else> {{selected.athX }}X</p>
                                     </b-col>
@@ -56,17 +50,11 @@
                         <b-card title="ATL Potential" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px;">
                             <b-row>
                                 <div class="text-center m-auto">
-                                    <b-col cols="12" style="font-family: 'Poppins';
-                                        font-style: normal;
-                                        font-weight: 500;
-                                        font-size: 18px;">
+                                    <b-col cols="12">
                                         <p class="text-wrap" style="width:160px" v-if="ATLPotential >= 1">   {{ roundData(ATLPotential)?roundData(ATLPotential):0 }}$</p>
                                         <p class="text-wrap" style="width:160px" v-else>   {{ ATLPotential?ATLPotential:0 }}$</p>
                                     </b-col>
-                                    <b-col cols="12" class="darkWhiteText" style="font-family: 'Poppins';
-                                        font-style: normal;
-                                        font-weight: 600;
-                                        font-size: 36px;">
+                                    <b-col cols="12">
                                         <p class="text-wrap  text-danger" style="width:160px"  v-if="selected.atlX >= 1"> {{ roundData(selected.atlX) }}X</p>
                                         <p class="text-wrap text-danger" style="width:160px"  v-else> {{ selected.atlX }}X</p>
                                     </b-col>
@@ -78,7 +66,7 @@
                 </b-col>
             </b-row>
         </b-card>
-        <b-card v-else>
+        <b-card v-else style="background:transparent !important">
             <b-card-text class="mt-1 text-center">
                 No Data To Show
             </b-card-text>
@@ -293,12 +281,9 @@
         -webkit-transition: all 0.3s ease-in-out, background 0s, color 0s, border-color 0s !important;
     }
 
-    .card-body {
-        padding: 1.5em !important;
-    }
-
 </style>
 
+</style>
 <style lang="scss">
     @import '~@resources/scss/vue/libs/vue-flatpicker.scss';
 
