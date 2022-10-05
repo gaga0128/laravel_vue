@@ -1,5 +1,5 @@
 <template>
-  <div class="d-inline-flex position-fixed" style="width:360px;height:100%;z-index:3;background: transparent;">
+  <div class="position-fixed nav-background" style="width:360px;height:100%;z-index:3;">
 
   <div
     class="main-menu menu-fixed menu-accordion menu-shadow"
@@ -9,6 +9,7 @@
     ]"
     @mouseenter="updateMouseHovered(true)"
     @mouseleave="updateMouseHovered(false)"
+    style="min-height:auto;max-height:1051px"
     >
     <!-- main menu header-->
     <div class="navbar-header expanded">
@@ -107,6 +108,7 @@
       </div>
     </div>
   </div>
+  <div style="border:none;margin-top: 1049.5px;background-color: rgba(255, 255, 255, 0.07);height: calc(100vh - 1051px);margin-right: 62.5px;"></div>
 </div>
 </template>
 
