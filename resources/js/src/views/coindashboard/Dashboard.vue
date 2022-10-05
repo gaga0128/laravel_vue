@@ -13,9 +13,6 @@
                                     <div style="color:#6BBE83;">
                                         4.4%
                                     </div>
-
-        
-                                    
                                 </div>
 
                             </b-col>
@@ -89,7 +86,7 @@
                                         <div class="row" style="margin: 0% 15% 0% 15%;">
                                             <span class="col-3 text-info" style="float:left; margin:auto;"><a
                                                 v-ripple.400="'rgba(113, 12, 240, 35)'" v-b-modal.modal-chart
-                                                variant="outline-primary"><i class="bi bi-clock-history" style="color:#FFFFFF;"></i></a>
+                                                variant="outline-primary"><i class="bi bi-clock-history darkWhiteText" style="color:#28c76f;"></i></a>
                                             </span>
                                             <span class="col-6 feerSmallGreen" style="text-align:center;">
                                                 {{fag.data.fear_greed_classification}}
@@ -121,7 +118,7 @@
                                         <div class="row" style="margin: 0% 15% 0% 15%;">
                                             <span class="col-3 text-info" style="float:left; margin:auto;"><a
                                                 v-ripple.400="'rgba(113, 12, 240, 35)'" v-b-modal.modal-chart
-                                                variant="outline-primary"><i class="bi bi-clock-history" style="color:#FFFFFF;"></i></a>
+                                                variant="outline-primary"><i class="bi bi-clock-history darkWhiteText" style="color:#28c76f;"></i></a>
                                             </span>
                                             <span class="col-6 feerSmallGreen" style="text-align:center;">
                                                 {{fag.data.fear_greed_classification}}
@@ -152,7 +149,7 @@
                                         <div class="row" style="margin: 0% 15% 0% 15%;">
                                             <span class="col-3 text-info" style="float:left; margin:auto;"><a
                                                 v-ripple.400="'rgba(113, 12, 240, 35)'" v-b-modal.modal-chart
-                                                variant="outline-primary"><i class="bi bi-clock-history" style="color:#FFFFFF;"></i></a>
+                                                variant="outline-primary"><i class="bi bi-clock-history darkWhiteText" style="color:#28c76f;"></i></a>
                                             </span>
                                             <span class="col-6 feerSmallGreen" style="text-align:center;">
                                                 {{fag.data.fear_greed_classification}}
@@ -183,7 +180,7 @@
                                         <div class="row" style="margin: 0% 15% 0% 15%;">
                                             <span class="col-3 text-info" style="float:left; margin:auto;"><a
                                                 v-ripple.400="'rgba(113, 12, 240, 35)'" v-b-modal.modal-chart
-                                                variant="outline-primary"><i class="bi bi-clock-history" style="color:#FFFFFF;"></i></a>
+                                                variant="outline-primary"><i class="bi bi-clock-history darkWhiteText" style="color:#28c76f;"></i></a>
                                             </span>
                                             <span class="col-6 feerSmallGreen" style="text-align:center;">
                                                 {{fag.data.fear_greed_classification}}
@@ -222,14 +219,14 @@
                                 <div v-b-modal.modal-filters >
                                             <b-button style="padding:5px; color:white;" v-ripple.400="'rgba(255, 255, 255,1)'" title="Filter" variant="flat-success"
                                                  class="btn-icon mx-1">
-                                                <feather-icon icon="FilterIcon" size="20" class="text-black cursor-pointer" style=" " />
+                                                <feather-icon icon="FilterIcon" size="20" class="text-black cursor-pointer darkWhiteText" style="color:#28c76f; " />
                                             </b-button>
                                 </div>
                                 <div>
                                     <b-button  v-if="!locked" @click="lockedFilter" style="color:white; padding:5px; width:33px" variant="flat-success"
                                         title="Unlocking" v-ripple.400="'rgba(255, 255, 255,1)'"  
                                         class="btn-icon mr-1 ">
-                                        <feather-icon icon="UnlockIcon" size="20" class="text-black cursor-pointer" style=" " />
+                                        <feather-icon icon="UnlockIcon" size="20" class="text-black cursor-pointer darkWhiteText" style="color:#28c76f; " />
 
                                     </b-button>
                                     <b-button v-else @click="lockedFilter" style="color:white; padding:5px; width:33px" title="All Tokens" variant="flat-success"
@@ -243,10 +240,10 @@
                                 </div>
                                 
                                 <div @click="clearFilters(true)">
-                                    <b-button style="padding:5px; color:white;" v-ripple.400="'rgba(255, 255, 255,1)'" title="Refresh" variant="flat-success"
+                                    <b-button style="padding:5px; " v-ripple.400="'rgba(255, 255, 255,1)'" title="Refresh" variant="flat-success"
                                          class="btn-icon ml-1">
-                                        <feather-icon icon="RefreshCcwIcon" size="20" class="text-black cursor-pointer"
-                                            style="" />
+                                        <feather-icon icon="RefreshCcwIcon" size="20" class="text-black cursor-pointer darkWhiteText"
+                                            style="color:#28c76f;" />
                                     </b-button>
 
                                 </div>
@@ -772,11 +769,11 @@
                                     <b-avatar class="text-center mx-1" style="" :src="data.item.image" />
 
                                     <div class="">
-                                        <div class="text-nowrap text-truncate" style="max-width: 100px;">
+                                        <div class="text-nowrap text-truncate" style="max-width: 100px; font-weight: 600;">
                                             <b>{{ data.value }}</b>   
                                         </div>
                                         <div class="text-nowrap text-truncate text-left"
-                                            style="max-width: 100px; font-size:14px;">
+                                            style="max-width: 100px;  opacity: 0.8;">
                                             {{ data.item.symbol }}
                                         </div>
                                         
@@ -3741,14 +3738,14 @@
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 400;
-        font-size: 14px;
+        font-size: 12px;
     }
     
     tbody tr{
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 300;
-        font-size: 18px;
+        font-size: 14px;
         background: linear-gradient(174deg, rgba(43, 255, 77, 1) -90%, rgba(0, 0, 0, 0) 20.06%), rgba(255, 255, 255, 0.07);
         
     }
@@ -3828,5 +3825,7 @@
     g path:not(:first-child) {
         filter: transparent;
     }
+
+   
 
 </style>
