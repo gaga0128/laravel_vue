@@ -1,7 +1,7 @@
 const data = [
     {
         key: 'market_cap_rank',
-        label: '#',
+        label: '',
         stickyColumn: false,
         sortable: false,
         visible: 3

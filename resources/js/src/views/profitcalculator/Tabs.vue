@@ -1,7 +1,7 @@
 <template>
     <b-row>
         <b-col cols="12">
-            <b-card title="">
+            <b-card title="" style="background:transparent !important">
                 <div class="darkWhiteText" style="font-family: 'Poppins';
                     font-style: normal;
                     font-weight: 600;
