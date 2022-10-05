@@ -67,6 +67,7 @@
         }
 
         .navigation {
+          margin-right: 55px;
           .navigation-header {
             .feather-more-horizontal {
               display: none;
@@ -132,10 +133,6 @@
             display: none;
           }
           
-          .user_logout{
-            display:none
-          }
-          
           .navigation-header {
             margin-left: 2.2rem;
             span {
@@ -184,6 +181,7 @@
           
           
           .navigation {
+            margin-right: 55px;
             > li.navigation-header {
               span {
                 display: block;

@@ -1,7 +1,6 @@
 // Core variables and mixins
 @import '~@resources/scss/base/bootstrap-extended/include';
 @import '~@resources/scss/base/core/colors/palette-variables.scss';
-@import '~@resources/scss/vue/libs/vue-slider.scss';
 
 body {
   &.dark-layout {
@@ -123,7 +122,6 @@ body {
         .close {
           background: #232228 !important;
           color: $white;
-          display:none;
         }
       }
 

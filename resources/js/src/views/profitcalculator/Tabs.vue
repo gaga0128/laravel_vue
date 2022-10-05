@@ -73,7 +73,6 @@ import AverageFiveVue from './AverageFive.vue'
 </script>
 
 </style>
-
 <style lang="scss">
     @import '~@resources/scss/vue/libs/vue-flatpicker.scss';
 
