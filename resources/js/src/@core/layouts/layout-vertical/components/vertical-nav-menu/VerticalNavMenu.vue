@@ -1,5 +1,5 @@
 <template>
-  <div class="position-fixed nav-background" style="width:360px;height:100%;z-index:3;">
+  <div class="position-fixed nav-background" style="width:330px;height:100%;z-index:3;">
 
   <div
     class="main-menu menu-fixed menu-accordion menu-shadow"
@@ -44,14 +44,14 @@
             <b-link class="nav-link modern-nav-toggle">
               <feather-icon
               icon="XIcon"
-              size="20"
-              class="d-block d-xl-none"
+              size="25"
+              class="d-block d-xl-none toggle-icon"
               @click="toggleVerticalMenuActive"
               />
               <feather-icon
               :icon="collapseTogglerIconFeather"
-              size="20"
-              class="d-none d-xl-block collapse-toggle-icon"
+              size="25"
+              class="d-noned-xl-block collapse-toggle-icon toggle-icon"
                 @click="toggleCollapsed"
               />
             </b-link>
@@ -72,16 +72,16 @@
       class=""
     />
 
-    <div class="row mt-2 mb-4 user_info">
+    <div class="row mt-1 mb-4 user_info">
       <div class="d-none user-nav d-inline float-left w-50 text-center m-auto">
-        <p style="margin-bottom:5px;font-family: monospace;font-style: normal;font-weight: 700;font-size: 20px;">
+        <p style="margin-bottom:5px;font-family: Poppins;font-style: normal;font-weight: 700;font-size: 24px;letter-spacing: 3pt;">
           {{ userData.fullName || userData.username }}
         </p>
-        <p class="mb-0" style="font-family: monospace;font-style: normal;font-weight: 500;font-size: 14px;">{{ userData.role }}</p>
-        <button class="px-1">Upgrade</button>
+        <p style="font-family: Poppins;margin: 7px;font-style: normal;font-weight: 500;font-size: 17px;">{{ userData.role }}</p>
+        <button onclick="" style="font-family: Poppins; font-size:17px; border-radius: 10px;padding:4px 20px">Upgrade</button>
       </div>
       <div class="float-right w-50 text-right pr-4">
-        <b-avatar size="80" :src="userData.avatar" :to="{ name: 'pages-profile'}" variant="light-primary" badge class="badge-minimal" badge-variant="success">
+        <b-avatar size="100" :src="userData.avatar" :to="{ name: 'pages-profile'}" variant="light-primary" badge class="badge-minimal" badge-variant="success">
           <feather-icon v-if="!userData.fullName" icon="UserIcon" size="22" />
         </b-avatar>
       </div>
@@ -108,7 +108,7 @@
       </div>
     </div>
   </div>
-  <div style="border:none;margin-top: 1049.5px;background-color: rgba(255, 255, 255, 0.07);height: calc(100vh - 1051px);margin-right: 62.5px;"></div>
+  <div style="border:none;margin-top: 962px;background-color: rgba(255, 255, 255, 0.07);height: calc(100vh - 962.5px);margin-right: 58px;"></div>
 </div>
 </template>
 
@@ -176,7 +176,7 @@ export default {
       wheelPropagation: false,
     }
 
-    const collapseTogglerIconFeather = computed(() => (collapseTogglerIcon.value === 'unpinned' ? 'CircleIcon' : 'DiscIcon'))
+    const collapseTogglerIconFeather = computed(() => (collapseTogglerIcon.value === 'unpinned' ? 'MenuIcon' : 'XIcon'))
 
     // App Name
     const { appName, appLogoImage } = $themeConfig.app

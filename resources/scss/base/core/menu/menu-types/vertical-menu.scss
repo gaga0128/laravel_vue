@@ -60,14 +60,13 @@
         background-size:100%;
         background-color:transparent;
         min-height:100vh;
-        width:360px;
+        width:330px;
 
         .main-menu-content, .user_logout{
           margin-right: 55px;
         }
 
         .navigation {
-          margin-right: 55px;
           .navigation-header {
             .feather-more-horizontal {
               display: none;
@@ -133,7 +132,7 @@
             display: none;
           }
           
-	.user_logout{
+	        .user_logout{
             display:none
           }
           .navigation-header {
@@ -174,7 +173,7 @@
           background-size:cover;
           background-color:transparent;;
           min-height:100vh;
-          width:360px;
+          width:330px;
           // width: $menu-expanded-width;
 
           .main-menu-content, .user_logout{

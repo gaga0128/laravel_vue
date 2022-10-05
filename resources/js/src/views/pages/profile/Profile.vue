@@ -108,4 +108,11 @@ export default {
 .content-wrapper{
   padding-left: 50px;
 }
+
+</style>
+
+<style>
+  .card-body {
+    padding: 1.5rem !important;
+  }
 </style>

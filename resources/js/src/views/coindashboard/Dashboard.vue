@@ -4240,8 +4240,8 @@
         padding: 15px;
     }
 
-    tr td:first-child { border-top-left-radius: 30px; border-bottom-left-radius: 30px; }
-    tr td:last-child { border-top-right-radius: 30px;  border-bottom-right-radius: 30px;}
+    tr td:first-child { border-top-left-radius: 50em; border-bottom-left-radius: 50em; }
+    tr td:last-child { border-top-right-radius: 50em;  border-bottom-right-radius: 50em;}
 
     #pagination button span{
         background-color: transparent !important;
