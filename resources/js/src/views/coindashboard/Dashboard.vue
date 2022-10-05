@@ -4217,15 +4217,15 @@
     thead tr th{
         font-family: 'Poppins';
         font-style: normal;
-        font-weight: 400;
+        font-weight: 500;
         font-size: 14px;
     }
     
     tbody tr{
         font-family: 'Poppins';
         font-style: normal;
-        font-weight: 300;
-        font-size: 20px;
+        font-weight: 400;
+        font-size: 14px;
         background: linear-gradient(172deg, rgba(43, 255, 77, 0.3) 3.11%, rgba(0, 0, 0, 0) 20.06%), rgba(255, 255, 255, 0.07);
         
     }
@@ -4276,13 +4276,13 @@
 
    
    
-    .card {
-        padding: 0px !important;
+    /* .card {
+        padding: 0px;
     }
 
     .card-body{
-        padding: 0px !important;
-    }
+        padding: 0px;
+    } */
 
     #dropdown-left1__BV_toggle_{
         padding: 0px !important;
