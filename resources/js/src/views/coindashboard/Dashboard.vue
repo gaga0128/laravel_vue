@@ -65,15 +65,21 @@
                         </b-row>
                     </div>
                     <!-- graph -->
+                    <defs>
+                        <linearGradient id="gradient" x1="100%" y1="0%" x2="0%" y2="0%">
+                            <stop offset="100%"   stop-color="rgb(255, 255, 255, 0)"/>
+                            <stop offset="0%" stop-color="#0a070e"/>
+                        </linearGradient>
+                    </defs>
                     <b-row class="" style="margin-bottom: 25px;">
                         <b-col sm="3" md="3" cols="6">
                             <div class="mx-auto w-75 text-center">
                                 <h5 class="w-75 mx-auto margin16_b feerTitle">Fear and Greed</h5>
                                 <VueSvgGauge width="60%" class="w-75 mx-auto" :start-angle="-90" :end-angle="90"
-                                    :inner-radius="87" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
-                                    :max="100"
-                                    :gauge-color="[{ offset: 0, color: '#f55442'}, { offset: 100, color: '#0bd63a'}]"
-                                    :scale-interval="3">
+                                    :inner-radius="96.5" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
+                                    :max="50"
+                                    :gauge-color="[{offset: 0, color: '#232632'}, { offset: 17, color: '#F6573E'}, { offset: 25, color: '#FD7941'}, { offset: 50, color: '#E7D45D'}, { offset: 75, color: '#7DD75F'}, { offset: 100, color: '#51D868'}]"
+                                    :scale-interval="0">
                                     <div class="inner-text" style="display:block;">
                                         <div style="margin-top: 2rem !important;"
                                             :class="{'text-danger':fag.data.fear_greed_index<50,'text-success':fag.data.fear_greed_index>=50}">
@@ -102,10 +108,10 @@
                             <div class="mx-auto w-75 text-center">
                                 <h5 class="w-75 mx-auto margin16_b feerTitle">NFT Barometer</h5>
                                 <VueSvgGauge width="60%" class="w-75 mx-auto" :start-angle="-90" :end-angle="90"
-                                    :inner-radius="87" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
-                                    :max="100"
-                                    :gauge-color="[{ offset: 0, color: '#f55442'}, { offset: 100, color: '#0bd63a'}]"
-                                    :scale-interval="3">
+                                    :inner-radius="96.5" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
+                                    :max="50"
+                                    :gauge-color="[{offset: 0, color: '#232632'}, { offset: 17, color: '#F6573E'}, { offset: 25, color: '#FD7941'}, { offset: 50, color: '#E7D45D'}, { offset: 75, color: '#7DD75F'}, { offset: 100, color: '#51D868'}]"
+                                    :scale-interval="0">
                                     <div class="inner-text" style="display:block;">
                                         <div style="margin-top: 2rem !important;"
                                             :class="{'text-danger':fag.data.fear_greed_index<50,'text-success':fag.data.fear_greed_index>=50}">
@@ -133,10 +139,10 @@
                             <div class="mx-auto w-75 text-center">
                                 <h5 class="w-75 mx-auto margin16_b feerTitle">BTC in/outflow</h5>
                                 <VueSvgGauge width="60%" class="w-75 mx-auto" :start-angle="-90" :end-angle="90"
-                                    :inner-radius="87" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
-                                    :max="100"
-                                    :gauge-color="[{ offset: 0, color: '#f55442'}, { offset: 100, color: '#0bd63a'}]"
-                                    :scale-interval="3">
+                                    :inner-radius="96.5" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
+                                    :max="50"
+                                    :gauge-color="[{offset: 0, color: '#232632'}, { offset: 17, color: '#F6573E'}, { offset: 25, color: '#FD7941'}, { offset: 50, color: '#E7D45D'}, { offset: 75, color: '#7DD75F'}, { offset: 100, color: '#51D868'}]"
+                                    :scale-interval="0">
                                     <div class="inner-text" style="display:block;">
                                         <div style="margin-top: 2rem !important;"
                                             :class="{'text-danger':fag.data.fear_greed_index<50,'text-success':fag.data.fear_greed_index>=50}">
@@ -164,10 +170,10 @@
                             <div class="mx-auto w-75 text-center">
                                 <h5 class="w-75 mx-auto margin16_b feerTitle">BTC Outflow</h5>
                                 <VueSvgGauge width="60%" class="w-75 mx-auto" :start-angle="-90" :end-angle="90"
-                                    :inner-radius="87" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
-                                    :max="100"
-                                    :gauge-color="[{ offset: 0, color: '#f55442'}, { offset: 100, color: '#0bd63a'}]"
-                                    :scale-interval="3">
+                                    :inner-radius="96.5" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
+                                    :max="50"
+                                    :gauge-color="[{offset: 0, color: '#232632'}, { offset: 17, color: '#F6573E'},  { offset: 25, color: '#FD7941'}, { offset: 50, color: '#E7D45D'}, { offset: 75, color: '#7DD75F'}, { offset: 100, color: '#51D868'}]"
+                                    :scale-interval="0">
                                     <div class="inner-text" style="display:block;">
                                         <div style="margin-top: 2rem !important;"
                                             :class="{'text-danger':fag.data.fear_greed_index<50,'text-success':fag.data.fear_greed_index>=50}">
@@ -249,8 +255,7 @@
                                     <b-dropdown size="lg" variant="flat-dark" style="padding:0px !important; color: white !important;" class="cunningBtn"
                                         id="dropdown-left" no-caret   dropright>
                                         <template #button-content>
-                                            
-                                            <feather-icon  icon="SlidersIcon" size="20" class=" text-black cursor-pointer" style="color:white;"/>
+                                            <feather-icon  icon="SlidersIcon" size="20" class=" text-black cursor-pointer darkWhiteText" style="color:#28c76f;rotate:-90deg"/>
                                         </template>
                                         <b-dropdown-form href="#" class="dropdown-mine">
                                             <div style="font-family: 'Poppins';
@@ -733,31 +738,33 @@
                             <template #head()="scope">
                                 <div class="text-nowrap cursor-pointer text-center " style=""
                                     @click="sortingCols(scope.field.key)">
-                                    <div class="d-flex justify-content-center">
-                                        <span> {{ scope.label }} </span> <span class="">
-                                            <feather-icon icon="ChevronUpIcon" size="8" class="align-middle d-block"
-                                                :class="{'text-danger':params.sort[1] =='asc'&& params.sort[0] ==scope.field.key}" />
-                                            <feather-icon icon="ChevronDownIcon" size="8"
-                                                :class="{'text-danger':params.sort[1] =='desc'&& params.sort[0] ==scope.field.key}"
-                                                class="align-middle d-block" /> </span>
+                                    <div v-if="scope.label" class="d-flex justify-content-center">
+                                        <span> {{ scope.label }} </span> 
+                                        <span class="my-auto d-inline">
+                                            <feather-icon icon="TriangleIcon" size="12" style="rotate:180deg;margin-left: 5px;"
+                                            :class="{'text-danger':params.sort[1] =='asc'&& params.sort[0] ==scope.field.key}" />
+                                        <!-- <feather-icon icon="ChevronDownIcon" size="8"
+                                            :class="{'text-danger':params.sort[1] =='desc'&& params.sort[0] ==scope.field.key}"
+                                            class="align-middle d-block" />  -->
+                                        </span>
                                     </div>
                                 </div>
                             </template>
 
                             <template #cell(coin_platform)="data">
                                 <div class="" v-html="getPlatformTags(data.value)"></div>
-                                <div class="" v-if="checkSeemore(data.value)"><span
+                                <!-- <div class="" v-if="checkSeemore(data.value)"><span
                                         v-b-popover.hover.top="platformTagsSeemore(data.value)"
                                         v-ripple.400="'rgba(113, 102, 240, 0.15)'" title="Platforms" variant="outline-primary">
                                         See more...
-                                    </span></div>
+                                    </span></div> -->
                             </template>
                             <template #cell(market_cap_rank)="data">
                                 <div class="d-flex">
                                     <div class="mx-1">
-                                        <feather-icon icon="StarIcon" size="14" />
+                                        <feather-icon icon="StarIcon" size="22" />
                                     </div>
-                                    <div class="" style="">{{ toInterNationalNumber(data.value?data.value:0) }}</div>
+                                    <div style="padding-top:3px">{{ toInterNationalNumber(data.value?data.value:0) }}</div>
                                 </div>
                             </template>
                             <template #cell(name)="data">
@@ -769,7 +776,7 @@
                                             <b>{{ data.value }}</b>   
                                         </div>
                                         <div class="text-nowrap text-truncate text-left"
-                                            style="max-width: 100px; font-size:12px;">
+                                            style="max-width: 100px; font-size:14px;">
                                             {{ data.item.symbol }}
                                         </div>
                                         
@@ -904,8 +911,6 @@
                                     {{ data.value }}
                                 </div>
                             </template>
-
-
 
                             <template #cell(six_months_unlock_number_of_tokens)="data">
                                 <div v-if="checkUserPlan(data.item.market_cap_rank)" style="text-align: center;"
@@ -3743,8 +3748,8 @@
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 300;
-        font-size: 20px;
-        background: linear-gradient(172deg, rgba(43, 255, 77, 0.3) 3.11%, rgba(0, 0, 0, 0) 20.06%), rgba(255, 255, 255, 0.07);
+        font-size: 18px;
+        background: linear-gradient(174deg, rgba(43, 255, 77, 1) -90%, rgba(0, 0, 0, 0) 20.06%), rgba(255, 255, 255, 0.07);
         
     }
 
@@ -3755,17 +3760,11 @@
 
     td {
         border: solid 0px #000000;
-        padding: 30px;
+        padding: 15px;
     }
 
     tr td:first-child { border-top-left-radius: 30px; border-bottom-left-radius: 30px; }
     tr td:last-child { border-top-right-radius: 30px;  border-bottom-right-radius: 30px;}
-
-    tr td:first-child { border-bottom-left-radius: 30px;  border-top-left-radius: 30px;}
-    tr td:last-child { border-bottom-right-radius: 30px;  border-top-right-radius: 30px;}
-
-    tr td { border-top-style: solid; }
-    tr td:first-child { border-left-style: solid; }
 
     #pagination button span{
         background-color: transparent !important;
@@ -3808,6 +3807,26 @@
         padding: 0px !important;
     }
 
+    #dropdown-left1__BV_toggle_{
+        padding: 0px !important;
+    }
 
+    .cunningDrop > ul {
+        background: none;
+    }
+
+    .graph_tab{
+        font-size:10px;
+    }
+
+    .graph_tab a{
+        padding: inherit !important;
+        margin-right: 1rem;
+        padding-bottom:3px !important;
+    }
+
+    g path:not(:first-child) {
+        filter: transparent;
+    }
 
 </style>

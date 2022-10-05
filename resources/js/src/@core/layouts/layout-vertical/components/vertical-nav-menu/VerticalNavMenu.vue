@@ -1,5 +1,6 @@
 <template>
-  <div class="d-inline-flex position-fixed" style="width:320px;height:100%;z-index:3;background: transparent;">
+  <div class="d-inline-flex position-fixed" style="width:360px;height:100%;z-index:3;background: transparent;">
+
   <div
     class="main-menu menu-fixed menu-accordion menu-shadow"
     :class="[
@@ -79,7 +80,7 @@
         <button class="px-1">Upgrade</button>
       </div>
       <div class="float-right w-50 text-right pr-4">
-        <b-avatar size="80" :src="userData.avatar" variant="light-primary" badge class="badge-minimal" badge-variant="success">
+        <b-avatar size="80" :src="userData.avatar" :to="{ name: 'pages-profile'}" variant="light-primary" badge class="badge-minimal" badge-variant="success">
           <feather-icon v-if="!userData.fullName" icon="UserIcon" size="22" />
         </b-avatar>
       </div>

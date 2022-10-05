@@ -1,6 +1,6 @@
 <template>
 
-    <b-card title="" class="w-75 mx-auto">
+    <b-card title="" class="w-75 mx-auto" style="background:transparent !important">
         <b-row>
             <b-col sm="12" md="6" lg="6" xl="6" class="mb-1">
                 <label>Invest in</label>
@@ -24,7 +24,7 @@
 
         </b-row>
 
-        <b-card v-if="show == 1 &&selected != null">
+        <b-card v-if="show == 1 &&selected != null" style="background:transparent !important">
             <b-row class="">
                 <b-col md="12" xl="12" class="text-center">
                     <div class="radius_gradient">
@@ -50,12 +50,12 @@
 
             </b-row>
         </b-card>
-        <b-card v-else-if="show == 0">
+        <b-card v-else-if="show == 0" style="background:transparent !important">
             <b-card-text class="mt-1 text-center">
                 No Data To Show
             </b-card-text>
         </b-card>
-        <b-card v-else-if="show == 2">
+        <b-card v-else-if="show == 2" style="background:transparent !important">
             <b-card-text class="mt-1 text-center text-danger">
                 No Category for the selected coin
             </b-card-text>
