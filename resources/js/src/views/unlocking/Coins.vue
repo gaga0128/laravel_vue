@@ -1,6 +1,6 @@
 <template>
-  <b-row>
-    <b-col cols="12">
+  <b-row style="padding-left: 50px;">
+    <b-col cols="12" class="darkWhiteText">
       <auto-suggest-ajax />
     </b-col>
   </b-row>

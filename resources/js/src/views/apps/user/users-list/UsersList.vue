@@ -1,6 +1,6 @@
 <template>
 
-    <div>
+    <div style="padding-left: 50px;">
 
         <user-list-add-new :is-add-new-user-sidebar-active.sync="isAddNewUserSidebarActive" :role-options="roleOptions"
             :plan-options="planOptions" @refetch-data="refetchData" />

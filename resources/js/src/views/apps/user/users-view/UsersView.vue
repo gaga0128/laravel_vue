@@ -121,5 +121,7 @@ export default {
 </script>
 
 <style>
-
+  .content-wrapper{
+    padding-left: 50px;
+  }
 </style>

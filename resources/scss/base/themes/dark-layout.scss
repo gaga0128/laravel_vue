@@ -1298,7 +1298,7 @@
         th,
         td {
           border-color: $theme-dark-border-color;
-          color: $theme-dark-body-color;
+          color: white;
 
           code {
             background-color: $theme-dark-table-row-bg;
@@ -2277,6 +2277,43 @@
       background-color: $theme-dark-card-bg;
     }
   }
+
+  //sug class
+  .darkWhiteText{
+    color: white !important;
+  }
+
+  .btn-primary{
+    background: #FFFFFF !important;
+    /* botton Line */
+
+    border: 0.8px solid rgba(255, 255, 255, 0.35) !important;
+    border-radius: 10px !important;
+    color: black !important;
+  }
+
+  .greyBackground{
+    background: #232228;
+    box-shadow: 0px 0px 20px rgba(19, 20, 37, 0.5);
+    backdrop-filter: blur(7.5px);
+    border-radius: 30px;
+  }
+
+
+
+
+  .vs__selected{
+    background: none !important;
+    color: white !important;
+    border: white;
+  }
+
+  .vs__dropdown-toggle{
+    background: #0A070E !important;
+  }
+
+
+  //sug class
 
   // Users Application
   .app-user-view {
