@@ -357,7 +357,8 @@
         background-color: $theme-dark-body-bg;
       }
       .navigation > li.sidebar-group-active > a {
-        background-color: $theme-dark-body-bg;
+        // background-color: $theme-dark-body-bg;
+        background-color: transparent;
       }
     }
 
@@ -421,7 +422,8 @@
 
         &.open {
           > a {
-            background-color: $theme-dark-body-bg !important;
+            // background-color: $theme-dark-body-bg !important;
+            background-color: transparent !important;
           }
         }
 
@@ -430,7 +432,8 @@
         }
 
         .menu-content {
-          background-color: $theme-dark-card-bg;
+          // background-color: $theme-dark-card-bg;
+          background-color: transparent;
 
           .active {
             .menu-item {
@@ -450,7 +453,8 @@
 
       .sidebar-group-active {
         .menu-content {
-          background-color: $theme-dark-card-bg;
+          // background-color: $theme-dark-card-bg;
+          background-color: transparent;
 
           .active {
             z-index: 1;

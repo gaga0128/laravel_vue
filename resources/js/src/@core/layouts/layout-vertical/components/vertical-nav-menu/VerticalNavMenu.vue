@@ -9,7 +9,7 @@
     ]"
     @mouseenter="updateMouseHovered(true)"
     @mouseleave="updateMouseHovered(false)"
-    style="min-height:auto;max-height:1051px"
+    style="min-height:auto;max-height:962.5px"
     >
     <!-- main menu header-->
     <div class="navbar-header expanded">
@@ -108,7 +108,7 @@
       </div>
     </div>
   </div>
-  <div style="border:none;margin-top: 962px;background-color: rgba(255, 255, 255, 0.07);height: calc(100vh - 962.5px);margin-right: 58px;"></div>
+  <div class="fulfill-navbar" style="border:none;margin-top: 962px;background-color: rgba(255, 255, 255, 0.07);height: calc(100vh - 962.5px);margin-right: 58px;"></div>
 </div>
 </template>
 
