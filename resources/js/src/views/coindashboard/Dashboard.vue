@@ -105,7 +105,7 @@
                             <div class="mx-auto w-75 text-center">
                                 <h5 class="w-75 mx-auto margin16_b feerTitle">NFT Barometer</h5>
                                 <VueSvgGauge width="60%" class="w-75 mx-auto" :start-angle="-90" :end-angle="90"
-                                    :inner-radius="96.5" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
+                                    :inner-radius="96.5" :value="fag.data.fear_greed_index" :separator-step="fag.data.fear_greed_index" :min="0"
                                     :max="50"
                                     :gauge-color="[{offset: 0, color: '#232632'}, { offset: 17, color: '#F6573E'}, { offset: 25, color: '#FD7941'}, { offset: 50, color: '#E7D45D'}, { offset: 75, color: '#7DD75F'}, { offset: 100, color: '#51D868'}]"
                                     :scale-interval="0">
@@ -139,7 +139,7 @@
                                     :inner-radius="96.5" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
                                     :max="50"
                                     :gauge-color="[{offset: 0, color: '#232632'}, { offset: 17, color: '#F6573E'}, { offset: 25, color: '#FD7941'}, { offset: 50, color: '#E7D45D'}, { offset: 75, color: '#7DD75F'}, { offset: 100, color: '#51D868'}]"
-                                    :scale-interval="0">
+                                    :scale-interval="0" >
                                     <div class="inner-text" style="display:block;">
                                         <div style="margin-top: 2rem !important;"
                                             :class="{'text-danger':fag.data.fear_greed_index<50,'text-success':fag.data.fear_greed_index>=50}">
@@ -2554,7 +2554,7 @@
     import axios from '@axios'
     import {
         VueSvgGauge
-    } from 'vue-svg-gauge'
+    } from 'vue-svg-gauge';
     import VueApexCharts from 'vue-apexcharts'
     import platformData from './platforms'
     import fieldsData from './fields'

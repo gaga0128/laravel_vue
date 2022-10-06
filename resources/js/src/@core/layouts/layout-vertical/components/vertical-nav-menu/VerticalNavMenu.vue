@@ -19,7 +19,7 @@
         :toggleCollapsed="toggleCollapsed"
         :collapseTogglerIcon="collapseTogglerIcon"
       >
-        <ul class="nav navbar-nav flex-row">
+        <ul class="nav navbar-nav flex-row" style="padding-right:0 !important">
 
           <!-- Logo & Text -->
           <!-- <li class="nav-item mr-auto">
@@ -58,7 +58,7 @@
           </li>
 
           <!--Dark Toggle button-->
-          <li class="nav-item nav-toggle m-auto" style="margin-right:0 !important">
+          <li class="nav-item nav-toggle m-auto rounded-pill" style="margin-right:0 !important; padding-right: 1rem !important; padding-left: 1rem; border: 3px black solid;">
             <dark-Toggler class="d-none d-lg-block" />
           </li>
         </ul>
@@ -226,4 +226,10 @@ export default {
 
 <style lang="scss">
 @import "~@resources/scss/base/core/menu/menu-types/vertical-menu.scss";
+
+.navbar-nav a.nav-link:has(svg){
+  padding:1px;
+  color:black;
+}
+
 </style>
