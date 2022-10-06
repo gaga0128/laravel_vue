@@ -204,7 +204,7 @@
                 box-shadow: 0px 0px 20px rgba(19, 20, 37, 0.5);
                 backdrop-filter: blur(7.5px);
                 border-radius: 30px;">
-                <div class="searchbar mt-1 mb-1">
+                <div class="searchbar mt-1">
                     <b-row>
                         <b-col cols="8" md="6" xl="6">
                             <b-input-group class="input-group-merge mb-1">
@@ -1057,15 +1057,15 @@
 
                     </b-col>
                     <b-col class="m-auto">
-                        <b-button v-ripple.400="'rgb(31, 103, 211)'"
+                        <b-button v-ripple.400="'rgb(31, 103, 211)'" style="    margin-right: 10px !important;"
                             v-if="selectedPreset && checkDefault(selectedPreset)" @click="savePresetFilter"
-                            title="Save preset" variant="flat-primary" class="btn-icon">
-                            <feather-icon icon="SaveIcon" />
+                            title="Save preset" variant="primary" class="btn-icon">
+                            <feather-icon icon="SaveIcon" size="16"/>
                         </b-button>
                         <b-button v-ripple.400="'rgba(255, 255, 255, 0.15)'"
                             v-if="selectedPreset && checkDefault(selectedPreset)" @click="deletePreset"
-                            title="Delete preset" variant="flat-primary" class="btn-icon">
-                            <feather-icon icon="Trash2Icon" />
+                            title="Delete preset" variant="primary" class="btn-icon">
+                            <feather-icon icon="Trash2Icon" size="16"/>
                         </b-button>
                         
 
@@ -2023,10 +2023,22 @@
                     </app-collapse-item>
                     <app-collapse-item title="Social Data" class="w-100">
                         <b-card no-body class="mb-1">
-                            <b-card-body style="margin-left: 10px; margin-top: 19px;">
+                            <b-card-body>
 
-                                <b-row class="justify-content-center">
-                                    <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
+                                <b-row class="justify-content-center" >
+                                    <b-col v-if="activeData.website && activeData.website != '' "   cols="1" md="2" lg="2" sm="2" class="radius_gradient">
+                                        <b-card title="" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px;">
+                                            <a :href="activeData.website" target="_blank" class="d-block" 
+                                                style="margin-top:20px; margin-bottom:10px;">
+                                            <b-img rounded :src="'/images/static/website.png'" fluid class="w-50"
+                                                alt="Responsive image" />
+                                            </a>
+                                            <div class="socialText">
+                                                Website
+                                            </div>
+                                        </b-card>
+                                    </b-col>
+                                    <!-- <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
                                         v-if="activeData.website && activeData.website != '' ">
                                         <a :href="activeData.website" target="_blank" class="d-block" 
                                         style="margin-top:20px; margin-bottom:10px;">
@@ -2035,8 +2047,22 @@
                                         </a>
                                         <span class="text-center" style="font-size:12px; font-weight:500">Website
                                         </span>
+                                    </b-col> -->
+                                    <b-col   cols="1" md="2" lg="2" sm="2" class="radius_gradient" v-if="activeData.twitter && activeData.twitter != '' ">
+                                        <b-card title="" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px;">
+                                            <a :href="activeData.twitter" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
+                                                <b-img rounded :src="'/images/static/twitter.png'" fluid class="w-50"
+                                                    alt="Responsive image" />
+                                            </a>
+                                            <div class="socialText" v-if="activeData.twitter_followers">
+                                                {{kFormatter(activeData.twitter_followers)}}
+                                            </div>
+                                            <div class="socialText" v-else>
+                                                Twitter
+                                            </div>
+                                        </b-card>
                                     </b-col>
-                                    <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
+                                    <!-- <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
                                         v-if="activeData.twitter && activeData.twitter != '' ">
                                         <a :href="activeData.twitter" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
                                             <b-img rounded :src="'/images/static/twitter.png'" fluid class="w-50"
@@ -2047,8 +2073,23 @@
                                         </span>
                                         <span class="text-center" style="font-size:12px; font-weight:500" v-else>Twitter
                                         </span>
+                                    </b-col> -->
+                                    <b-col   cols="1" md="2" lg="2" sm="2" class="radius_gradient" v-if="activeData.telegram && activeData.telegram != '' ">
+                                        <b-card title="" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px;">
+                                            <a :href="activeData.telegram" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
+                                                <b-img rounded :src="'/images/static/telegram.png'" fluid class="w-50"
+                                                    alt="Responsive image" />
+
+                                            </a>
+                                            <div class="socialText" v-if="activeData.telegram_members">
+                                                {{kFormatter(activeData.telegram_members)}}
+                                            </div>
+                                            <div class="socialText" v-else>
+                                                Telegram
+                                            </div>
+                                        </b-card>
                                     </b-col>
-                                    <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
+                                    <!-- <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
                                         v-if="activeData.telegram && activeData.telegram != '' ">
                                         <a :href="activeData.telegram" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
                                             <b-img rounded :src="'/images/static/telegram.png'" fluid class="w-50"
@@ -2061,8 +2102,21 @@
                                         <span class="text-center" style="font-size:12px; font-weight:500"
                                             v-else>Telegram
                                         </span>
+                                    </b-col> -->
+                                    <b-col   cols="1" md="2" lg="2" sm="2" class="radius_gradient"  
+                                        v-if="activeData.discord && activeData.discord != '' ">
+                                        <b-card title="" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px;">
+                                            <a :href="activeData.discord" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
+                                                <b-img rounded :src="'/images/static/discord.png'" fluid class="w-50"
+                                                    alt="Responsive image" />
+                                            </a>
+                                            <div class="socialText" v-if="activeData.medium_followers">{{kFormatter(activeData.medium_followers)}}
+                                            </div>
+                                            <div class="socialText" v-else>Medium
+                                            </div>
+                                        </b-card>
                                     </b-col>
-                                    <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
+                                    <!-- <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
                                         v-if="activeData.discord && activeData.discord != '' ">
                                         <a :href="activeData.discord" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
                                             <b-img rounded :src="'/images/static/discord.png'" fluid class="w-50"
@@ -2074,8 +2128,23 @@
                                         </span>
                                         <span class="text-center" style="font-size:12px; font-weight:500" v-else>Discord
                                         </span>
+                                    </b-col> -->
+                                    <b-col   cols="1" md="2" lg="2" sm="2" class="radius_gradient"  
+                                        v-if="activeData.medium && activeData.medium != '' ">
+                                        <b-card title="" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px;">
+                                            <a :href="activeData.medium" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
+                                                <b-img rounded :src="'/images/static/medium.png'" fluid class="w-50"
+                                                    alt="Responsive image" />
+
+                                            </a>
+                                            <div class="socialText" 
+                                                v-if="activeData.medium_followers">{{kFormatter(activeData.medium_followers)}}
+                                            </div>
+                                            <div class="socialText" v-else>Medium
+                                            </div>
+                                        </b-card>
                                     </b-col>
-                                    <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
+                                    <!-- <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
                                         v-if="activeData.medium && activeData.medium != '' ">
                                         <a :href="activeData.medium" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
                                             <b-img rounded :src="'/images/static/medium.png'" fluid class="w-50"
@@ -2087,8 +2156,23 @@
                                         </span>
                                         <span class="text-center" style="font-size:12px; font-weight:500" v-else>Medium
                                         </span>
+                                    </b-col> -->
+                                    <b-col   cols="1" md="2" lg="2" sm="2" class="radius_gradient"  
+                                        v-if="activeData.reddit && activeData.reddit != '' ">
+                                        <b-card title="" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px;">
+                                            <a :href="activeData.reddit" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
+                                                <b-img rounded :src="'/images/static/reddit.png'" fluid class="w-50"
+                                                    alt="Responsive image" />
+
+                                            </a>
+                                            <div class="socialText" 
+                                                v-if="activeData.reddit_followers">{{kFormatter(activeData.reddit_followers)}}
+                                            </div>
+                                            <div class="socialText" v-else>Reddit
+                                            </div>
+                                        </b-card>
                                     </b-col>
-                                    <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
+                                    <!-- <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
                                         v-if="activeData.reddit && activeData.reddit != '' ">
                                         <a :href="activeData.reddit" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
                                             <b-img rounded :src="'/images/static/reddit.png'" fluid class="w-50"
@@ -2100,8 +2184,23 @@
                                         </span>
                                         <span class="text-center" style="font-size:12px; font-weight:500" v-else>Reddit
                                         </span>
+                                    </b-col> -->
+                                    <b-col   cols="1" md="2" lg="2" sm="2" class="radius_gradient"  
+                                        v-if="activeData.whitepaper && activeData.whitepaper != '' ">
+                                        <b-card title="" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px;">
+                                            <a :href="activeData.whitepaper" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
+                                                <b-img rounded :src="'/images/static/whitepaper.png'" fluid
+                                                    class="w-50 bg-light" alt="Responsive image" />
+
+                                            </a>
+                                            <div class="socialText" 
+                                                v-if="activeData.whitepaper_followers">{{kFormatter(activeData.whitepaper_followers)}}
+                                            </div>
+                                            <div class="socialText" v-else>Whitepaper
+                                            </div>
+                                        </b-card>
                                     </b-col>
-                                    <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
+                                    <!-- <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
                                         v-if="activeData.whitepaper && activeData.whitepaper != '' ">
                                         <a :href="activeData.whitepaper" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
                                             <b-img rounded :src="'/images/static/whitepaper.png'" fluid
@@ -2114,8 +2213,22 @@
                                         <span class="text-center" style="font-size:12px; font-weight:500"
                                             v-else>Whitepaper
                                         </span>
+                                    </b-col> -->
+                                    <b-col   cols="1" md="2" lg="2" sm="2" class="radius_gradient"  
+                                        v-if="activeData.github && activeData.github != '' ">
+                                        <b-card title="" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px;">
+                                            <a :href="activeData.github" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
+                                                <b-img rounded :src="'/images/static/github.png'" fluid class="w-50"
+                                                    alt="Responsive image" />
+                                            </a>
+                                            <div class="socialText" 
+                                                v-if="activeData.github_followers">{{kFormatter(activeData.github_followers)}}
+                                            </div>
+                                            <div class="socialText" v-else>Github
+                                            </div>
+                                        </b-card>
                                     </b-col>
-                                    <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
+                                    <!-- <b-col class="text-center greenGradient" cols="1" md="2" lg="2" sm="2" style="margin-top:20px; margin-bottom: 10px;"
                                         v-if="activeData.github && activeData.github != '' ">
                                         <a :href="activeData.github" target="_blank" class="d-block" style="margin-top:20px; margin-bottom:10px;">
                                             <b-img rounded :src="'/images/static/github.png'" fluid class="w-50"
@@ -2126,51 +2239,118 @@
                                         </span>
                                         <span class="text-center" style="font-size:12px; font-weight:500" v-else>Github
                                         </span>
-                                    </b-col>
+                                    </b-col> -->
                                 </b-row>
                                 <b-row class="text-center mt-1 mb-1 justify-content-center">
-                                    <b-col sm="3" md="2" v-if="activeData">
+                                    <b-col   sm="3" md="2" v-if="activeData" class="radius_gradient" >
+                                        <b-card title="" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px;">
+                                            <div class="justify-content-center text-nowrap socialText2 " style="margin-top:20px; margin-bottom: 30px;">
+                                                {{ calculate_social_score(activeData) }}/10
+                                            </div>
+                                            <div class="soicalLable darkWhiteText">Social Score: </div>
+                                            <div class="soicalLable darkWhiteText">&nbsp; </div>
+                                        </b-card>
+                                    </b-col>
+                                    <!-- <b-col sm="3" md="2" v-if="activeData">
                                         <div class="border border-2 rounded border-dark greenGradient">
                                             <div class="d-flex justify-content-center text-nowrap" style="margin: 13px 0 16px 0; font-size: 14px;">
                                                 {{ calculate_social_score(activeData) }}/10</div>
-                                            <div class="soicalLable">Social Score: </div>
+                                            <div class="soicalLable darkWhiteText">Social Score: </div>
                                         </div>
+                                    </b-col> -->
+                                    <b-col   sm="3" md="2" class="radius_gradient" v-if="activeData.total_supply_percent">
+                                        <b-card title="" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px;">
+                                            <div class="justify-content-center text-nowrap socialText2 " style="margin-top:20px; margin-bottom: 30px;" >
+                                                {{ activeData.total_supply_percent}} %
+                                            </div>
+                                            
+                                            <div class="soicalLable darkWhiteText">Total Supply %: </div>
+                                            <div class="soicalLable darkWhiteText">&nbsp; </div>
+
+                                        </b-card>
                                     </b-col>
-                                    <b-col sm="3" md="2" v-if="activeData.total_supply_percent">
+                                    <!-- <b-col sm="3" md="2" v-if="activeData.total_supply_percent">
                                         <div class="border border-2 rounded border-dark greenGradient">
                                             <div class="d-flex justify-content-center text-nowrap" style="margin: 13px 0 16px 0; font-size: 14px;">
                                                 {{ activeData.total_supply_percent}} %</div>
-                                            <div class="soicalLable">Total Supply %: </div>
+                                            <div class="soicalLable darkWhiteText">Total Supply %: </div>
                                         </div>
+                                    </b-col> -->
+                                    <b-col   sm="3" md="2" class="radius_gradient" v-if="activeData.social_mentions">
+                                        <b-card title="" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px;">
+                                            <div class="justify-content-center text-nowrap socialText2 " style="margin-top:20px; margin-bottom: 30px;"  v-if="activeData.social_mentions>=0">
+                                                +{{toInterNationalNumber(activeData.social_mentions)}} %
+                                            </div>
+                                            <div class="justify-content-center text-nowrap socialText2 " style="margin-top:20px; margin-bottom: 30px;" v-else>
+                                                {{toInterNationalNumber(activeData.social_mentions)}} %
+                                            </div>
+                                            <div class="soicalLable darkWhiteText">Social Mentions: </div>
+                                            <div class="soicalLable darkWhiteText">&nbsp; </div>
+
+                                        </b-card>
                                     </b-col>
-                                    <b-col sm="3" md="2" v-if="activeData.social_mentions">
+                                    <!-- <b-col sm="3" md="2" v-if="activeData.social_mentions">
                                         <div class="border border-2 rounded border-dark greenGradient">
                                             <div style="margin: 13px 0 16px 0; font-size: 14px" class="text-success d-flex justify-content-center text-nowrap"
                                                 v-if="activeData.social_mentions>=0">
                                                 +{{toInterNationalNumber(activeData.social_mentions)}} %</div>
                                             <div style="margin: 13px 0 16px 0; font-size: 14px;" class="text-danger d-flex justify-content-center text-nowrap"
                                                 v-else> {{toInterNationalNumber(activeData.social_mentions)}} %</div>
-                                            <div class="soicalLable">Social Mentions: </div>
+                                            <div class="soicalLable darkWhiteText">Social Mentions: </div>
                                         </div>
+                                    </b-col> -->
+                                    <b-col   sm="3" md="2" class="radius_gradient" v-if="activeData.average_sentiment">
+                                        <b-card title="" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px;">
+                                            <div class="justify-content-center text-nowrap socialText2 " style="margin-top:20px; margin-bottom: 30px;"  >
+                                                {{roundData(activeData.average_sentiment)}}</div>
+                                            
+                                            <div class="soicalLable darkWhiteText">Average Sentiment:  </div>
+
+                                        </b-card>
                                     </b-col>
-                                    <b-col sm="3" md="2" v-if="activeData.average_sentiment">
+                                    <!-- <b-col sm="3" md="2" v-if="activeData.average_sentiment">
                                         <div class=" border-2 rounded border-dark greenGradient">
                                             <div style="margin: 13px 0 16px 0; font-size: 14px;" class="text-success d-flex justify-content-center text-nowrap">
                                                 {{roundData(activeData.average_sentiment)}}</div>
-                                            <div class="soicalLable">Average Sentiment: </div>
+                                            <div class="soicalLable darkWhiteText">Average Sentiment: </div>
                                         </div>
+                                    </b-col> -->
+                                    <b-col   sm="3" md="2" class="radius_gradient" v-if="activeData.social_engagement">
+                                        <b-card title="" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px;">
+                                            <div class="justify-content-center text-nowrap socialText2 " style="margin-top:20px; margin-bottom: 30px;"  
+                                                v-if="activeData.social_mentions>=0">
+                                                 +{{toInterNationalNumber(activeData.social_engagement)}} %</div>
+                                            <div class="justify-content-center text-nowrap socialText2 " style="margin-top:20px; margin-bottom: 30px;" 
+                                                v-else> {{toInterNationalNumber(activeData.social_engagement)}} %</div>
+                                            <div class="soicalLable darkWhiteText">Social Engagement: </div>
+
+                                        </b-card>
                                     </b-col>
-                                    <b-col sm="3" md="2" v-if="activeData.social_engagement">
+                                    <!-- <b-col sm="3" md="2" v-if="activeData.social_engagement">
                                         <div class=" border-2 rounded border-dark greenGradient">
                                             <div style="margin: 13px 0 16px 0; font-size: 14px" class="text-success d-flex justify-content-center text-nowrap"
                                                 v-if="activeData.social_mentions>=0">
                                                 +{{toInterNationalNumber(activeData.social_engagement)}} %</div>
                                             <div style="margin: 13px 0 16px 0; font-size: 14px;" class="text-danger d-flex justify-content-center text-nowrap"
                                                 v-else> {{toInterNationalNumber(activeData.social_engagement)}} %</div>
-                                            <div class="soicalLable">Social Engagement: </div>
+                                            <div class="soicalLable darkWhiteText">Social Engagement: </div>
                                         </div>
+                                    </b-col> -->
+                                    <b-col   sm="3" md="2" class="radius_gradient" v-if="activeData.average_sentiment_change">
+                                        <b-card title="" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px;">
+                                            <div class="justify-content-center text-nowrap socialText2 " style="margin-top:20px; margin-bottom: 30px;"  
+                                                v-if="roundData(activeData.average_sentiment_change)>=0">
+                                                    +{{roundData(activeData.average_sentiment_change)?roundData(activeData.average_sentiment_change):0}}
+                                                    %</div>
+                                            <div class="justify-content-center text-nowrap socialText2 " style="margin-top:20px; margin-bottom: 30px;" 
+                                                v-else>
+                                                    {{roundData(activeData.average_sentiment_change)?roundData(activeData.average_sentiment_change):0}}
+                                                    %</div>
+                                            <div class="soicalLable darkWhiteText">Social Engagement:  </div>
+
+                                        </b-card>
                                     </b-col>
-                                    <b-col sm="3" md="2" v-if="activeData.average_sentiment_change">
+                                    <!-- <b-col sm="3" md="2" v-if="activeData.average_sentiment_change">
                                         <div class="border border-3 rounded border-dark greenGradient">
                                             <div style="margin: 13px 0 16px 0; font-size: 14px" class="text-success d-flex justify-content-center text-nowrap"
                                                 v-if="roundData(activeData.average_sentiment_change)>=0">
@@ -2180,9 +2360,9 @@
                                                 v-else>
                                                 {{roundData(activeData.average_sentiment_change)?roundData(activeData.average_sentiment_change):0}}
                                                 %</div>
-                                            <div class="soicalLable">Social Engagement: </div>
+                                            <div class="soicalLable darkWhiteText">Social Engagement: </div>
                                         </div>
-                                    </b-col>
+                                    </b-col> -->
 
                                 </b-row>
                             </b-card-body>
@@ -2204,13 +2384,16 @@
                         ||activeData.six_months_unlock_size
                         ">
 
-                        <div class="container d-flex">
-                            <div class="d-inline" style="width:20%">
-                                <span style="font-family: monospace;font-style: normal;font-weight: 400;font-size: 14px;">Next Unlock Date</span><br>
-                                <span style="font-family: monospace;font-style: normal;font-weight: 400;font-size: 18px;">05 Sep 22</span><br>
-                                <span style="font-family: monospace;font-style: normal;font-weight: 400;font-size: 12px;">15:00</span>
+                        <div class="container d-flex" style="padding:0px;">
+                            <div class="d-inline" style="width:20%; font-family: 'Poppins'; margin-right: 24px;
+                                font-style: normal;
+                                font-weight: 400;
+                                font-size: 12px;">
+                                <span style="opacity: 0.5;">Next Unlock Date</span><br>
+                                <span>05 Sep 22</span><br>
+                                <span style="opacity: 0.5;">15:00</span>
                             </div>
-                            <div class="d-inline-flex justify-content-between" style="width:40%">
+                            <div class="d-inline-flex justify-content-between" style="">
                                 <div class="d-iline" style="max-width:65px">
                                     <div class="radius_gradient" style="border-radius:10px">
                                         <div class="str_green_gradient text-center m-auto vertical-items-center" style="width:64px; height:64px; border-radius: 10px; background: black !important;"> 
@@ -2219,7 +2402,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="d-iline text-center">
+                                <div class="d-iline text-center" style="margin-left: 12px;">
                                     <div style="max-width:40px">
                                         <div class="radius_gradient" style="border-radius:10px">
                                             <div class="str_green_gradient text-center" style="width:39px; height:39px; border-radius: 10px;"> 
@@ -2229,7 +2412,7 @@
                                     </div>
                                     <div>D</div>
                                 </div>
-                                <div class="d-iline text-center">
+                                <div class="d-iline text-center" style="margin-left: 12px;">
                                     <div style="max-width:40px">
                                         <div class="radius_gradient" style="border-radius:10px">
                                             <div class="str_green_gradient text-center" style="width:39px; height:39px; border-radius: 10px;"> 
@@ -2239,7 +2422,7 @@
                                     </div>
                                     <div>H</div>
                                 </div>
-                                <div class="d-iline text-center">
+                                <div class="d-iline text-center" style="margin-left: 12px;">
                                     <div style="max-width:40px">
                                         <div class="radius_gradient" style="border-radius:10px">
                                             <div class="str_green_gradient text-center" style="width:39px; height:39px; border-radius: 10px;"> 
@@ -2249,7 +2432,7 @@
                                     </div>
                                     <div>M</div>
                                 </div>
-                                <div class="d-iline text-center">
+                                <div class="d-iline text-center" style="margin-left: 12px;">
                                     <div style="max-width:40px">
                                         <div class="radius_gradient" style="border-radius:10px">
                                             <div class="str_green_gradient text-center" style="width:39px; height:39px; border-radius: 10px;"> 
@@ -2260,12 +2443,12 @@
                                     <div>S</div>
                                 </div>
                             </div>
-                            <div class="d-inline ml-2 mt-1" style="width:40%;border-radius: 10px;">
+                            <div class="d-inline ml-2 mt-1" style="border-radius: 10px; margin-left: 45px;">
                                 <button class="rounded-pill px-2" style="padding:6px"><feather-icon size="15" icon="BellIcon"/> Notify Me</button>
                             </div>
                         </div>
                         <b-card no-body class="mb-1">
-                            <b-card-body style="margin-left: 10px; margin-top: 19px;">
+                            <b-card-body style=" margin-top: 19px;">
                                 <b-row class="">
                                     <b-col cols="12" md="6" class="mb-1" xl="6" v-if="activeData.next_unlock_date_text">
                                         <div class="">
@@ -4139,11 +4322,11 @@
     }
 
     .soicalLable {
-        font-size: 12px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 40px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        opacity:0.8;
         margin: auto;
     }
 
@@ -4304,6 +4487,29 @@
     g path:not(:first-child) {
         filter: transparent;
     }
+
+    .socialText{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+    }
+
+    .socialText2{
+        text-overflow: ellipsis;
+        width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+    }
+
+    .apexcharts-menu-open{
+        background: black;
+    }
+ 
 
    
 

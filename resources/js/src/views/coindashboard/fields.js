@@ -25,6 +25,12 @@ const data = [
         visible: 1
     },
     {
+        key: 'price_change_percentage_24h',
+        label: '24h %',
+        stickyColumn: false,
+        visible: 1
+    },
+    {
         key: 'market_cap',
         label: 'MC',
         stickyColumn: false,
@@ -61,12 +67,7 @@ const data = [
         stickyColumn: false,
         visible: 1
     },
-    {
-        key: 'price_change_percentage_24h',
-        label: '24h %',
-        stickyColumn: false,
-        visible: 1
-    },
+    
     {
         key: 'ath',
         label: 'ATH($)',
