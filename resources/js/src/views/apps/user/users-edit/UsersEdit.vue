@@ -129,6 +129,6 @@ export default {
 <style>
   .content-wrapper{
     color: white;
-    padding-left: 50px;
+ 
   }
 </style>

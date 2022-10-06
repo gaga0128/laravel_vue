@@ -1,6 +1,6 @@
 <template>
 
-    <div style="padding-left: 50px;">
+    <div>
 
         <user-list-add-new :is-add-new-user-sidebar-active.sync="isAddNewUserSidebarActive" :role-options="roleOptions"
             :plan-options="planOptions" @refetch-data="refetchData" />
@@ -347,5 +347,10 @@
 
 <style lang="scss">
     @import '~@resources/scss/vue/libs/vue-select.scss';
-
+    tr td{
+        background: transparent !important;
+    }
+    .b-table-empty-row{
+        background: transparent !important;
+    }
 </style>

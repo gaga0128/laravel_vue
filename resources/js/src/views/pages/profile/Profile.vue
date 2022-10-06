@@ -105,9 +105,7 @@ export default {
 
 <style lang="scss" >
 @import '~@resources/scss/vue/pages/page-profile.scss';
-.content-wrapper{
-  padding-left: 50px;
-}
+
 
 </style>
 

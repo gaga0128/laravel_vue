@@ -266,10 +266,7 @@
                                                 <div class="accordion" role="tablist">
                                                     <app-collapse accordion>
                                                         <app-collapse-item :isVisible="true" title="Market Filters">
-                                                            <b-card class="mb-1">
-                                                                
-                                                                <b-card-body>
-                                                                    <b-row style="margin-left:20px;">
+                                                            <b-row style="margin-left:20px;">
                                                                         <b-col md="6" xl="6">
                                                                             <div class="margin20">
                                                                                 <b-form-radio
@@ -438,9 +435,7 @@
                                                                         </b-col>
 
                                                                     
-                                                                    </b-row>
-                                                                </b-card-body>
-                                                            </b-card>
+                                                            </b-row>
                                                         </app-collapse-item>
                                                     
                                                         
@@ -451,10 +446,7 @@
                                                 <div class="accordion" role="tablist">
                                                     <app-collapse accordion>
                                                         <app-collapse-item :isVisible="true" title="SociaL Filters">
-                                                            <b-card class="mb-1">
-                                                                
-                                                                <b-card-body>
-                                                                    <b-row style="margin-left:20px;">
+                                                            <b-row style="margin-left:20px;">
                                                                         <b-col md="12" xl="12">
                                                                             <div class="margin20">
                                                                                 <b-form-radio
@@ -493,8 +485,6 @@
 
                                                                     
                                                                     </b-row>
-                                                                </b-card-body>
-                                                            </b-card>
                                                         </app-collapse-item>
                                                     
                                                         
@@ -505,10 +495,7 @@
                                                 <div class="accordion" role="tablist">
                                                     <app-collapse accordion>
                                                         <app-collapse-item :isVisible="true" title="Unlocking Filter">
-                                                            <b-card class="mb-1">
-                                                                
-                                                                <b-card-body>
-                                                                    <b-row style="margin-left:20px;">
+                                                            <b-row style="margin-left:20px;">
                                                                         <b-col md="6" xl="6">
                                                                             <div class="margin20">
                                                                                 <b-form-radio
@@ -640,8 +627,6 @@
                                                                             </div>
                                                                         </b-col>
                                                                     </b-row>
-                                                                </b-card-body>
-                                                            </b-card>
                                                         </app-collapse-item>
                                                     
                                                         
@@ -1088,10 +1073,10 @@
                 </b-row>
                 <hr style="padding:0px; margin:0px 0px 10px 0px;">
                 <div class="accordion" role="tablist">
-                    <app-collapse accordion>
+                    <app-collapse accordion style="padding:0px;">
                         <app-collapse-item :isVisible="true" title="Market Data Filters">
                             <b-card class="mb-1">
-                                <b-card-body style="margin-left: 10px; margin-top: 19px;">
+                                <b-card-body style="padding:0px !important;">
                                     <b-row>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
@@ -1436,7 +1421,7 @@
                         </app-collapse-item>
                         <app-collapse-item title="Social Sentiments">
                             <b-card no-body class="mb-1">
-                                <b-card-body style="margin-left: 10px; margin-top: 19px;">
+                                <b-card-body style="">
                                     <b-row>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
@@ -1544,7 +1529,7 @@
                         </app-collapse-item>
                         <app-collapse-item title="Unlocking">
                             <b-card no-body class="mb-1">
-                                <b-card-body style="margin-left: 10px; margin-top: 19px;">
+                                <b-card-body style="">
                                     <b-row>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
@@ -1773,7 +1758,7 @@
         <b-modal id="modal-details" :hide-footer="true" v-if="activeData" centered size="lg">
             <template>
                 <div slot="modal-title">
-                    <div class="w-full justify-content-between d-flex" style="margin-top: 10px; margin-left: 5px;">
+                    <div class="w-full justify-content-between d-flex" style="margin-top: 10px; margin-left: 10px;">
                         <div class="d-inline">
                             <div class="rank_slot" style="margin-bottom: 8px;font-family: 'Poppins';
                                 font-style: normal;
@@ -1786,6 +1771,10 @@
                                     <span class="marginx1 m-auto darkWhiteText" style="font-family: 'Poppins';
                                             font-style: normal;
                                             font-weight: 400;
+                                            text-overflow: ellipsis;
+                                            width: 100px;
+                                            white-space: nowrap;
+                                            overflow: hidden;
                                             font-size: 20px; margin-right:10px !important;"> 
                                         {{activeData.name}}
                                         <!-- <span style="font-family: 'Poppins';
@@ -1812,12 +1801,12 @@
                                             class="btn-success d-flex  marginx1"
                                             style="font-family: 'Poppins';
                                             font-style: normal;
-                                            font-weight: 600;
-                                            font-size: 24px; margin-top: 2px;border-radius:5px; padding:0px 5px"><div style="display: inline; margin:auto;"><feather-icon size="20" icon="ChevronUpIcon" /></div><span>{{ roundData(activeData.price_change_percentage_24h) }}%</span>
+                                            font-weight: 300;
+                                            font-size: 12px; margin-top: 2px;border-radius:5px; padding:0px 5px"><div style="display: inline; margin:auto;"><feather-icon size="20" icon="ChevronUpIcon" /></div><span>{{ roundData(activeData.price_change_percentage_24h) }}%</span>
                                            
                                         </span>
                                         <span v-else-if="activeData.price_change_percentage_24h"
-                                            style="font-size:12px; margin-top: 2px;border-radius:5px; padding:0px 5px"
+                                            style="font-size:12px; font-weight: 300; margin-top: 2px;border-radius:5px; padding:0px 5px"
                                             class="btn-danger d-flex marginx1"><div style="display: inline; margin:auto;"><feather-icon size="20" icon="ChevronDownIcon" /></div><span>{{ roundData(activeData.price_change_percentage_24h) }}%</span>
                                           
                                         </span>
@@ -1841,7 +1830,7 @@
                                         id="dropdown-left1" no-caret class="cunningDrop">
                                             <template #button-content>
                                                 <div class="darkBackgroundBlack" v-for="(address,index) in activeData.contract_address"
-                                                    :key="index" style="display:block; padding: 8px 8px 14px 8px; border-radius: 20px;" v-if="index==0">
+                                                    :key="index" style="display:block; padding: 4px; border-radius: 20px;" v-if="index==0">
                                                     <div v-if="index==0">
                                                         <b-img v-if="activeData.image" :src="activeData.image" fluid alt="Responsive image" style="margin-right:5px; width:30px;" />
                                                             <div style="font-family: 'Poppins'; display:inline-block;
@@ -1850,7 +1839,7 @@
                                                                 font-size: 14px;
                                                                 line-height: 14px;
                                                                 ">
-                                                                <div style="white-space: nowrap; width:90px;
+                                                                <div class="darkWhiteText" style="white-space: nowrap; width:90px;
                                                                 overflow: hidden;
                                                                 text-overflow: ellipsis;">
                                                                     {{address.contract_address}}    
@@ -1864,8 +1853,8 @@
                                                                 v-clipboard:success="onCopy" v-clipboard:error="onError"
                                                                 v-ripple.400="'rgba(113, 12, 240, 0.15)'" variant="outline-primary" pill><feather-icon  icon="CopyIcon" class="cursor-pointer darkWhiteText" size="20" />
                                                             </b-button>
-                                                            <img src='/images/static/metamask.png' class="img-fluid" alt="metamask" style="cursor:pointer; width:25px; margin-right:13px;" @click="say('hello')">
-                                                            <feather-icon  icon="ChevronDownIcon" class="cursor-pointer darkWhiteText" size="20" style="margin-right:13px;"/>
+                                                            <img src='/images/static/metamask.png' class="img-fluid" alt="metamask" style="cursor:pointer; width:23px; margin-right:13px;" @click="say('hello')">
+                                                            <feather-icon  icon="ChevronDownIcon" class="cursor-pointer darkWhiteText" size="20" style="margin-right:13px; margin-bottom: 6px;"/>
                                                             
                                                         </div>
 
@@ -1877,7 +1866,7 @@
                                             </template>
                                             <b-dropdown-form href="#" class="cunningDrop dropdown-mine darkBackgroundBlack" name="dropdownform2" style="z-index:999;">
                                                 <div class="darkBackgroundBlack" v-for="(address,index) in activeData.contract_address"
-                                                    :key="index" style="display:block; padding: 8px 8px 14px 8px;">
+                                                    :key="index" style="display:block; padding: 4px;">
                                                     <b-img v-if="activeData.image" :src="activeData.image" fluid alt="Responsive image" style="margin-right:5px; width:30px;" />
                                                         <div style="font-family: 'Poppins'; display:inline-block;
                                                             font-style: normal;
@@ -1885,7 +1874,7 @@
                                                             font-size: 14px;
                                                             line-height: 14px;
                                                             ">
-                                                            <div style="white-space: nowrap; width:90px;
+                                                            <div class="darkWhiteText" style="white-space: nowrap; width:90px;
                                                             overflow: hidden;
                                                             text-overflow: ellipsis;">
                                                                 {{address.contract_address}}    
@@ -1899,7 +1888,7 @@
                                                             v-clipboard:success="onCopy" v-clipboard:error="onError"
                                                             v-ripple.400="'rgba(113, 12, 240, 0.15)'" variant="outline-primary" pill><feather-icon  icon="CopyIcon" class="cursor-pointer darkWhiteText" size="20" />
                                                         </b-button>
-                                                        <img src='/images/static/metamask.png' class="img-fluid" alt="metamask" style="cursor:pointer; width:25px; margin-right:13px;" @click="say('hello')">
+                                                        <img src='/images/static/metamask.png' class="img-fluid" alt="metamask" style="cursor:pointer; width:23px; margin-right:13px; margin-bottom: 6px;" @click="say('hello')">
                                                         
                                                     </div>
                                                     
@@ -4274,6 +4263,10 @@
         border-radius:  10px;
     }
 
+    .dropdown-menu{
+        max-height: 500px;
+        overflow: scroll;
+    }
    
    
     /* .card {
@@ -4286,6 +4279,12 @@
 
     #dropdown-left1__BV_toggle_{
         padding: 0px !important;
+
+
+    }
+
+    #dropdown-left1__BV_toggle_:hover{
+        background:none;
     }
 
     .cunningDrop > ul {
