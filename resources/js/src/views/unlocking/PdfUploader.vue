@@ -162,7 +162,5 @@
 
 <style lang="scss">
     @import '~@resources/scss/vue/libs/vue-autosuggest.scss';
-    .content-wrapper{
-        padding-left: 50px;
-    }
+   
 </style>

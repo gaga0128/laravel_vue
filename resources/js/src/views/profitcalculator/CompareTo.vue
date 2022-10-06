@@ -36,17 +36,17 @@
         <b-card v-if="show == 1 &&selected != null && selectedCompare != null" style="background:transparent !important">
             <b-row class="">
                 <b-col md="12" xl="12" class="text-center">
-                    <div class="radius_gradient">
-                        <b-card title="Potential Profit" class="mx-auto innerCard text-center str_green_gradient" style="max-width:200px">
+                    <div class="radius_gradient" style="max-width: 250px;">
+                        <b-card title="Potential Profit" class="mx-auto innerCard text-center str_green_gradient" style="max-width:250px">
                             <b-row>
                                 <div class="text-center m-auto">
                                     <b-col cols="12" class="darkWhiteText" style="margin-top:30px; font-family: 'Poppins';
                                         font-style: normal;
                                         font-weight: 500;
                                         font-size: 32px;">
-                                        <p v-if="Potential >=1" class="text-wrap" style="width:160px">
+                                        <p v-if="Potential >=1" class="text-wrap" style="width:210px;">
                                             {{ roundData(Potential)?roundData(Potential):0 }}$</p>
-                                            <p v-else class="text-wrap" style="width:160px">
+                                            <p v-else class="text-wrap" style="width:210px;">
                                                 {{ Potential?Potential:0 }}$</p>
                                     </b-col>
                                     <b-col cols="12" style="font-family: 'Poppins';
