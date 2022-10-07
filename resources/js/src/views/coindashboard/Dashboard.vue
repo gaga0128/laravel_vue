@@ -1814,18 +1814,15 @@
                                                 <div class="darkBackgroundBlack" v-for="(address,index) in activeData.contract_address"
                                                     :key="index" style="display:block; padding: 4px; border-radius: 20px;" v-if="index==0">
                                                     <div v-if="index==0">
-                                                        <b-img v-if="activeData.image" :src="activeData.image" fluid alt="Responsive image" style="margin-right:5px; width:30px;" />
-                                                            <div style="font-family: 'Poppins'; display:inline-block;
+                                                            <b-img v-if="activeData.image" :src="activeData.image" fluid alt="Responsive image" style="margin-right:5px; height:30px;" />
+                                                            <div style="font-family: 'Poppins'; display:inline-block; margin-top:10px;
                                                                 font-style: normal;
                                                                 font-weight: 500;
                                                                 font-size: 14px;
-                                                                line-height: 14px;
-                                                                ">
-                                                                <div class="darkWhiteText" style="white-space: nowrap; width:90px;
+                                                                line-height: 14px; width:90px;white-space: nowrap; 
                                                                 overflow: hidden;
-                                                                text-overflow: ellipsis;">
+                                                                text-overflow: ellipsis;" class="darkWhiteText">
                                                                     {{address.contract_address}}    
-                                                                </div>
                                                                                                          
                                                         </div>
                                                         <div style="display:inline-block; float:right;">
@@ -1965,20 +1962,22 @@
                                                 :styles="spLineStyles" />
                                         </sparkline> -->
                                     </b-col>
-                                    <b-col>
-                                        <div class="mb-1" v-if="activeData.total_volume">
+                                    <b-col style="display: flex;
+                                        justify-content: space-between;
+                                        flex-direction: column;">
+                                        <div  v-if="activeData.total_volume">
                                             <h5> Volume</h5>
                                             <div class="" style="font-size:16px; font-weight: 600;">
                                                 <span
                                                     class="">${{ toInterNationalNumber(activeData.total_volume) }}</span>
                                             </div>
                                         </div>
-                                        <div class="mb-1 mt-2" v-if="activeData.market_cap">
+                                        <div  v-if="activeData.market_cap">
                                             <h5> Market Cap</h5>
                                             <div class="" style="font-size:16px; font-weight: 600;">
                                                 <span>${{ toInterNationalNumber(activeData.market_cap) }}</span> </div>
                                         </div>
-                                        <div class="mb-1 mt-2"
+                                        <div 
                                             v-if="activeData.roi_times ||activeData.round_price && activeData.round_price !=0 && activeData.current_price&& activeData.current_price !=0">
                                             <h5> X's from launch</h5>
                                             <div class="" style="font-size:16px; font-weight: 600;">
@@ -1988,12 +1987,12 @@
                                                     v-else-if="activeData.round_price && activeData.round_price !=0 && activeData.current_price&& activeData.current_price !=0 ">{{ xfromlunch(activeData.current_price,activeData.round_price) }}X</span>
                                             </div>
                                         </div>
-                                        <div class="mb-1 mt-2" v-if="activeData.total_supply_percent">
+                                        <div  v-if="activeData.total_supply_percent">
                                             <h5>Total Supply:</h5>
                                             <div class="" style="font-size:16px; font-weight: 600;">
                                                 <span>{{ activeData.total_supply_percent }} %</span> </div>
                                         </div>
-                                        <div class="mb-1 mt-2 float-left">
+                                        <div class="float-left">
                                             <button class="rounded-pill fs-6 " style="font-size: 14px; padding:6px 14px;">Price Prediction</button>
                                         </div>
                                     </b-col>
@@ -2682,7 +2681,7 @@
 <script>
     import {
         BTable,
-	BTabs,
+	    BTabs,
         BTab,
         BFormCheckbox,
         BAvatar,
@@ -2698,6 +2697,7 @@
         VBModal,
         BDropdown,
         BDropdownItem,
+        BDropdownForm,
         BFormRadioGroup,
         BFormRadio,
         BInputGroup,
@@ -2713,7 +2713,6 @@
         BSpinner,
         BOverlay,
         VBPopover
-
     } from 'bootstrap-vue'
     import Ripple from 'vue-ripple-directive'
     import axios from '@axios'
@@ -2740,6 +2739,7 @@
     import 'cleave.js/dist/addons/cleave-phone.us'
     import 'bootstrap-icons/font/bootstrap-icons';
     import 'bootstrap-icons/font/bootstrap-icons.css';
+
     export default {
         components: {
             BTable,
@@ -2759,6 +2759,7 @@
             VueApexCharts,
             BDropdown,
             BDropdownItem,
+            BDropdownForm,
             BFormRadioGroup,
             BFormRadio,
             BInputGroup,
