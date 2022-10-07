@@ -62,12 +62,6 @@
                         </b-row>
                     </div>
                     <!-- graph -->
-                    <defs>
-                        <linearGradient id="gradient" x1="100%" y1="0%" x2="0%" y2="0%">
-                            <stop offset="100%"   stop-color="rgb(255, 255, 255, 0)"/>
-                            <stop offset="0%" stop-color="#0a070e"/>
-                        </linearGradient>
-                    </defs>
                     <b-row class="" style="margin-bottom: 25px;">
                         <b-col sm="3" md="3" cols="6">
                             <div class="mx-auto w-75 text-center">
@@ -76,7 +70,8 @@
                                     :inner-radius="96.5" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
                                     :max="50"
                                     :gauge-color="[{offset: 0, color: '#232632'}, { offset: 17, color: '#F6573E'}, { offset: 25, color: '#FD7941'}, { offset: 50, color: '#E7D45D'}, { offset: 75, color: '#7DD75F'}, { offset: 100, color: '#51D868'}]"
-                                    :scale-interval="0">
+                                    :scale-interval="0" :transition-duration="0">
+                                    <div class="rounded-circle" id="marker_0" style="width:8px; height:8px; position: absolute"></div>
                                     <div class="inner-text" style="display:block;">
                                         <div style="margin-top: 2rem !important;"
                                             :class="{'text-danger':fag.data.fear_greed_index<50,'text-success':fag.data.fear_greed_index>=50}">
@@ -105,10 +100,12 @@
                             <div class="mx-auto w-75 text-center">
                                 <h5 class="w-75 mx-auto margin16_b feerTitle">NFT Barometer</h5>
                                 <VueSvgGauge width="60%" class="w-75 mx-auto" :start-angle="-90" :end-angle="90"
-                                    :inner-radius="96.5" :value="fag.data.fear_greed_index" :separator-step="fag.data.fear_greed_index" :min="0"
+                                    :inner-radius="96.5" :value="fag.data.fear_greed_index" :separator-step="0" :min="0" 
                                     :max="50"
                                     :gauge-color="[{offset: 0, color: '#232632'}, { offset: 17, color: '#F6573E'}, { offset: 25, color: '#FD7941'}, { offset: 50, color: '#E7D45D'}, { offset: 75, color: '#7DD75F'}, { offset: 100, color: '#51D868'}]"
-                                    :scale-interval="0">
+                                    :scale-interval="0" :transition-duration="0">
+                                    <div class="rounded-circle" id="marker_1" style="width:8px; height:8px; position: absolute"></div>
+
                                     <div class="inner-text" style="display:block;">
                                         <div style="margin-top: 2rem !important;"
                                             :class="{'text-danger':fag.data.fear_greed_index<50,'text-success':fag.data.fear_greed_index>=50}">
@@ -139,7 +136,8 @@
                                     :inner-radius="96.5" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
                                     :max="50"
                                     :gauge-color="[{offset: 0, color: '#232632'}, { offset: 17, color: '#F6573E'}, { offset: 25, color: '#FD7941'}, { offset: 50, color: '#E7D45D'}, { offset: 75, color: '#7DD75F'}, { offset: 100, color: '#51D868'}]"
-                                    :scale-interval="0" >
+                                    :scale-interval="0" :transition-duration="0">
+                                    <div class="rounded-circle" id="marker_2" style="width:8px; height:8px; position: absolute"></div>
                                     <div class="inner-text" style="display:block;">
                                         <div style="margin-top: 2rem !important;"
                                             :class="{'text-danger':fag.data.fear_greed_index<50,'text-success':fag.data.fear_greed_index>=50}">
@@ -170,7 +168,8 @@
                                     :inner-radius="96.5" :value="fag.data.fear_greed_index" :separator-step="0" :min="0"
                                     :max="50"
                                     :gauge-color="[{offset: 0, color: '#232632'}, { offset: 17, color: '#F6573E'},  { offset: 25, color: '#FD7941'}, { offset: 50, color: '#E7D45D'}, { offset: 75, color: '#7DD75F'}, { offset: 100, color: '#51D868'}]"
-                                    :scale-interval="0">
+                                    :scale-interval="0" :transition-duration="0">
+                                    <div class="rounded-circle" id="marker_3" style="width:8px; height:8px; position: absolute"></div>
                                     <div class="inner-text" style="display:block;">
                                         <div style="margin-top: 2rem !important;"
                                             :class="{'text-danger':fag.data.fear_greed_index<50,'text-success':fag.data.fear_greed_index>=50}">
@@ -710,7 +709,7 @@
                 </div>
                 <div id="ctable">
                     <b-overlay :show="isBusy" rounded="sm">
-                        <b-table sticky-header :no-border-collapse="true" tbody-tr-class="cursor-pointer" show-empty 
+                        <b-table sticky-header :no-border-collapse="true" tbody-tr-class="cursor-pointer box rounded-pill" show-empty 
                             @row-clicked="detailsModel($event)" style="white-space: nowrap; border-spacing: 0 15px !important; " responsive :items="items.data"
                             :fields="visibleFields">
                             <template #empty="scope">
@@ -4231,8 +4230,42 @@
                 this.Cpagpage = 1
                 this.loadCoins()
             }
+        },
+
+        updated(){
+            var meter_array = document.querySelectorAll('g path:not(:first-child)');
+            for (let index = 0; index < meter_array.length; index++) {
+                var element = meter_array[index]; 
+                let path_array = element.getAttribute('d').split(' ');
+                document.getElementById("marker_"+index).style.background="#b6e7b6";            
+                document.getElementById("marker_"+index).style.boxShadow="0px 0px 7px 3.5px #0f0";
+                if(Number(path_array[9]) > 100) {
+                    document.getElementById("marker_"+index).style.left=Number(path_array[9])-6+"px";
+                    document.getElementById("marker_"+index).style.top=Number(path_array[10])-4+"px";
+                } else {
+                    document.getElementById("marker_"+index).style.left=Number(path_array[9])-6+"px";
+                    document.getElementById("marker_"+index).style.top=Number(path_array[10])+"px";
+                }
+            }
         }
     }
+
+    // window.onload = function() {
+    //     var meter_array = document.querySelectorAll('g path:not(:first-child)');
+    //     for (let index = 0; index < meter_array.length; index++) {
+    //         var element = meter_array[index]; 
+    //         let path_array = element.getAttribute('d').split(' ');
+    //         document.getElementById("marker_"+index).style.background="#b6e7b6";            
+    //         document.getElementById("marker_"+index).style.boxShadow="0px 0px 7px 3.5px #0f0";
+    //         if(Number(path_array[9]) > 100) {
+    //             document.getElementById("marker_"+index).style.left=Number(path_array[9])-6+"px";
+    //             document.getElementById("marker_"+index).style.top=Number(path_array[10])-4+"px";
+    //         } else {
+    //             document.getElementById("marker_"+index).style.left=Number(path_array[9])-6+"px";
+    //             document.getElementById("marker_"+index).style.top=Number(path_array[10])+"px";
+    //         }
+    //     }
+    // };
 
 </script>
 <style lang="scss" >
@@ -4399,8 +4432,8 @@
         font-weight: 400;
         font-size: 14px;
         background: linear-gradient(172deg, rgba(43, 255, 77, 0.3) 3.11%, rgba(0, 0, 0, 0) 20.06%), rgba(255, 255, 255, 0.07);
-        
-    }
+        box-shadow: inset 1px 2px 1px 0px rgb(82, 243, 109);
+    }        
 
     table {
         border-collapse: separate;
