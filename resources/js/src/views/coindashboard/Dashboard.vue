@@ -266,7 +266,7 @@
                                                 <div class="accordion" role="tablist">
                                                     <app-collapse accordion>
                                                         <app-collapse-item :isVisible="true" title="Market Filters">
-                                                            <b-row style="margin-left:20px;">
+                                                            <b-row>
                                                                         <b-col md="6" xl="6">
                                                                             <div class="margin20">
                                                                                 <b-form-radio
@@ -446,7 +446,7 @@
                                                 <div class="accordion" role="tablist">
                                                     <app-collapse accordion>
                                                         <app-collapse-item :isVisible="true" title="SociaL Filters">
-                                                            <b-row style="margin-left:20px;">
+                                                            <b-row >
                                                                         <b-col md="12" xl="12">
                                                                             <div class="margin20">
                                                                                 <b-form-radio
@@ -495,7 +495,7 @@
                                                 <div class="accordion" role="tablist">
                                                     <app-collapse accordion>
                                                         <app-collapse-item :isVisible="true" title="Unlocking Filter">
-                                                            <b-row style="margin-left:20px;">
+                                                            <b-row >
                                                                         <b-col md="6" xl="6">
                                                                             <div class="margin20">
                                                                                 <b-form-radio
@@ -637,10 +637,7 @@
                                                 <div class="accordion" role="tablist">
                                                     <app-collapse accordion>
                                                         <app-collapse-item :isVisible="true" title="Market Indicators">
-                                                            <b-card class="mb-1">
-                                                                
-                                                                <b-card-body>
-                                                                    <b-row style="margin-left:20px;">
+                                                            <b-row >
                                                                         <b-col md="6" xl="6">
                                                                             <div class="margin20">
                                                                                 <b-form-radio
@@ -687,8 +684,6 @@
                                                                             </div>
                                                                         </b-col>
                                                                     </b-row>
-                                                                </b-card-body>
-                                                            </b-card>
                                                         </app-collapse-item>
                                                     
                                                         
@@ -1075,354 +1070,348 @@
                 <div class="accordion" role="tablist">
                     <app-collapse accordion style="padding:0px;">
                         <app-collapse-item :isVisible="true" title="Market Data Filters">
-                            <b-card class="mb-1">
-                                <b-card-body style="padding:0px !important;">
-                                    <b-row>
-                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
-                                            <div class="">
-                                                <b-form-group label="Market Cap">
-                                                    <div class="d-flex">
-                                                        <cleave id="min_market_cap" v-model="ldot"
-                                                            class="form-control" :raw="false" :options="NumberFormaVal"
-                                                            placeholder="min" />
+                            <b-row>
+                                <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
+                                    <div class="">
+                                        <b-form-group label="Market Cap">
+                                            <div class="d-flex">
+                                                <cleave id="min_market_cap" v-model="ldot"
+                                                    class="form-control" :raw="false" :options="NumberFormaVal"
+                                                    placeholder="min" />
 
-                                                        <span>
-                                                            <feather-icon icon="MinusIcon" size="16"
-                                                                class="align-middle" style="margin:10px 6px 0 0px" />
-                                                        </span>
-                                                        <cleave id="max_market_cap" v-model="rdot"
-                                                            class="form-control" :raw="false" :options="NumberFormaVal"
-                                                            placeholder="max" />
-                                                    </div>
-                                                </b-form-group>
-                                                <vue-slider
-                                                    v-model="value"
-                                                    :direction="direction"
-                                                    class="mb-2"
-                                                />
+                                                <span>
+                                                    <feather-icon icon="MinusIcon" size="16"
+                                                        class="align-middle" style="margin:10px 6px 0 0px" />
+                                                </span>
+                                                <cleave id="max_market_cap" v-model="rdot"
+                                                    class="form-control" :raw="false" :options="NumberFormaVal"
+                                                    placeholder="max" />
                                             </div>
-                                        </b-col>
-                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
-                                            <div class="">
-                                                <b-form-group label="Token Price">
-                                                    <div class="d-flex">
-                                                        <cleave id="min_market_cap"
-                                                            v-model="filterKey.min_current_price" class="form-control"
-                                                            :raw="false" :options="NumberFormaVal" placeholder="min" />
-                                                        <span>
-                                                            <feather-icon icon="MinusIcon" size="16"
-                                                                class="align-middle" style="margin:10px 6px 0 0px" />
-                                                        </span>
-                                                        <cleave id="max_market_cap"
-                                                            v-model="filterKey.max_current_price" class="form-control"
-                                                            :raw="false" :options="NumberFormaVal" placeholder="max" />
-                                                    </div>
-                                                </b-form-group>
-                                                <vue-slider
-                                                    
-                                                    :direction="direction"
-                                                    class="mb-2"
-                                                />
+                                        </b-form-group>
+                                        <vue-slider
+                                            v-model="value"
+                                            :direction="direction"
+                                            class="mb-2"
+                                        />
+                                    </div>
+                                </b-col>
+                                <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
+                                    <div class="">
+                                        <b-form-group label="Token Price">
+                                            <div class="d-flex">
+                                                <cleave id="min_market_cap"
+                                                    v-model="filterKey.min_current_price" class="form-control"
+                                                    :raw="false" :options="NumberFormaVal" placeholder="min" />
+                                                <span>
+                                                    <feather-icon icon="MinusIcon" size="16"
+                                                        class="align-middle" style="margin:10px 6px 0 0px" />
+                                                </span>
+                                                <cleave id="max_market_cap"
+                                                    v-model="filterKey.max_current_price" class="form-control"
+                                                    :raw="false" :options="NumberFormaVal" placeholder="max" />
                                             </div>
-                                        </b-col>
-                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
-                                            <div class="">
-                                                <b-form-group label="Circulating Supply">
-                                                    <div class="d-flex">
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.min_circulating_supply" v-numeric-only
-                                                            placeholder="min" />
-                                                        <span>
-                                                            <feather-icon icon="MinusIcon" size="16"
-                                                                class="align-middle" style="margin:10px 6px 0 0px" />
-                                                        </span>
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.max_circulating_supply" v-numeric-only
-                                                            placeholder="max" />
-                                                    </div>
-                                                </b-form-group>
-                                                <vue-slider
-                                                    
-                                                    :direction="direction"
-                                                    class="mb-2"
-                                                />
+                                        </b-form-group>
+                                        <vue-slider
+                                            
+                                            :direction="direction"
+                                            class="mb-2"
+                                        />
+                                    </div>
+                                </b-col>
+                                <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
+                                    <div class="">
+                                        <b-form-group label="Circulating Supply">
+                                            <div class="d-flex">
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.min_circulating_supply" v-numeric-only
+                                                    placeholder="min" />
+                                                <span>
+                                                    <feather-icon icon="MinusIcon" size="16"
+                                                        class="align-middle" style="margin:10px 6px 0 0px" />
+                                                </span>
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.max_circulating_supply" v-numeric-only
+                                                    placeholder="max" />
                                             </div>
-                                        </b-col>
-                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
-                                            <div class="">
-                                                <b-form-group label="Total Supply">
-                                                    <div class="d-flex">
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.min_total_supply" v-numeric-only
-                                                            placeholder="min" />
-                                                        <span>
-                                                            <feather-icon icon="MinusIcon" size="16"
-                                                                class="align-middle" style="margin:10px 6px 0 0px" />
-                                                        </span>
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.max_total_supply" v-numeric-only
-                                                            placeholder="max" />
-                                                    </div>
-                                                </b-form-group>
-                                                <vue-slider
-                                                    
-                                                    :direction="direction"
-                                                    class="mb-2"
-                                                />
+                                        </b-form-group>
+                                        <vue-slider
+                                            
+                                            :direction="direction"
+                                            class="mb-2"
+                                        />
+                                    </div>
+                                </b-col>
+                                <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
+                                    <div class="">
+                                        <b-form-group label="Total Supply">
+                                            <div class="d-flex">
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.min_total_supply" v-numeric-only
+                                                    placeholder="min" />
+                                                <span>
+                                                    <feather-icon icon="MinusIcon" size="16"
+                                                        class="align-middle" style="margin:10px 6px 0 0px" />
+                                                </span>
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.max_total_supply" v-numeric-only
+                                                    placeholder="max" />
                                             </div>
-                                        </b-col>
-                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
-                                            <div class="">
-                                                <b-form-group label="Market Cap. Rank">
-                                                    <div class="d-flex">
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.min_market_cap_rank" v-numeric-only
-                                                            placeholder="min" />
-                                                        <span>
-                                                            <feather-icon icon="MinusIcon" size="16"
-                                                                class="align-middle" style="margin:10px 6px 0 0px" />
-                                                        </span>
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.max_market_cap_rank" v-numeric-only
-                                                            placeholder="max" />
-                                                    </div>
-                                                </b-form-group>
-                                                <vue-slider
-                                                    
-                                                    :direction="direction"
-                                                    class="mb-2"
-                                                />
+                                        </b-form-group>
+                                        <vue-slider
+                                            
+                                            :direction="direction"
+                                            class="mb-2"
+                                        />
+                                    </div>
+                                </b-col>
+                                <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
+                                    <div class="">
+                                        <b-form-group label="Market Cap. Rank">
+                                            <div class="d-flex">
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.min_market_cap_rank" v-numeric-only
+                                                    placeholder="min" />
+                                                <span>
+                                                    <feather-icon icon="MinusIcon" size="16"
+                                                        class="align-middle" style="margin:10px 6px 0 0px" />
+                                                </span>
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.max_market_cap_rank" v-numeric-only
+                                                    placeholder="max" />
                                             </div>
-                                        </b-col>
-                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
-                                            <div class="">
-                                                <b-form-group label="Trade Volume">
-                                                    <div class="d-flex">
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.min_trading_volume" v-numeric-only
-                                                            placeholder="min" />
-                                                        <span>
-                                                            <feather-icon icon="MinusIcon" size="16"
-                                                                class="align-middle" style="margin:10px 6px 0 0px" />
-                                                        </span>
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.max_trading_volume" v-numeric-only
-                                                            placeholder="max" />
-                                                    </div>
-                                                </b-form-group>
-                                                <vue-slider
-                                                    
-                                                    :direction="direction"
-                                                    class="mb-2"
-                                                />
+                                        </b-form-group>
+                                        <vue-slider
+                                            
+                                            :direction="direction"
+                                            class="mb-2"
+                                        />
+                                    </div>
+                                </b-col>
+                                <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
+                                    <div class="">
+                                        <b-form-group label="Trade Volume">
+                                            <div class="d-flex">
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.min_trading_volume" v-numeric-only
+                                                    placeholder="min" />
+                                                <span>
+                                                    <feather-icon icon="MinusIcon" size="16"
+                                                        class="align-middle" style="margin:10px 6px 0 0px" />
+                                                </span>
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.max_trading_volume" v-numeric-only
+                                                    placeholder="max" />
                                             </div>
-                                        </b-col>
-                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
-                                            <div class="">
-                                                <b-form-group label="ROI %">
-                                                    <div class="d-flex">
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.min_roi_percentage" v-numeric-only
-                                                            placeholder="min" />
-                                                        <span>
-                                                            <feather-icon icon="MinusIcon" size="16"
-                                                                class="align-middle" style="margin:10px 6px 0 0px" />
-                                                        </span>
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.max_roi_percentage" v-numeric-only
-                                                            placeholder="max" />
-                                                    </div>
-                                                </b-form-group>
-                                                <vue-slider
-                                                    
-                                                    :direction="direction"
-                                                    class="mb-2"
-                                                />
+                                        </b-form-group>
+                                        <vue-slider
+                                            
+                                            :direction="direction"
+                                            class="mb-2"
+                                        />
+                                    </div>
+                                </b-col>
+                                <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
+                                    <div class="">
+                                        <b-form-group label="ROI %">
+                                            <div class="d-flex">
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.min_roi_percentage" v-numeric-only
+                                                    placeholder="min" />
+                                                <span>
+                                                    <feather-icon icon="MinusIcon" size="16"
+                                                        class="align-middle" style="margin:10px 6px 0 0px" />
+                                                </span>
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.max_roi_percentage" v-numeric-only
+                                                    placeholder="max" />
                                             </div>
-                                        </b-col>
-                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
-                                            <div class="">
-                                                <b-form-group label="ROI in X's">
-                                                    <div class="d-flex">
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.min_roi_times" v-numeric-only
-                                                            placeholder="min" />
-                                                        <span>
-                                                            <feather-icon icon="MinusIcon" size="16"
-                                                                class="align-middle" style="margin:10px 6px 0 0px" />
-                                                        </span>
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.max_roi_times" v-numeric-only
-                                                            placeholder="max" />
-                                                    </div>
-                                                </b-form-group>
-                                                <vue-slider
-                                                    
-                                                    :direction="direction"
-                                                    class="mb-2"
-                                                />
+                                        </b-form-group>
+                                        <vue-slider
+                                            
+                                            :direction="direction"
+                                            class="mb-2"
+                                        />
+                                    </div>
+                                </b-col>
+                                <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
+                                    <div class="">
+                                        <b-form-group label="ROI in X's">
+                                            <div class="d-flex">
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.min_roi_times" v-numeric-only
+                                                    placeholder="min" />
+                                                <span>
+                                                    <feather-icon icon="MinusIcon" size="16"
+                                                        class="align-middle" style="margin:10px 6px 0 0px" />
+                                                </span>
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.max_roi_times" v-numeric-only
+                                                    placeholder="max" />
                                             </div>
-                                        </b-col>
-                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
-                                            <div class="">
-                                                <b-form-group label="Daily Price Change (%)"
-                                                    label-for="price_change_percentage_24h">
-                                                    <div class="d-flex">
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            name="price_change_percentage_24h" v-numeric-only
-                                                            v-model="filterKey.min_price_change_percentage_24h"
-                                                            placeholder="min" />
-                                                        <span>
-                                                            <feather-icon icon="MinusIcon" size="16"
-                                                                class="align-middle" style="margin:10px 6px 0 0px" />
-                                                        </span>
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.max_price_change_percentage_24h"
-                                                            v-numeric-only placeholder="max" />
-                                                    </div>
-                                                </b-form-group>
-                                                <vue-slider
-                                                    
-                                                    :direction="direction"
-                                                    class="mb-2"
-                                                />
+                                        </b-form-group>
+                                        <vue-slider
+                                            
+                                            :direction="direction"
+                                            class="mb-2"
+                                        />
+                                    </div>
+                                </b-col>
+                                <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
+                                    <div class="">
+                                        <b-form-group label="Daily Price Change (%)"
+                                            label-for="price_change_percentage_24h">
+                                            <div class="d-flex">
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    name="price_change_percentage_24h" v-numeric-only
+                                                    v-model="filterKey.min_price_change_percentage_24h"
+                                                    placeholder="min" />
+                                                <span>
+                                                    <feather-icon icon="MinusIcon" size="16"
+                                                        class="align-middle" style="margin:10px 6px 0 0px" />
+                                                </span>
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.max_price_change_percentage_24h"
+                                                    v-numeric-only placeholder="max" />
                                             </div>
-                                        </b-col>
+                                        </b-form-group>
+                                        <vue-slider
+                                            
+                                            :direction="direction"
+                                            class="mb-2"
+                                        />
+                                    </div>
+                                </b-col>
 
 
 
 
-                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
-                                            <div class="">
-                                                <b-form-group label="Days in Market">
-                                                    <div class="d-flex">
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.min_genesis_date" v-numeric-only
-                                                            placeholder="min" />
-                                                        <span>
-                                                            <feather-icon icon="MinusIcon" size="16"
-                                                                class="align-middle" style="margin:10px 6px 0 0px" />
-                                                        </span>
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.max_genesis_date" v-numeric-only
-                                                            placeholder="max" />
-                                                    </div>
-                                                </b-form-group>
-                                                <vue-slider
-                                                    
-                                                    :direction="direction"
-                                                    class="mb-2"
-                                                />
+                                <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
+                                    <div class="">
+                                        <b-form-group label="Days in Market">
+                                            <div class="d-flex">
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.min_genesis_date" v-numeric-only
+                                                    placeholder="min" />
+                                                <span>
+                                                    <feather-icon icon="MinusIcon" size="16"
+                                                        class="align-middle" style="margin:10px 6px 0 0px" />
+                                                </span>
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.max_genesis_date" v-numeric-only
+                                                    placeholder="max" />
                                             </div>
-                                        </b-col>
-                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
-                                            <div class="">
-                                                <b-form-group label="Total Supply (%)">
-                                                    <div class="d-flex">
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.min_total_supply_percent" v-numeric-only
-                                                            placeholder="min" />
-                                                        <span>
-                                                            <feather-icon icon="MinusIcon" size="16"
-                                                                class="align-middle" style="margin:10px 6px 0 0px" />
-                                                        </span>
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.max_total_supply_percent" v-numeric-only
-                                                            placeholder="max" />
-                                                    </div>
-                                                </b-form-group>
-                                                <vue-slider
-                                                    
-                                                    :direction="direction"
-                                                    class="mb-2"
-                                                />
+                                        </b-form-group>
+                                        <vue-slider
+                                            
+                                            :direction="direction"
+                                            class="mb-2"
+                                        />
+                                    </div>
+                                </b-col>
+                                <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
+                                    <div class="">
+                                        <b-form-group label="Total Supply (%)">
+                                            <div class="d-flex">
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.min_total_supply_percent" v-numeric-only
+                                                    placeholder="min" />
+                                                <span>
+                                                    <feather-icon icon="MinusIcon" size="16"
+                                                        class="align-middle" style="margin:10px 6px 0 0px" />
+                                                </span>
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.max_total_supply_percent" v-numeric-only
+                                                    placeholder="max" />
                                             </div>
-                                        </b-col>
-                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
-                                            <div class="">
-                                                <b-form-group label="Seed Price">
-                                                    <div class="d-flex">
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.min_seed_price" v-numeric-only
-                                                            placeholder="min" />
-                                                        <span>
-                                                            <feather-icon icon="MinusIcon" size="16"
-                                                                class="align-middle" style="margin:10px 6px 0 0px" />
-                                                        </span>
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.max_seed_price" v-numeric-only
-                                                            placeholder="max" />
-                                                    </div>
-                                                </b-form-group>
-                                                <vue-slider
-                                                    
-                                                    :direction="direction"
-                                                    class="mb-2"
-                                                />
+                                        </b-form-group>
+                                        <vue-slider
+                                            
+                                            :direction="direction"
+                                            class="mb-2"
+                                        />
+                                    </div>
+                                </b-col>
+                                <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
+                                    <div class="">
+                                        <b-form-group label="Seed Price">
+                                            <div class="d-flex">
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.min_seed_price" v-numeric-only
+                                                    placeholder="min" />
+                                                <span>
+                                                    <feather-icon icon="MinusIcon" size="16"
+                                                        class="align-middle" style="margin:10px 6px 0 0px" />
+                                                </span>
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.max_seed_price" v-numeric-only
+                                                    placeholder="max" />
                                             </div>
-                                        </b-col>
-                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
-                                            <div class="">
-                                                <b-form-group label="Seed ROI">
-                                                    <div class="d-flex">
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.min_roi_seed" v-numeric-only
-                                                            placeholder="min" />
-                                                        <span>
-                                                            <feather-icon icon="MinusIcon" size="16"
-                                                                class="align-middle" style="margin:10px 6px 0 0px" />
-                                                        </span>
-                                                        <cleave :options="NumberFormaVal" class="form-control"
-                                                            v-model="filterKey.max_roi_seed" v-numeric-only
-                                                            placeholder="max" />
-                                                    </div>
-                                                </b-form-group>
-                                                <vue-slider
-                                                    
-                                                    :direction="direction"
-                                                    class="mb-2"
-                                                />
+                                        </b-form-group>
+                                        <vue-slider
+                                            
+                                            :direction="direction"
+                                            class="mb-2"
+                                        />
+                                    </div>
+                                </b-col>
+                                <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
+                                    <div class="">
+                                        <b-form-group label="Seed ROI">
+                                            <div class="d-flex">
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.min_roi_seed" v-numeric-only
+                                                    placeholder="min" />
+                                                <span>
+                                                    <feather-icon icon="MinusIcon" size="16"
+                                                        class="align-middle" style="margin:10px 6px 0 0px" />
+                                                </span>
+                                                <cleave :options="NumberFormaVal" class="form-control"
+                                                    v-model="filterKey.max_roi_seed" v-numeric-only
+                                                    placeholder="max" />
                                             </div>
-                                        </b-col>
-                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
-                                            <div class="">
-                                                <b-form-group label="Platform" label-for="">
-                                                    <div class="d-flex">
-                                                        <b-form-select id="" v-model="filterKey.coin_platform"
-                                                            :options="platforms" />
-                                                    </div>
-                                                </b-form-group>
+                                        </b-form-group>
+                                        <vue-slider
+                                            
+                                            :direction="direction"
+                                            class="mb-2"
+                                        />
+                                    </div>
+                                </b-col>
+                                <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
+                                    <div class="">
+                                        <b-form-group label="Platform" label-for="">
+                                            <div class="d-flex">
+                                                <b-form-select id="" v-model="filterKey.coin_platform"
+                                                    :options="platforms" />
                                             </div>
-                                        </b-col>
+                                        </b-form-group>
+                                    </div>
+                                </b-col>
 
-                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
-                                            <div class="">
-                                                <b-form-group label="Keywords" label-for="">
-                                                    <div class="d-flex">
-                                                        <b-form-input v-model="filterKey.keywords"
-                                                            placeholder="key words" />
-                                                    </div>
-                                                </b-form-group>
+                                <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
+                                    <div class="">
+                                        <b-form-group label="Keywords" label-for="">
+                                            <div class="d-flex">
+                                                <b-form-input v-model="filterKey.keywords"
+                                                    placeholder="key words" />
                                             </div>
-                                        </b-col>
-                                        <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
-                                            <div class="">
-                                                <b-form-group label="Category" label-for="">
-                                                    <div class="d-flex">
-                                                        <b-form-select id="" v-model="filterKey.coin_category"
-                                                            :options="categories" />
-                                                    </div>
-                                                </b-form-group>
+                                        </b-form-group>
+                                    </div>
+                                </b-col>
+                                <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
+                                    <div class="">
+                                        <b-form-group label="Category" label-for="">
+                                            <div class="d-flex">
+                                                <b-form-select id="" v-model="filterKey.coin_category"
+                                                    :options="categories" />
                                             </div>
-                                        </b-col>
-                                    </b-row>
-                                </b-card-body>
-                            </b-card>
+                                        </b-form-group>
+                                    </div>
+                                </b-col>
+                            </b-row>
                         </app-collapse-item>
                         <app-collapse-item title="Social Sentiments">
-                            <b-card no-body class="mb-1">
-                                <b-card-body style="">
-                                    <b-row>
+                            <b-row>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Sentiment Change %">
@@ -1524,13 +1513,9 @@
                                         <b-col md="6" xl="6">
                                         </b-col>
                                     </b-row>
-                                </b-card-body>
-                            </b-card>
                         </app-collapse-item>
                         <app-collapse-item title="Unlocking">
-                            <b-card no-body class="mb-1">
-                                <b-card-body style="">
-                                    <b-row>
+                            <b-row>
                                         <b-col md="6" xl="6" style="padding:0px 32px 0px 32px;">
                                             <div class="">
                                                 <b-form-group label="Total Locked">
@@ -1734,8 +1719,6 @@
                                             </div>
                                         </b-col>
                                     </b-row>
-                                </b-card-body>
-                            </b-card>
                         </app-collapse-item>
                     </app-collapse>
 
