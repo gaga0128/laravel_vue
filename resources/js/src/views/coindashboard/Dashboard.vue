@@ -1845,9 +1845,9 @@
                                             </template>
                                             <b-dropdown-form href="#" class="cunningDrop dropdown-mine darkBackgroundBlack" name="dropdownform2" style="z-index:999;">
                                                 <div class="darkBackgroundBlack" v-for="(address,index) in activeData.contract_address"
-                                                    :key="index" style="display:block; padding: 4px;">
+                                                    :key="index" style="display:flex; padding: 4px;">
                                                     <b-img v-if="activeData.image" :src="activeData.image" fluid alt="Responsive image" style="margin-right:5px; width:30px;" />
-                                                        <div style="font-family: 'Poppins'; display:inline-block;
+                                                        <div class="m-auto" style="font-family: 'Poppins'; display:inline-block;
                                                             font-style: normal;
                                                             font-weight: 500;
                                                             font-size: 14px;
@@ -1867,7 +1867,7 @@
                                                             v-clipboard:success="onCopy" v-clipboard:error="onError"
                                                             v-ripple.400="'rgba(113, 12, 240, 0.15)'" variant="outline-primary" pill><feather-icon  icon="CopyIcon" class="cursor-pointer darkWhiteText" size="20" />
                                                         </b-button>
-                                                        <img src='/images/static/metamask.png' class="img-fluid" alt="metamask" style="cursor:pointer; width:23px; margin-right:13px; margin-bottom: 6px;" @click="say('hello')">
+                                                        <img src='/images/static/metamask.png' class="img-fluid" alt="metamask" style="cursor:pointer; width:23px;" @click="say('hello')">
                                                         
                                                     </div>
                                                     
@@ -4514,7 +4514,13 @@
         background: black;
     }
  
+    body.dark-layout .modal-content div ul li.cunningDrop{
+        background: #0A070E !important;
+    }
 
+    body.dark-layout .modal-content div ul:has(li.cunningDrop){
+        padding:0px;
+    }
    
 
 </style>
