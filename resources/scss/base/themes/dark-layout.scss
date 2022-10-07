@@ -698,7 +698,7 @@
     &:not([class*='pagination-']) {
       .page-item {
         &.active {
-          background-color: $theme-dark-pagination-bg;
+          background-color: transparent;
 
           .page-link {
             background-color: $primary;
