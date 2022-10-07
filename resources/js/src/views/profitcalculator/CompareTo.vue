@@ -36,8 +36,8 @@
         <b-card v-if="show == 1 &&selected != null && selectedCompare != null" style="background:transparent !important">
             <b-row class="">
                 <b-col md="12" xl="12" class="text-center">
-                    <div class="radius_gradient" style="max-width: 250px;">
-                        <b-card title="Potential Profit" class="mx-auto innerCard text-center str_green_gradient" style="max-width:250px">
+                    <div class="radius_gradient m-auto" style="max-width: 350px;">
+                        <b-card title="Potential Profit" class="mx-auto innerCard text-center str_green_gradient" style="max-width:350px">
                             <b-row>
                                 <div class="text-center m-auto">
                                     <b-col cols="12" class="darkWhiteText" style="margin-top:30px; font-family: 'Poppins';
@@ -61,7 +61,6 @@
                                     </b-col>
                                 </div>
                             </b-row>
-
                         </b-card>
                     </div>
                 </b-col>

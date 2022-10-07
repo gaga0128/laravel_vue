@@ -27,8 +27,8 @@
         <b-card v-if="show == 1 &&selected != null" style="background:transparent !important">
             <b-row class="">
                 <b-col md="12" xl="12" class="text-center">
-                    <div class="radius_gradient" style="max-width: 250px;">
-                        <b-card title="" class="mx-auto innerCard text-center str_green_gradient" style="max-width:250px">
+                    <div class="radius_gradient m-auto" style="max-width: 350px;">
+                        <b-card title="" class="mx-auto innerCard text-center str_green_gradient" style="max-width:350px">
                             <div style="font-family: 'Poppins'; margin-top:16px;
                                 font-style: normal;
                                 margin-bottom: 50px;

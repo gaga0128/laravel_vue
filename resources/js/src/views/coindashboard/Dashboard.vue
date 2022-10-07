@@ -4220,35 +4220,20 @@
             for (let index = 0; index < meter_array.length; index++) {
                 var element = meter_array[index]; 
                 let path_array = element.getAttribute('d').split(' ');
-                document.getElementById("marker_"+index).style.background="#b6e7b6";            
-                document.getElementById("marker_"+index).style.boxShadow="0px 0px 7px 3.5px #0f0";
-                if(Number(path_array[9]) > 100) {
-                    document.getElementById("marker_"+index).style.left=Number(path_array[9])-6+"px";
-                    document.getElementById("marker_"+index).style.top=Number(path_array[10])-4+"px";
-                } else {
-                    document.getElementById("marker_"+index).style.left=Number(path_array[9])-6+"px";
-                    document.getElementById("marker_"+index).style.top=Number(path_array[10])+"px";
+                if(document.getElementById("marker_"+index) != null){
+                    document.getElementById("marker_"+index).style.background="#b6e7b6";            
+                    document.getElementById("marker_"+index).style.boxShadow="0px 0px 7px 3.5px #0f0";
+                    if(Number(path_array[9]) > 100) {
+                        document.getElementById("marker_"+index).style.left=Number(path_array[9])-6+"px";
+                        document.getElementById("marker_"+index).style.top=Number(path_array[10])-4+"px";
+                    } else {
+                        document.getElementById("marker_"+index).style.left=Number(path_array[9])-6+"px";
+                        document.getElementById("marker_"+index).style.top=Number(path_array[10])+"px";
+                    }
                 }
             }
         }
     }
-
-    // window.onload = function() {
-    //     var meter_array = document.querySelectorAll('g path:not(:first-child)');
-    //     for (let index = 0; index < meter_array.length; index++) {
-    //         var element = meter_array[index]; 
-    //         let path_array = element.getAttribute('d').split(' ');
-    //         document.getElementById("marker_"+index).style.background="#b6e7b6";            
-    //         document.getElementById("marker_"+index).style.boxShadow="0px 0px 7px 3.5px #0f0";
-    //         if(Number(path_array[9]) > 100) {
-    //             document.getElementById("marker_"+index).style.left=Number(path_array[9])-6+"px";
-    //             document.getElementById("marker_"+index).style.top=Number(path_array[10])-4+"px";
-    //         } else {
-    //             document.getElementById("marker_"+index).style.left=Number(path_array[9])-6+"px";
-    //             document.getElementById("marker_"+index).style.top=Number(path_array[10])+"px";
-    //         }
-    //     }
-    // };
 
 </script>
 <style lang="scss" >
@@ -4415,8 +4400,10 @@
         font-weight: 400;
         font-size: 14px;
         background: linear-gradient(172deg, rgba(43, 255, 77, 0.3) 3.11%, rgba(0, 0, 0, 0) 20.06%), rgba(255, 255, 255, 0.07);
-        box-shadow: inset 1px 2px 1px 0px rgb(82, 243, 109);
     }        
+    tbody tr:has(td:not(:first-child)) {
+        box-shadow: inset 1px 2px 1px 0px rgb(82, 243, 109);
+    }
 
     table {
         border-collapse: separate;
