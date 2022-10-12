@@ -1662,19 +1662,31 @@
                                 <div class="d-flex m-auto">
                                     <b-avatar class="bg-light mr-1" v-if="activeData.image" :src="activeData.image"></b-avatar>
                                     <span class="marginx1 m-auto darkWhiteText" style="font-family: 'Poppins';
+                                            font-size: 20px; margin-right:10px !important;
                                             font-style: normal;
                                             font-weight: 400;
-                                            text-overflow: ellipsis;
                                             width: 100px;
+                                            text-overflow: ellipsis;
                                             white-space: nowrap;
-                                            overflow: hidden;
-                                            font-size: 20px; margin-right:10px !important;"> 
+                                            overflow: hidden;"
+                                            data-toggle="tooltip" data-placement="top" :title="activeData.name"
+                                            v-if = "activeData.name && activeData.name.length > 8 "
+                                            > 
                                         {{activeData.name}}
-                                        <!-- <span style="font-family: 'Poppins';
+                                        
+                                    </span>
+                                    <span class="marginx1 m-auto darkWhiteText" style="font-family: 'Poppins';
+                                            font-size: 20px; margin-right:10px !important;
                                             font-style: normal;
                                             font-weight: 400;
-                                            font-size: 20px;
-                                            " class="darkWhiteText">{{' '+activeData.symbol}}</span> -->
+                                            width: 100px;
+                                            text-overflow: ellipsis;
+                                            white-space: nowrap;
+                                            overflow: hidden;"
+                                            v-else
+                                            > 
+                                        {{activeData.name}}
+                                        
                                     </span>
                                 </div>
                                 <div class="d-flex m-auto">
@@ -3149,6 +3161,13 @@
 
         },
         methods: {
+            check(str) {
+                console.log("here!");
+                console.log(str);
+                if(str.length > 8) return true;
+                else false;
+            },
+
             say(message) {
                 alert("Please connect your metamask")
             },
@@ -4560,9 +4579,15 @@
     .apexcharts-menu-open{
         background: black;
     }
+
+    
  
     body.dark-layout .modal-content div ul li.cunningDrop{
         background: #0A070E !important;
+    }
+
+    body .modal-content div ul li.cunningDrop{
+        background: rgb(248,248,248);
     }
 
     body.dark-layout .modal-content div ul:has(li.cunningDrop){
